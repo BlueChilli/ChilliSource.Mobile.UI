@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.EventToCommandPage"
+	xmlns:local="clr-namespace:Examples;assembly=Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	Title="Event To Command Example">
+	<ContentPage.BindingContext>
+		<local:EventToCommandPageViewModel />
+	</ContentPage.BindingContext>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<csmobileui:SelectedItemEventArgsToSelectedItemConverter
+				x:Key="SelectedItemConverter" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.Content>
+		<StackLayout>
+			<ListView
+				ItemsSource="{Binding People}">
+				<ListView.Behaviors>
+					<csmobileui:EventToCommandBehavior
+						EventName="ItemSelected"
+						Command="{Binding HandleItemSelectedCommand}"
+						Converter="{StaticResource SelectedItemConverter}" />
+				</ListView.Behaviors>
+				<ListView.Footer>
+					<StackLayout />
+				</ListView.Footer>
+			</ListView>
+			<Label
+				Margin="20,20,20,20"
+				Text="{Binding SelectedItemText}" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

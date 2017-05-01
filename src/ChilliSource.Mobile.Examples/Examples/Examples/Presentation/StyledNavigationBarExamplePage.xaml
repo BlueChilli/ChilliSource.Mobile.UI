@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.StyledNavigationBarExamplePage"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	Title="Styled Navigation Bar">
+	<ContentPage.Content>
+		<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="CenterAndExpand">
+			<csmobileui:ExtendedButton
+				Text="{Binding LeftButtonVisibilityText}"
+				Command="{Binding LeftButtonVisibilityCommand }" />
+			<csmobileui:ExtendedButton
+				Text="{Binding RightButtonVisibilityText}"
+				Command="{Binding RightButtonVisibilityCommand }" />
+		</StackLayout>
+	</ContentPage.Content>
+</local:BaseContentPage>

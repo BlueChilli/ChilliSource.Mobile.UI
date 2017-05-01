@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{312DACB9-187C-4F09-BEA6-3F0984D8A055}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ChilliSource.Mobile.UI</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Effects\BorderEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Effects\ImageBlurEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\BindableObjectExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\StyledNavigationBarPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\StyledTabbedPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cells\BaseCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cells\BaseCellViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IHudService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\KeyboardHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\KeyboardOverlapContentPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Effects\ExtendedButtonLongPressEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\VisualElementAnimationExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedActionSheet\AdvancedActionSheet.xaml.cs">
+      <DependentUpon>AdvancedActionSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedActionSheet\AdvancedActionSheetAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedActionSheet\AdvancedActionSheetAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedActionSheet\AdvancedActionSheetStyles.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animations\BaseAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animations\QuickEntranceAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animations\RotationAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animations\ScaleAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animations\ShakeAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animations\VibrateAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animations\FadeAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animations\BounceAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\TimerCommandType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\DebugConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Repeater\RepeaterView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Repeater\CollectionChangedHandle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Repeater\TemplateSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\EmailValidationBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\ImageButtonView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\TimerLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FormsExtensions\ExtendedFrame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FormsExtensions\ExtendedListView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FormsExtensions\ExtendedButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FormsExtensions\ExtendedEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FormsExtensions\ExtendedEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FormsExtensions\ExtendedLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FormsExtensions\ExtendedSearchBar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FormsExtensions\ExtendedSwitch.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Carousel\CarouselPageIndicatorView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Carousel\CarouselView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Pickers\DateTimePickerView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Pickers\PickerView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Images\CircledImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Indicators\HudActivityIndicator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Indicators\LoadingIndicatorView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Indicators\Banner\BannerView.xaml.cs">
+      <DependentUpon>BannerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Indicators\Banner\BannerViewAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\ShapeView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\KeyboardTheme.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\KeyboardReturnKeyType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedAlertView\AdvancedAlertView.xaml.cs">
+      <DependentUpon>AdvancedAlertView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedAlertView\AdvancedAlertViewAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedAlertView\AdvancedAlertViewButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\BaseBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\EventToCommandBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\SelectedItemEventArgsToSelectedItemConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\EffectBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\BooleanToObjectConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\InvertedBooleanConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\TextCaseConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\ListViewPagingBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\LottieAnimation\AfterEffectsAnimationView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\LottieAnimation\ILottieAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Contracts\IScrollableView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Contracts\IPageable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\StrokeType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\SegmentedControl\SegmentedControlView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\SegmentedControl\SegmentedControlItemView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Separator\SeparatorView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\Separator\SeparatorOrientation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\ResponseParsingWebView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\HtmlResponseEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\AnimationIntensityType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\AnimationQuickEntranceDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\AnimationFadeType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\AnimationTransitionType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\PageTransitionType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\SwipeDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\ExtendedFont.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IAlertService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Custom\FloatingLabelEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Effects\FloatingLabelEntryLineEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\NavigationExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\INavigationTransitionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\TransitionOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\AccessibilityTextStyle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Effects\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Pages\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Cells\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Entities\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedActionSheet\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Animations\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Enums\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Converters\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\Repeater\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Behaviors\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\Carousel\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\Pickers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\Images\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\Indicators\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\Indicators\Banner\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedAlertView\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\LottieAnimation\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Contracts\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\SegmentedControl\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\Custom\Separator\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedActionSheet\AdvancedActionSheet.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Controls\Custom\Indicators\Banner\BannerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Controls\Custom\AdvancedAlertView\AdvancedAlertView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.MediaLibraryExamplePage"
+	xmlns:local="clr-namespace:Examples;assembly=Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	Title="Media Library Example">
+	<ContentPage.Content>
+		<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="CenterAndExpand"
+			Spacing="20">
+			<csmobileui:LoadingIndicatorView
+				IsVisible="{Binding LoadingIndicatorVisible}" />
+			<csmobileui:ExtendedButton
+				Text="Capture Image"
+				Clicked="TakePhotoTapped" />
+			<csmobileui:ExtendedButton
+				Text="Capture Video"
+				Clicked="TakeVideoTapped" />
+			<csmobileui:ExtendedButton
+				Text="Pick Image"
+				Clicked="PickImageTapped" />
+			<csmobileui:ExtendedButton
+				Text="Pick Video"
+				Clicked="PickVideoTapped" />
+		</StackLayout>
+	</ContentPage.Content>
+</local:BaseContentPage>

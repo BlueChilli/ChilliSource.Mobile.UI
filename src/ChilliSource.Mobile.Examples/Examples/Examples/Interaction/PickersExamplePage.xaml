@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.PickersExamplePage"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	Title="Pickers">
+	<ContentPage.Content>
+		<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="CenterAndExpand"
+			Spacing="30">
+			<csmobileui:DateTimePickerView
+				MinimumDateTime="{Binding MinDate}"
+				MaximumDateTime="{Binding MaxDate}"
+				PickerMode="DateTime" />
+			<csmobileui:PickerView
+				ItemsSource="{Binding ItemSource}"
+				SelectedItems="{Binding SelectedItems, Mode=TwoWay}"
+				ComponentFixedTextItems="{Binding FixedTextItems}"
+				CustomFont="{x:Static local:ThemeManager.CellTitleFont}"
+				CustomSelectedFont="{x:Static local:ThemeManager.AdvancedActionSheetCancelFont}"
+				RowHeight="80" />
+		</StackLayout>
+	</ContentPage.Content>
+</local:BaseContentPage>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.MiscellaneousExamplePage"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	Title="Misc">
+	<ContentPage.Content>
+		<ScrollView
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			Padding="20">
+			<StackLayout
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				Spacing="10">
+				<csmobileui:ExtendedLabel
+					Text="Segmented Control"
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				<csmobileui:SegmentedControlView
+					HorizontalOptions="FillAndExpand"
+					SelectedItem="{Binding SelectedItem}"
+					ValueChanged="SegmentedControlItemChanged"
+					CustomFont="{x:Static local:ThemeManager.SegmentedControlFont}"
+					CustomSelectedFont="{x:Static local:ThemeManager.SegmentedControlSelectedFont}"
+					TintColor="Gray">
+					<csmobileui:SegmentedControlView.Children>
+						<csmobileui:SegmentedControlItemView
+							Text="Item 1" />
+						<csmobileui:SegmentedControlItemView
+							Text="Item 2" />
+						<csmobileui:SegmentedControlItemView
+							Text="Item 3" />
+					</csmobileui:SegmentedControlView.Children>
+				</csmobileui:SegmentedControlView>
+				<csmobileui:ExtendedLabel
+					Text="Separator"
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="Fill"
+					HeightRequest="250">
+					<csmobileui:SeparatorView
+						Orientation="{Binding Separator1Orientation}"
+						Color="Red"
+						Thickness="30"
+						StrokeType="Dashed" />
+					<csmobileui:SeparatorView
+						Orientation="{Binding Separator2Orientation}"
+						Color="Blue"
+						Thickness="10"
+						StrokeType="Solid" />
+					<csmobileui:SeparatorView
+						Orientation="{Binding Separator3Orientation}"
+						Color="Green"
+						Thickness="10"
+						StrokeType="Dotted" />
+				</StackLayout>
+				<csmobileui:ExtendedLabel
+					Text="Extended Search Bar"
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				<csmobileui:ExtendedSearchBar
+					BackgroundColor="Red"
+					PersistCancelButton="true"
+					HorizontalOptions="FillAndExpand"
+					Placeholder="This is a search bar :)"
+					PlaceholderColor="Teal" />
+				<csmobileui:ExtendedLabel
+					Text="Extended Editor"
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				<csmobileui:ExtendedEditor
+					Placeholder="I have a maximum character length of 100"
+					AllowDynamicSizing="true"
+					CustomFont="{x:Static local:ThemeManager.AdvancedActionSheetTitleFont}"
+					HasBorder="true"
+					MaxLength="100" />
+				<csmobileui:ExtendedLabel
+					Text="Extended Frame"
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				<csmobileui:ExtendedFrame
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+					CornerRadius="10">
+					<csmobileui:ExtendedLabel
+						Text="Help, i'm in a frame!"
+						CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				</csmobileui:ExtendedFrame>
+				<csmobileui:ExtendedLabel
+					Text="Extended Label"
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				<csmobileui:ExtendedLabel
+					Text="Hello!! I'm an extended label, I can be customised in heaps of ways!"
+					NumberOfLines="2"
+					SimpleLineBreakMode="MiddleTruncation"
+					BackgroundColor="Aqua" />
+				<csmobileui:ExtendedLabel
+					Text="Floating Label Entry"
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				<csmobileui:FloatingLabelEntry
+					x:Name="floatingLabelEntry"
+					Placeholder="No numbers please"
+					FloatingLabelCustomFont="{x:Static local:ThemeManager.CellSubtitleFont}"
+					CustomPlaceholderFont="{x:Static local:ThemeManager.CellTitleFont}"
+					TextChanged="Handle_TextChanged"
+					csmobileui:LineEffect.HasLine="true"
+					csmobileui:LineEffect.LineColor="Green" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</local:BaseContentPage>

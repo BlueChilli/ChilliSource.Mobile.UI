@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{1B10BE30-2AB3-40C8-851C-ABE9EB1D2EAE}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Examples</Import_RootNamespace>
+  </PropertyGroup>
+   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Cells\IndexItemCell.xaml.cs">
+      <DependentUpon>IndexItemCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\IndexPage.xaml.cs">
+      <DependentUpon>IndexPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\ThemeManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IndexItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\BaseContentPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\TempPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Global.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Animations\AnimationsExamplePage.xaml.cs">
+      <DependentUpon>AnimationsExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Security\HashingExamplePage.xaml.cs">
+      <DependentUpon>HashingExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\BaseTabPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\DesignPatterns\MVVM\EventToCommandPage.xaml.cs">
+      <DependentUpon>EventToCommandPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\DesignPatterns\MVVM\EventToCommandPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Person.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\ContentFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cells\AddressSearchCell.xaml.cs">
+      <DependentUpon>AddressSearchCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AddressCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Cells\RootItemCell.xaml.cs">
+      <DependentUpon>RootItemCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\IntroPage.xaml.cs">
+      <DependentUpon>IntroPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\RootNavigationPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Media\Video\VideoServiceExamplePage.xaml.cs">
+      <DependentUpon>VideoServiceExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Location\LocationServiceExamplePage.xaml.cs">
+      <DependentUpon>LocationServiceExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Location\Google\PlacesServiceExamplePage.xaml.cs">
+      <DependentUpon>..\..\Services\Google\PlacesServiceExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Location\Google\PlacesServiceExamplePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RootItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\RootPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\MenuPage.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Cells\MenuCell.xaml.cs">
+      <DependentUpon>MenuCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\MenuItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Animations\LottieAnimationsExamplePage.xaml.cs">
+      <DependentUpon>LottieAnimationsExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Animations\LottieAnimationsExamplePage2.xaml.cs">
+      <DependentUpon>LottieAnimationsExamplePage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Cells\RootItemView.xaml.cs">
+      <DependentUpon>RootItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SupportedPlatform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Interaction\InputsExamplePage.xaml.cs">
+      <DependentUpon>InputsExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Interaction\PickersExamplePage.xaml.cs">
+      <DependentUpon>PickersExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Interaction\ExtendedButtonExamplePage.xaml.cs">
+      <DependentUpon>ExtendedButtonExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Interaction\KeyboardOverlapExamplePage.xaml.cs">
+      <DependentUpon>KeyboardOverlapExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Interaction\MiscellaneousExamplePage.xaml.cs">
+      <DependentUpon>MiscellaneousExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Navigation\CarouselViewExamplePage.xaml.cs">
+      <DependentUpon>CarouselViewExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Navigation\Transitions\TransitionPage.xaml.cs">
+      <DependentUpon>..\..\Pages\Transitions\TransitionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Navigation\Transitions\TransitionsExamplePage.xaml.cs">
+      <DependentUpon>..\..\Pages\Transitions\TransitionsExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Presentation\ShapeExamplePage.xaml.cs">
+      <DependentUpon>ShapeExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Presentation\ImagesExamplePage.xaml.cs">
+      <DependentUpon>ImagesExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Presentation\IndicatorsExamplePage.xaml.cs">
+      <DependentUpon>IndicatorsExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Presentation\AdvancedAlertViewExamplePage.xaml.cs">
+      <DependentUpon>AdvancedAlertViewExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Presentation\AdvancedActionSheetExamplePage.xaml.cs">
+      <DependentUpon>AdvancedActionSheetExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Presentation\StyledNavigationBarExamplePage.xaml.cs">
+      <DependentUpon>StyledNavigationBarExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Presentation\StyledTabExamplePage.xaml.cs">
+      <DependentUpon>StyledTabExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Presentation\PagingBehaviorExamplePage.xaml.cs">
+      <DependentUpon>PagingBehaviorExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Location\Google\DirectionsExamplePage.xaml.cs">
+      <DependentUpon>DirectionsExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Location\Google\GoogleExampleBasePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Media\MediaLibrary\MediaLibraryExamplePage.xaml.cs">
+      <DependentUpon>MediaLibraryExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Media\Audio\AudioRecordingExamplePage.xaml.cs">
+      <DependentUpon>AudioRecordingExamplePage.xaml</DependentUpon>
+    </Compile>
+</ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Cells\IndexItemCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\IndexPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Animations\AnimationsExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Security\HashingExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\DesignPatterns\MVVM\EventToCommandPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Cells\AddressSearchCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Media\Video\VideoServiceExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Cells\RootItemCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\IntroPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Location\LocationServiceExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Location\Google\PlacesServiceExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\MenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Cells\MenuCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Animations\LottieAnimationsExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Animations\LottieAnimationsExamplePage2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Cells\RootItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Interaction\InputsExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Interaction\PickersExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Interaction\ExtendedButtonExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Interaction\KeyboardOverlapExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Interaction\MiscellaneousExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Navigation\CarouselViewExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Navigation\Transitions\TransitionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Navigation\Transitions\TransitionsExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Presentation\ShapeExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Presentation\ImagesExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Presentation\IndicatorsExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Presentation\AdvancedAlertViewExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Presentation\AdvancedActionSheetExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Presentation\StyledNavigationBarExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Presentation\StyledTabExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Presentation\PagingBehaviorExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Location\Google\DirectionsExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Media\MediaLibrary\MediaLibraryExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Examples\Media\Audio\AudioRecordingExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Animations\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Cells\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Pages\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Managers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Security\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\DesignPatterns\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\DesignPatterns\MVVM\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Factories\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Location\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Media\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Media\Video\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Media\Audio\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Location\Google\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Interaction\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Navigation\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Navigation\Transitions\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Presentation\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Examples\Media\MediaLibrary\" />
+  </ItemGroup>
+</Project>

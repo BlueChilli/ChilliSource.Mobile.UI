@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>ChilliSource.Mobile.UI</id>
+    <version>$version$</version>
+    <title>ChilliSource Mobile UI</title>
+    <description>ChilliSource Mobile UI</description>
+    <authors>$authors$</authors>
+    <owners>$owners$</owners>
+    <requireLicenseAcceptance>$requireLicenseAcceptance$</requireLicenseAcceptance>
+    <copyright>$copyright$</copyright>
+    <projectUrl>$projectUrl$</projectUrl>    
+    <licenseUrl>$licenceUrl$</licenseUrl>
+    <releaseNotes>$releaseNotes$</releaseNotes>
+    <tags>$tags$</tags>
+
+    <dependencies>
+      <group>
+        <dependency id="ChilliSource.Mobile.Core" version="1.0.0" />
+        <dependency id="ChilliSource.Mobile.UI.Core" version="1.0.0" />
+        <dependency id="Xamarin.Forms" version="2.3.2.127" />
+        <dependency id="Rg.Plugins.Popup" version="0.0.17" />
+      </group>
+      <group targetFramework="MonoAndroid403">
+        <dependency id="com.AirBnb.Android.Lottie" version="1.0.0.5"/>
+    	  <dependency id="AndHUD" version="1.2.0" />        
+        <dependency id="ChilliSource.Mobile.UI.Core" version="1.0.0" />
+        <dependency id="Xamarin.Forms" version="2.3.2.127" />
+        <dependency id="Rg.Plugins.Popup" version="0.0.17" />
+      </group>
+      <group targetFramework="xamarin.ios10">
+        <dependency id="com.AirBnb.iOS.Lottie" version="1.0.0.5"/>
+        <dependency id="BTProgressHUD" version="1.2.0.3" />
+        <dependency id="ChilliSource.Mobile.UI.Core" version="1.0.0" />
+        <dependency id="Xamarin.Forms" version="2.3.2.127" />
+        <dependency id="Rg.Plugins.Popup" version="0.0.17" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- Android -->
+    <file src="ChilliSource.Mobile.UI.Droid/bin/ChilliSource.Mobile.UI.dll" target="lib/MonoAndroid403/ChilliSource.Mobile.UI.dll" />
+
+    <!-- iOS -->
+    <file src="ChilliSource.Mobile.UI.iOS/bin/ChilliSource.Mobile.UI.dll" target="lib/Xamarin.iOS10/ChilliSource.Mobile.UI.dll" />
+
+  </files>
+</package>

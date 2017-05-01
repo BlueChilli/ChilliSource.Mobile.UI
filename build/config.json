@@ -1,0 +1,23 @@
+{
+	"productName" : "ChilliSource Mobile UI",
+	"projectName" : "ChilliSource.Mobile.UI",
+	"githubOwner": "BlueChilli",
+	"githubRepository": "ChilliSource.Mobile.UI",
+	"packageWhiteList": ["ChilliSource.Mobile.UI", "ChilliSource.Mobile.UI.Core", "ChilliSource.Mobile.UI.ReactiveUI"],
+	"solutionFile" : "../src/ChilliSource.Mobile.UI.sln",
+	"tags": [ "ChilliSource", "ChilliSource Mobile UI", "ReactiveUI"],
+	"authors" : ["Blue Chilli Technology Pty Ltd"],
+	"copyright" : "Copyright Blue Chilli Technology Pty Ltd 2017",
+	"iconUrl": "https://avatars0.githubusercontent.com/u/5924219?v=3&s=200",
+	"testProjectDll": "",
+	"runUnitTests" : false,
+	"runSimulatorTests" : true,
+	"iosTestAppDirectoryPath" : "../src/iOS/bin/",
+	"iosTestAppPath": "./artifacts/bin/iPhoneSimulator/Release/ChilliSource.Mobile.Tests.app",
+	"androidTestAppPath":"../src/Droid/ChilliSource.Mobile.Tests.Droid.csproj",
+	"nuspecRootPath" : "../src/",
+	"testAppBundleId": "com.bluechilli.chillisource.mobile.tests",
+	"simulatorRuntimes": ["iOS 10.3", "iOS 10.2"],
+	"simulatorDevice" : "iPhone 6s",
+	"artifactDirectory" : "../build/artifacts/"
+}

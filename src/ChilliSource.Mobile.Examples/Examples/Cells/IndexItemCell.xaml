@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csmobileui:BaseCell
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.IndexItemCell"
+	RemoveEdgeInsets="true"
+	HasDisclosureIndicator="true"
+	Height="60">
+	<StackLayout
+		Padding="15,5,15,5"
+		Spacing="0"
+		VerticalOptions="CenterAndExpand">
+		<csmobileui:ExtendedLabel
+			Text="{Binding Title}"
+			CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+		<csmobileui:ExtendedLabel
+			Text="{Binding Description}"
+			CustomFont="{x:Static local:ThemeManager.CellSubtitleFont}" />
+	</StackLayout>
+</csmobileui:BaseCell>

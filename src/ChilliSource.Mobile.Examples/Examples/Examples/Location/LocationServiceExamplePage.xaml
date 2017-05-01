@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.LocationServiceExamplePage"
+	Title="Location Service Example">
+	<ContentPage.Content>
+		<Grid
+			Margin="10,20,10,20">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="150" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Label
+				Grid.Row="0"
+				Grid.Column="0"
+				Text="Latitude:" />
+			<Label
+				Grid.Row="0"
+				Grid.Column="1"
+				Text="{Binding LatitudeText}" />
+			<Label
+				Grid.Row="1"
+				Grid.Column="0"
+				Text="Longitude:" />
+			<Label
+				Grid.Row="1"
+				Grid.Column="1"
+				Text="{Binding LongitudeText}" />
+			<Label
+				Grid.Row="2"
+				Grid.Column="0"
+				Text="Altitude:" />
+			<Label
+				Grid.Row="2"
+				Grid.Column="1"
+				Text="{Binding AltitudeText}" />
+			<Label
+				Grid.Row="3"
+				Grid.Column="0"
+				Text="Heading:" />
+			<Label
+				Grid.Row="3"
+				Grid.Column="1"
+				Text="{Binding HeadingText}" />
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

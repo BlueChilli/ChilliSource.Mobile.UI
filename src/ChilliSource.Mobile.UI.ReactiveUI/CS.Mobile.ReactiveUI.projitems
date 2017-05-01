@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{F5D54410-35FD-41F3-824D-245D719EF3BA}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ChilliSource.Mobile.ReactiveUI</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Contracts\ISupportModal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ReactiveRoutingState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\ReactiveRoutedViewHost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\PageExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ReactiveObjectExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\SplatExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\RouterExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cells\ReactiveBaseCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ReactiveView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\ReactiveStyledNavigationPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\ReactiveStyledTabbedPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\ReactiveValidatableObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DisposableReactiveObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\IObservableCollectionExtended.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\ObservableCollectionExtendedDynamicDataEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\IObservableCollectionExtendedEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\ObservableListToObservableCollectionExtendedAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\ObservableRangeCollectionExtended.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ObservableExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Contracts\IReactiveScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Contracts\IReactiveRoutableViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Cells\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
+  </ItemGroup>
+</Project>

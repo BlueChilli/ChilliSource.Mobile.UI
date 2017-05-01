@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:csmoibleui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.CarouselViewExamplePage"
+	xmlns:local="clr-namespace:Examples"
+	Title="Carousel">
+	<ContentPage.Content>
+		<Grid
+			RowSpacing="0">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="30" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="30" />
+				<RowDefinition
+					Height="30" />
+			</Grid.RowDefinitions>
+			<BoxView
+				Grid.Row="0"
+				BackgroundColor="Gray" />
+			<Label
+				Grid.Row="0"
+				Text="Header"
+				TextColor="White"
+				VerticalOptions="CenterAndExpand"
+				HorizontalOptions="CenterAndExpand" />
+			<csmoibleui:CarouselView
+				Grid.Row="1"
+				ItemsSource="{Binding Items}"
+				SelectedItem="{Binding CurrentItem}">
+				<csmoibleui:CarouselView.ItemTemplate>
+					<DataTemplate>
+						<StackLayout>
+							<Label
+								VerticalOptions="CenterAndExpand"
+								HorizontalOptions="CenterAndExpand"
+								Text="{Binding ItemText}" />
+						</StackLayout>
+					</DataTemplate>
+				</csmoibleui:CarouselView.ItemTemplate>
+			</csmoibleui:CarouselView>
+			<csmoibleui:CarouselPageIndicatorView
+				Grid.Row="2"
+				AutomationId="PageIndicatorViewId"
+				ItemsSource="{Binding Items}"
+				SelectedItem="{Binding CurrentItem, Mode=TwoWay}"
+				DotBorderColor="Gray"
+				SelectedDotColor="Yellow"
+				SelectedDotBorderColor="Blue"
+				DotSize="10" />
+			<BoxView
+				Grid.Row="3"
+				BackgroundColor="Gray" />
+			<Label
+				Grid.Row="3"
+				Text="Footer"
+				TextColor="White"
+				VerticalOptions="CenterAndExpand"
+				HorizontalOptions="CenterAndExpand" />
+		</Grid>
+	</ContentPage.Content>
+</local:BaseContentPage>

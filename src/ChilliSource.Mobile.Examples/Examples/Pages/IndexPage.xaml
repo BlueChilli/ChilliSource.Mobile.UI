@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	x:Class="Examples.IndexPage">
+	<StackLayout
+		HorizontalOptions="FillAndExpand"
+		VerticalOptions="FillAndExpand"
+		Spacing="0">
+		<csmobileui:ExtendedSearchBar
+			x:Name="searchBar"
+			IsVisible="{Binding SearchBarVisible}"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="StartAndExpand"
+			PersistCancelButton="true"
+			CancelButtonPressed="Handle_CancelButtonPressed"
+			CancelButtonColor="{x:Static local:ThemeManager.OrangePink}"
+			TextChanged="SearchBarTextChanged"
+			BackgroundColor="{x:Static local:ThemeManager.LightGreyColor}" />
+		<ListView
+			SeparatorColor="{x:Static local:ThemeManager.LightGreyColor}"
+			ItemsSource="{Binding Items}"
+			ItemTapped="Handle_ItemTapped"
+			HasUnevenRows="true">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<local:IndexItemCell />
+				</DataTemplate>
+			</ListView.ItemTemplate>
+			<ListView.Footer>
+				<StackLayout />
+			</ListView.Footer>
+		</ListView>
+	</StackLayout>
+</local:BaseContentPage>

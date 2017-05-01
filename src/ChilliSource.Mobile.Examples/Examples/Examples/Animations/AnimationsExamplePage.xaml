@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Examples"
+	x:Class="Examples.AnimationsExamplePage"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	Title="Animations">
+	<ContentPage.Content>
+		<Grid
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			RowSpacing="0">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<StackLayout
+				Grid.Row="0"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand">
+				<Image
+					Source="Images/Misc/doge.png"
+					Aspect="AspectFit"
+					HorizontalOptions="CenterAndExpand"
+					VerticalOptions="CenterAndExpand"
+					WidthRequest="200"
+					HeightRequest="200">
+					<Image.Behaviors>
+						<csmobileui:BounceAnimation
+							x:Name="BoxBounceAnimation"
+							NumberOfBounces="3"
+							Duration="800"
+							BounceHeight="80"
+							ShouldRepeat="false"
+							ShouldReset="true" />
+						<csmobileui:FadeAnimation
+							x:Name="BoxFadeAnimation"
+							Fade="Out"
+							Duration="800"
+							ShouldReset="true" />
+						<csmobileui:RotationAnimation
+							x:Name="BoxRotationAnimation"
+							RotationAmount="160"
+							ShouldReset="true"
+							Duration="800" />
+						<csmobileui:ScaleAnimation
+							x:Name="BoxScaleAnimation"
+							Duration="800"
+							ScaleAmount="3"
+							ShouldRepeat="false"
+							ShouldReset="true"
+							ResetValue="1" />
+						<csmobileui:ShakeAnimation
+							x:Name="BoxShakeAnimation"
+							ShouldRepeat="false"
+							ShouldReset="true"
+							Duration="800"
+							Intensity="Vigorous" />
+						<csmobileui:VibrateAnimation
+							x:Name="BoxVibrateAnimation"
+							ShouldReset="true"
+							ShouldRepeat="true"
+							Duration="800"
+							Intensity="Soft" />
+					</Image.Behaviors>
+				</Image>
+			</StackLayout>
+			<StackLayout
+				Grid.Row="1"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand">
+				<BoxView
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="StartAndExpand"
+					HeightRequest="2"
+					BackgroundColor="Black" />
+				<Grid
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand">
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="*" />
+						<ColumnDefinition
+							Width="*" />
+						<ColumnDefinition
+							Width="*" />
+					</Grid.ColumnDefinitions>
+					<csmobileui:ExtendedButton
+						Command="{Binding BounceCommand}"
+						Text="Bounce"
+						Grid.Row="0"
+						Grid.Column="0"
+						CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+					<csmobileui:ExtendedButton
+						Command="{Binding FadeCommand}"
+						Text="Fade"
+						Grid.Row="0"
+						Grid.Column="1"
+						CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+					<csmobileui:ExtendedButton
+						Command="{Binding RotateCommand}"
+						Text="Rotate"
+						Grid.Row="0"
+						Grid.Column="2"
+						CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+					<csmobileui:ExtendedButton
+						Command="{Binding ScaleCommand}"
+						Text="Scale"
+						Grid.Row="1"
+						Grid.Column="0"
+						CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+					<csmobileui:ExtendedButton
+						Command="{Binding ShakeCommand}"
+						Text="Shake"
+						Grid.Row="1"
+						Grid.Column="1"
+						CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+					<csmobileui:ExtendedButton
+						Command="{Binding VibrateCommand}"
+						Text="Vibrate"
+						Grid.Row="1"
+						Grid.Column="2"
+						CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				</Grid>
+			</StackLayout>
+		</Grid>
+	</ContentPage.Content>
+</local:BaseContentPage>

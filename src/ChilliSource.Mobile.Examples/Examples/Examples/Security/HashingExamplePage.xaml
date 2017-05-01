@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csmobileui:KeyboardOverlapContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.HashingExamplePage"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	xmlns:local="clr-namespace:Examples"
+	Title="Hashing">
+	<ContentPage.Content>
+		<ScrollView
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand">
+			<StackLayout
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="CenterAndExpand"
+				Spacing="40">
+				<csmobileui:ExtendedFrame
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand">
+					<csmobileui:ExtendedEditor
+						Placeholder="Type here and watch the hashing commence!"
+						AllowDynamicSizing="true"
+						CustomFont="{x:Static local:ThemeManager.CellSubtitleFont}"
+						TextChanged="Handle_TextChanged" />
+				</csmobileui:ExtendedFrame>
+				<csmobileui:ExtendedLabel
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}"
+					HorizontalTextAlignment="Center"
+					Text="{Binding HashString}" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</csmobileui:KeyboardOverlapContentPage>

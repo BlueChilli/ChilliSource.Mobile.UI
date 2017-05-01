@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.IntroPage"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI">
+	<ContentPage.Content>
+		<ScrollView
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand">
+			<StackLayout
+				Padding="20"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand">
+				<csmobileui:ExtendedLabel
+					HorizontalOptions="CenterAndExpand"
+					Margin="37, 22, 37, 37"
+					Text="Welcome to ChilliSource Mobile!"
+					CustomFont="{x:Static local:ThemeManager.IntroHeaderFont}"
+					HorizontalTextAlignment="Center" />
+				<Image
+					HorizontalOptions="CenterAndExpand"
+					VerticalOptions="FillAndExpand"
+					Source="{x:Static local:ThemeManager.SplashScreenImage}" />
+				<csmobileui:ExtendedLabel
+					HorizontalOptions="CenterAndExpand"
+					Margin="0,36,0,11"
+					Text="Build mobile apps like never before. Check out the awesome tech that we have made available for you."
+					CustomFont="{x:Static local:ThemeManager.IntroContentFont}"
+					HorizontalTextAlignment="Center" />
+				<csmobileui:ExtendedButton
+					HeightRequest="57"
+					HorizontalOptions="FillAndExpand"
+					BackgroundColor="{x:Static local:ThemeManager.OrangePink}"
+					Text="Let's go!"
+					FontSize="20"
+					FontAttributes="Bold"
+					HorizontalContentAlignment="Center"
+					TextColor="White"
+					Command="{Binding LetsGoCommand}"
+					BorderRadius="12" />
+				<csmobileui:ExtendedLabel
+					Text="{Binding TextHere}" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</local:BaseContentPage>

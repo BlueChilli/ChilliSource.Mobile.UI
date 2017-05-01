@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{ADDB8535-0932-4FA4-B8F2-5DED8EA5A02B}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ChilliSource.Mobile.UI.Core</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Handlers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Validations\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Validations\Rules\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Containers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Entities\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Handlers\AsyncSynchronizationContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\ValidatableObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Rules\ComparisonRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Rules\GreaterThanOrEqualToRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Rules\GreaterThanRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Rules\LessThanOrEqualToRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Rules\LessThanRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Containers\NavigationLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GroupViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\NullableComparer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Rules\ActionAsyncValidationRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Rules\ActionValidationRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Rules\EmailRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Rules\IsNotNullOrEmptyRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Rules\RepeatPasswordRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\IValidatableObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\IValidationRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\IValidity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validations\Comparison.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IClipboardService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IDeviceService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IKeyboardService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ILocalNotificationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\KeyboardVisibilityEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\ExposedConstraint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\FormViewExtensions.cs" />
+  </ItemGroup>
+</Project>
