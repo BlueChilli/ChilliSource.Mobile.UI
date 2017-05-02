@@ -83,9 +83,6 @@
     <Reference Include="Lottie">
       <HintPath>..\packages\Com.Airbnb.Android.Lottie.1.0.0.5\lib\MonoAndroid41\Lottie.dll</HintPath>
     </Reference>
-    <Reference Include="ChilliSource.Mobile.Core">
-      <HintPath>..\packages\ChilliSource.Mobile.Core.1.0.0-alpha0065\lib\netstandard1.6\ChilliSource.Mobile.Core.dll</HintPath>
-    </Reference>
     <Reference Include="FormsViewGroup">
       <HintPath>..\packages\Xamarin.Forms.2.3.4.231\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
@@ -100,6 +97,12 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.3.4.231\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="ChilliSource.Mobile.Core">
+      <HintPath>..\packages\ChilliSource.Mobile.Core.1.0.1\lib\MonoAndroid70\ChilliSource.Mobile.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ChilliSource.Core.Extensions">
+      <HintPath>..\packages\ChilliSource.Core.Extensions.1.0.4\lib\netstandard1.6\ChilliSource.Core.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

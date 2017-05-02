@@ -266,15 +266,18 @@ Action<string, string> unitTestAndroidApp = (packageId, projectFile) =>
 		Thread.Sleep(60 * 1000);
 	
 		Information("Conducting Tests");
-		AdbShell(string.Format("am start -n {0}/{1} -c android.intent.category.LAUNCHER", packageId , "com.xunit.runneractivity"), adbSettings);
+		var cmd = string.Format("-n {0}/{1}", packageId , "com.xunit.runneractivity");
+
+		Information("cmd : {0}", cmd);
+		AmStartActivity(cmd, settings:adbSettings);
+
+		Thread.Sleep(60 * 1000);
 
 		Information("Getting the Results");
 		var logs = AdbLogcat(new AdbLogcatOptions() {
 		
 		}, "mono-stdout:I *:S", adbSettings);
 
-		Thread.Sleep(60 * 1000);
-	
 		var testResults = GetTestResultsFromLogs(logs);
 		Information("Test Results:");
 		Information(string.Format("Tests Run:{0} Passed:{1} Failed:{2} Skipped:{3} Inconclusive:{4}", 

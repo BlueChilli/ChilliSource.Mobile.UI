@@ -21,6 +21,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>__TEST__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -30,7 +31,7 @@
       <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.UITest">
-      <HintPath>..\..\packages\Xamarin.UITest.2.0.3\lib\Xamarin.UITest.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.UITest.2.0.9\lib\Xamarin.UITest.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AppInitializer.cs" />
     <Compile Include="ChilliSource.Mobile.UI\CarouselViewTests.cs" />
+    <Compile Include="ChilliSource.Mobile.UI\StyledNavigationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

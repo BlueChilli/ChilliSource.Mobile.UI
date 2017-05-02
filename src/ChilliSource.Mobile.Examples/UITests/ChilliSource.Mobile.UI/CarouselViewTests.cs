@@ -15,7 +15,7 @@ using Xamarin.UITest.Queries;
 
 namespace Examples.UITests
 {
-    [TestFixture(Platform.Android)]
+    //[TestFixture(Platform.Android)]
     [TestFixture(Platform.iOS)]
     public class CarouselViewTests
     {

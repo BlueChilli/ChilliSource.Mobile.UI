@@ -140,9 +140,6 @@
     <Reference Include="ReactiveUI">
       <HintPath>..\packages\reactiveui-core.7.2.0\lib\MonoAndroid403\ReactiveUI.dll</HintPath>
     </Reference>
-    <Reference Include="ReactiveUI.Testing">
-      <HintPath>..\packages\reactiveui-testing.7.2.0\lib\MonoAndroid403\ReactiveUI.Testing.dll</HintPath>
-    </Reference>
     <Reference Include="ReactiveUI.XamForms">
       <HintPath>..\packages\reactiveui-xamforms.7.2.0\lib\portable-net45+netcore45+wp8+wpa81+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10\ReactiveUI.XamForms.dll</HintPath>
     </Reference>
@@ -154,6 +151,15 @@
     </Reference>
     <Reference Include="ReactiveUI.Events_XamForms">
       <HintPath>..\packages\reactiveui-events-xamforms.7.2.0\lib\portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10\ReactiveUI.Events_XamForms.dll</HintPath>
+    </Reference>
+    <Reference Include="ChilliSource.Mobile.Core">
+      <HintPath>..\packages\ChilliSource.Mobile.Core.1.0.1\lib\MonoAndroid70\ChilliSource.Mobile.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Reactive.Testing">
+      <HintPath>..\packages\reactiveui-testing.7.2.1\lib\MonoAndroid403\Microsoft.Reactive.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI.Testing">
+      <HintPath>..\packages\reactiveui-testing.7.2.1\lib\MonoAndroid403\ReactiveUI.Testing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

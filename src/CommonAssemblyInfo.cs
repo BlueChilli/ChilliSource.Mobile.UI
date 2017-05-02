@@ -5,9 +5,9 @@
 //------------------------------------------------------------------------------
 using System.Reflection;
 
-[assembly: AssemblyProduct("ChilliSource Mobile Location")]
+[assembly: AssemblyProduct("ChilliSource Mobile UI")]
 [assembly: AssemblyVersion("1.0.0")]
 [assembly: AssemblyFileVersion("1.0.0")]
-[assembly: AssemblyInformationalVersion("1.0.0-alpha.4+Branch.develop.Sha.7ebd759b0b714563d2631889f0821a3d9d27f2e6")]
+[assembly: AssemblyInformationalVersion("1.0.0-alpha.1+Branch.develop.Sha.c837cd6aa68780e1753f632647cede18dd201bca")]
 [assembly: AssemblyCopyright("Copyright Blue Chilli Technology Pty Ltd 2017")]
 
