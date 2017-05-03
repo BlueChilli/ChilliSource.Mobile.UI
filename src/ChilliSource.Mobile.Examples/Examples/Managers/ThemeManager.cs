@@ -17,7 +17,7 @@ namespace Examples
 	public static class ThemeManager
 	{
 		public static Color GrayColor = Color.FromRgb(197, 198, 198);
-        public static Color GreyishBrownColor = Color.FromRgb(74, 74, 47);
+		public static Color GreyishBrownColor = Color.FromRgb(74, 74, 47);
 		public static Color OrangePink = Color.FromRgb(255, 113, 87);
 		public static Color LightGreyColor = Color.FromRgb(216, 216, 216);
 		public static Color IntroTitleColor = Color.FromRgb(70, 209, 194);
@@ -44,6 +44,9 @@ namespace Examples
 
 		public static ExtendedFont SegmentedControlFont = new ExtendedFont(size: 17, color: DarkColor, kerning: -0.1f);
 		public static ExtendedFont SegmentedControlSelectedFont = new ExtendedFont(size: 17, color: TealColor, kerning: -0.1f);
+
+		public static ExtendedFont HelpPageTitleFont = new ExtendedFont(size: 18, color: Color.White, fontAttributes: FontAttributes.Bold);
+		public static ExtendedFont HelpPageDescriptionFont = new ExtendedFont(size: 16, color: Color.White, lineSpacing: 1);
 
 #if __IOS__
 

@@ -160,7 +160,7 @@ namespace ChilliSource.Mobile.UI
 		{
 			var styledEditor = (ExtendedEditor)this.Element;
 
-			var placeholderAttributedString = styledEditor.CustomPlaceholderFont.BuildAttributedString(styledEditor.Placeholder);
+			var placeholderAttributedString = styledEditor.CustomPlaceholderFont.BuildAttributedString(styledEditor.Placeholder, this.Control.TextAlignment);
 			this.Control.AttributedText = placeholderAttributedString;
 		}
 
@@ -172,7 +172,7 @@ namespace ChilliSource.Mobile.UI
 
 			if (styledEditor.Text != null)
 			{
-				var attributedString = styledEditor.CustomFont.BuildAttributedString(styledEditor.Text);
+				var attributedString = styledEditor.CustomFont.BuildAttributedString(styledEditor.Text, this.Control.TextAlignment);
 				this.Control.AttributedText = attributedString;
 			}
 

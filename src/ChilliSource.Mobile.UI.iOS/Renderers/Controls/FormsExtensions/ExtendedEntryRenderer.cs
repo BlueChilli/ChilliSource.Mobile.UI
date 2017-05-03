@@ -194,7 +194,7 @@ namespace ChilliSource.Mobile.UI
 				if (styledEntry.Placeholder != null)
 				{
 					var font = styledEntry.IsValid ? styledEntry.CustomPlaceholderFont : styledEntry.CustomPlaceholderErrorFont;
-					this.Control.AttributedPlaceholder = font.BuildAttributedString(styledEntry.Placeholder);
+					this.Control.AttributedPlaceholder = font.BuildAttributedString(styledEntry.Placeholder, this.Control.TextAlignment);
 				}
 			}
 		}
