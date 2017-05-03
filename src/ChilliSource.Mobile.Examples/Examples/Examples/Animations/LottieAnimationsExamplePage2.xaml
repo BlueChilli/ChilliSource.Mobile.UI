@@ -40,7 +40,6 @@
 				<Slider
 					HorizontalOptions="FillAndExpand"
 					VerticalOptions="StartAndExpand"
-					Value="{Binding SliderValue, Mode=TwoWay}"
 					Minimum="0"
 					Maximum="1"
 					ValueChanged="Handle_ValueChanged" />

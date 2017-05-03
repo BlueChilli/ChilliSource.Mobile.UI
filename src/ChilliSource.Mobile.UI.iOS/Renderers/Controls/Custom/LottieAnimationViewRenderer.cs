@@ -20,9 +20,9 @@ using Foundation;
 
 namespace ChilliSource.Mobile.UI
 {
-	public class LottieAnimationViewRenderer : ViewRenderer<AfterEffectsAnimationView, LAAnimationView>, ILottieAnimation
+    public class LottieAnimationViewRenderer : ViewRenderer<AfterEffectsAnimationView, LOTAnimationView>, ILottieAnimation
 	{
-		LAAnimationView _animationView;
+		LOTAnimationView _animationView;
 
 		protected override void OnElementChanged(ElementChangedEventArgs<AfterEffectsAnimationView> e)
 		{
@@ -43,12 +43,12 @@ namespace ChilliSource.Mobile.UI
 			switch (Element.SourceType)
 			{
 				case LottieSourceType.LocalResource:
-					_animationView = LAAnimationView.AnimationNamed(Element.Source);
+					_animationView = LOTAnimationView.AnimationNamed(Element.Source);
 
 					break;
 
 				case LottieSourceType.URL:
-					_animationView = new LAAnimationView(NSUrl.FromString(Element.Source));
+					_animationView = new LOTAnimationView(NSUrl.FromString(Element.Source));
 					break;
 			}
 
