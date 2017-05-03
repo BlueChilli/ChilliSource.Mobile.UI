@@ -17,7 +17,8 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
-    <AndroidTlsProvider></AndroidTlsProvider>
+    <AndroidTlsProvider>
+    </AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,7 +47,7 @@
     <AndroidSigningStorePass>android</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>test</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>android</AndroidSigningKeyPass>
-<AndroidSupportedAbis>x86_64;x86</AndroidSupportedAbis>
+    <AndroidSupportedAbis>x86_64;x86</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -118,9 +119,6 @@
     </Reference>
     <Reference Include="ChilliSource.Mobile.Security">
       <HintPath>..\..\packages\ChilliSource.Mobile.Security.1.0.0-alpha0564\lib\MonoAndroid403\ChilliSource.Mobile.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="ChilliSource.Mobile.UI.Core">
-      <HintPath>..\..\packages\ChilliSource.Mobile.UI.Core.1.0.0\lib\MonoAndroid403\ChilliSource.Mobile.UI.Core.dll</HintPath>
     </Reference>
     <Reference Include="ChilliSource.Mobile.Media">
       <HintPath>..\..\packages\ChilliSource.Mobile.Media.1.0.0-alpha0564\lib\MonoAndroid403\ChilliSource.Mobile.Media.dll</HintPath>
@@ -300,18 +298,16 @@
     <AndroidAsset Include="Assets\animations\LottieLogo1.json" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ChilliSource.Mobile.UI.Core.Droid\ChilliSource.Mobile.UI.Core.Droid.csproj">
+      <Project>{96130030-11c3-45d6-8935-2cc8409f147c}</Project>
+      <Name>ChilliSource.Mobile.UI.Core.Droid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ChilliSource.Mobile.UI.Droid\ChilliSource.Mobile.UI.Droid.csproj">
       <Project>{7B909FF5-C6F7-42E3-8F4A-3EC2B6396AC3}</Project>
       <Name>ChilliSource.Mobile.UI.Droid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ChilliSource.Mobile.UI.Core.Droid\ChilliSource.Mobile.UI.Core.Droid.csproj">
-      <Project>{96130030-11C3-45D6-8935-2CC8409F147C}</Project>
-      <Name>ChilliSource.Mobile.UI.Core.Droid</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Effects\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="..\Examples\Examples.projitems" Label="Shared" Condition="Exists('..\Examples\Examples.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

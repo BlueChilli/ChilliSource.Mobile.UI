@@ -10,116 +10,26 @@ See the LICENSE file in the project root for more information.
 
 using System;
 using System.Collections.Generic;
-
-using Xamarin.Forms;
 using ChilliSource.Mobile.UI;
-using System.Windows.Input;
-using ChilliSource.Mobile.Core;
+using Xamarin.Forms;
 
 namespace Examples
 {
-    public class NavigationViewModel : ObservableObject {
-
-        public NavigationViewModel(string title, string subtitle) 
-        {
-            this.Title = title;
-            this.Subtitle = subtitle;
-
-			LeftButtonVisibilityCommand = new Command(() =>
-			{
-				_leftVisible = !_leftVisible;
-				LeftButtionText = LeftButtonVisibilityText;
-			});
-
-			RightButtonVisibilityCommand = new Command(() =>
-			{
-				_rightVisible = !_rightVisible;
-				RightButtonText = RightButtonVisibilityText;
-			});
-
-            ChangeTitleCommand = new Command(() =>
-            {
-                Title = "Title changed";
-            });
-
-            ChangeSubTitleCommand = new Command(() =>
-            {
-                Subtitle = "Subtitl changed";
-            });
-		}
-
-        private string _title;
-		public string Title
-		{
-			get { return _title; }
-			set { this.SetProperty(ref _title, value); }
-		}
-
-		private string _subtitle;
-        public string Subtitle 
-        {
-            get { return _subtitle; }
-            set {this.SetProperty(ref _subtitle, value);}
-        }
-
-
-		bool _leftVisible = true;
-		bool _rightVisible = true;
-
-		private string _leftButtionText;
-		public string LeftButtionText 
-        {
-			get { return _leftButtionText; }
-			set { this.SetProperty(ref _leftButtionText, value); }
-        }
-
-		private string _rightButtonText;
-		public string RightButtonText
-		{
-			get { return _rightButtonText; }
-			set { this.SetProperty(ref _rightButtonText, value); }
-		}
-
-		public string LeftButtonVisibilityText
-		{
-			get
-			{
-				return _leftVisible ? "Hide Left Toolbar" : "Show Left Toolbar";
-			}
-		}
-
-		public string RightButtonVisibilityText
-		{
-			get
-			{
-				return _rightVisible ? "Hide Right Toolbar" : "Show Right Toolbar";
-			}
-		}
-
-        public ICommand LeftButtonVisibilityCommand { get; set; }
-
-		public ICommand RightButtonVisibilityCommand { get; set; }
-
-        public ICommand ChangeTitleCommand { get; set; }
-
-        public ICommand ChangeSubTitleCommand { get; set; }
-	}
-
-	public partial class StyledNavigationBarExamplePage : BaseContentPage
+    public partial class StyledNavigationBarExamplePage : BaseContentPage
 	{
-		
-		public StyledNavigationBarExamplePage()
+	    public StyledNavigationBarExamplePage(IndexItem indexItem)
 		{
-            BindingContext = new NavigationViewModel("subtitle", "title");
-
-           
-			RightToolbarItemFont = ThemeManager.CellTitleFont;
+            InitializeComponent();
+        	RightToolbarItemFont = ThemeManager.CellTitleFont;
 			LeftToolbarItemFont = ThemeManager.AdvancedActionSheetTitleFont;
 			TitleOnlyFont = ThemeManager.AdvancedActionSheetCancelFont;
 			TitleFont = ThemeManager.AdvancedActionSheetCancelFont;
 			SubTitleFont = ThemeManager.CellSubtitleFont;
 
-			ToolbarItems.Remove(ToolbarItems[0]);
+            // Doesn't seems to work binding from xaml why????
+		    SetBinding(StyledNavigationBarPage.SubtitleProperty, new Binding("SubTitle"));
+
+            ToolbarItems.Remove(ToolbarItems[0]);
 
 			var left = new ToolbarItem
 			{
@@ -143,9 +53,7 @@ namespace Examples
 
 			ToolbarItems.Add(right);
 
-			InitializeComponent();
-		}
-
-
+		    BindingContext = new StyledNavigationBarExamplePageViewModel("subtitle", "title");
+        }
 	}
 }

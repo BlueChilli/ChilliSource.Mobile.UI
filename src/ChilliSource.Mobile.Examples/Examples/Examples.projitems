@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -8,13 +8,14 @@
   <PropertyGroup Label="Configuration">
     <Import_RootNamespace>Examples</Import_RootNamespace>
   </PropertyGroup>
-   <ItemGroup>
+  <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Cells\IndexItemCell.xaml.cs">
       <DependentUpon>IndexItemCell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Presentation\StyledNavigationBarExamplePageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\IndexPage.xaml.cs">
       <DependentUpon>IndexPage.xaml</DependentUpon>
     </Compile>
@@ -140,7 +141,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)HelpDescriptionPopupPage.xaml.cs">
       <DependentUpon>HelpDescriptionPopupPage.xaml</DependentUpon>
     </Compile>
-</ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Cells\IndexItemCell.xaml">
@@ -254,7 +255,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Examples\" />
     <Folder Include="$(MSBuildThisFileDirectory)Examples\Animations\" />
     <Folder Include="$(MSBuildThisFileDirectory)Cells\" />
     <Folder Include="$(MSBuildThisFileDirectory)Pages\" />
@@ -272,7 +272,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Examples\Interaction\" />
     <Folder Include="$(MSBuildThisFileDirectory)Examples\Navigation\" />
     <Folder Include="$(MSBuildThisFileDirectory)Examples\Navigation\Transitions\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Examples\Presentation\" />
     <Folder Include="$(MSBuildThisFileDirectory)Examples\Media\MediaLibrary\" />
   </ItemGroup>
 </Project>

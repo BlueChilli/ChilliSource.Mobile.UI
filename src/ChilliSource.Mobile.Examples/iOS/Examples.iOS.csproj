@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -27,14 +27,17 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
     <OptimizePNGs>false</OptimizePNGs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType></DebugType>
+    <DebugType>
+    </DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Distribution</CodesignKey>
@@ -44,7 +47,8 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>pdbonly</DebugType>
@@ -78,7 +82,8 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -126,9 +131,6 @@
     </Reference>
     <Reference Include="ChilliSource.Mobile.Location">
       <HintPath>..\..\packages\ChilliSource.Mobile.Location.1.0.0\lib\Xamarin.iOS10\ChilliSource.Mobile.Location.dll</HintPath>
-    </Reference>
-    <Reference Include="ChilliSource.Mobile.UI.Core">
-      <HintPath>..\..\packages\ChilliSource.Mobile.UI.Core.1.0.0\lib\Xamarin.iOS10\ChilliSource.Mobile.UI.Core.dll</HintPath>
     </Reference>
     <Reference Include="ChilliSource.Mobile.Media">
       <HintPath>..\..\packages\ChilliSource.Mobile.Media.1.0.0-alpha0538\lib\Xamarin.iOS10\ChilliSource.Mobile.Media.dll</HintPath>
@@ -181,15 +183,9 @@
       <InProject>false</InProject>
     </ImageAsset>
   </ItemGroup>
-  <ItemGroup>    
-    <Folder Include="Effects\" />
-    <Folder Include="Resources\Images\" />
-    <Folder Include="Resources\Animations\" />
-    <Folder Include="Resources\Images\Index\" />
-    <Folder Include="Resources\Images\Navigation\" />
-    <Folder Include="Resources\Images\Branding\" />
-    <Folder Include="Resources\Images\Misc\" />
+  <ItemGroup>
     <Folder Include="Assets.xcassets\SplashScreenImage.imageset\" />
+    <Folder Include="Resources\Images\Branding\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<local:BaseContentPage
+<examples:BaseContentPage
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="Examples.StyledNavigationBarExamplePage"
-	xmlns:local="clr-namespace:Examples"
 	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
-	Title="{Binding Title}">
+	xmlns:examples="clr-namespace:Examples;assembly=Examples"
+	x:Class="Examples.StyledNavigationBarExamplePage"
+    Title="{Binding Title}"
+    LeftToolbarItemVisible="{Binding IsLeftToolBarItemVisible}"
+    RightToolbarItemVisible="{Binding IsRightToolBarItemVisible}"
+    >
 	<ContentPage.Content>
 		<StackLayout
 			HorizontalOptions="FillAndExpand"
 			VerticalOptions="CenterAndExpand">
 			<csmobileui:ExtendedButton
-				Text="{Binding LeftButtonVisibilityText}"
+				Text="{Binding LeftButtonText}"
 				Command="{Binding LeftButtonVisibilityCommand }" />
 			<csmobileui:ExtendedButton
-				Text="{Binding RightButtonVisibilityText}"
+				Text="{Binding RightButtonText}"
 				Command="{Binding RightButtonVisibilityCommand }" />
 
             <csmobileui:ExtendedButton
@@ -23,9 +26,9 @@
 
 
             <csmobileui:ExtendedButton
-                Text="ChangeSubtitle"
-                Command="{Binding ChangeSubtitleCommand}" />
+                Text="ChangeSubTitle"
+                Command="{Binding ChangeSubTitleCommand}" />
 
         </StackLayout>
 	</ContentPage.Content>
-</local:BaseContentPage>
+</examples:BaseContentPage>
