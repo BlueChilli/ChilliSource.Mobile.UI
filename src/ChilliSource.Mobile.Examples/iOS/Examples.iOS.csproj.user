@@ -19,5 +19,7 @@
 &lt;/dict&gt;
 &lt;/plist&gt;
 </TargetiOSDevice>
+    <SelectedDevice>iPhone 7 iOS 10.3</SelectedDevice>
+    <DefaultDevice>iPhone 7 iOS 10.3</DefaultDevice>
   </PropertyGroup>
 </Project>

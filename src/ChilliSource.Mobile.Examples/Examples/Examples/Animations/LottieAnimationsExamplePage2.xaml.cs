@@ -53,7 +53,7 @@ namespace Examples
 
 		void Handle_ValueChanged(object sender, Xamarin.Forms.ValueChangedEventArgs e)
 		{
-			OnPropertyChanged(nameof(SliderValue));
+		    this.SliderValue = (float) e.NewValue;
 		}
 
 		public IndexItem Item { get; set; }
