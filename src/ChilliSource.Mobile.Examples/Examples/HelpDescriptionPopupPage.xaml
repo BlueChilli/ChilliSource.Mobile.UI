@@ -3,23 +3,29 @@
 	xmlns ="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:pages     ="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	xmlns:local="clr-namespace:Examples"
 	x:Class="Examples.HelpDescriptionPopupPage">
 	<StackLayout 
 		VerticalOptions="CenterAndExpand"
 		HorizontalOptions="FillAndExpand"
 		Padding="20">
-	<Label 
+	<csmobileui:ExtendedLabel 
 			
 	        VerticalOptions="Center"
 			HorizontalOptions="Center"
 			Text="{Binding Title}"
-			TextColor="White"/>
-		<Label 
+			CustomFont ="{x:Static local:ThemeManager.HelpPageTitleFont}"/>
+		<StackLayout
+			Padding="20">
+		<csmobileui:ExtendedLabel  
 			x:Name = "Description"
 	        VerticalOptions="Center"
 			HorizontalOptions="Center"
-			HorizontalTextAlignment="Center"
+			HorizontalTextAlignment="Start"
+				VerticalTextAlignment="Start"
 			Text="{Binding LongDescription}"
-			TextColor="White"/>
+			CustomFont ="{x:Static local:ThemeManager.HelpPageDescriptionFont}"/>
+			</StackLayout>
 	</StackLayout>
 </pages:PopupPage>

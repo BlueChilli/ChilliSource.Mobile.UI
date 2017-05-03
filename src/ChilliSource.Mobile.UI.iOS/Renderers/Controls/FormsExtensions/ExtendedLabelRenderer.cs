@@ -95,7 +95,7 @@ namespace ChilliSource.Mobile.UI
 				ExtendedLabel.Children.ToList().ForEach(styledTextPart =>
 				{
 					_styledTextPartList.Add(new KeyValuePair<int, StyledTextPart>(Convert.ToInt32(attributedString.Length), styledTextPart));
-					attributedString.Append(styledTextPart.CustomFont.BuildAttributedString(styledTextPart.Text));
+					attributedString.Append(styledTextPart.CustomFont.BuildAttributedString(styledTextPart.Text, this.Control.TextAlignment));
 				});
 				Control.AttributedText = attributedString;
 
@@ -120,7 +120,7 @@ namespace ChilliSource.Mobile.UI
 
 			if (ExtendedLabel.Text != null)
 			{
-				var attributedString = ExtendedLabel.CustomFont.BuildAttributedString(ExtendedLabel.Text);
+				var attributedString = ExtendedLabel.CustomFont.BuildAttributedString(ExtendedLabel.Text, this.Control.TextAlignment);
 				Control.AttributedText = attributedString;
 			}
 		}

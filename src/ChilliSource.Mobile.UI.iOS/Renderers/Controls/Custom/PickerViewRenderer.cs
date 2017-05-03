@@ -183,7 +183,7 @@ namespace ChilliSource.Mobile.UI
 				var label = new UILabel();
 				label.Frame = new CoreGraphics.CGRect(accumulatedWidth + Control.RowSizeForComponent(i).Width / 2 + sizeMax.Width / 2 + 30, Control.Frame.Size.Height / 2 - fixedTextSize.Height / 2, fixedTextSize.Width + 10, fixedTextSize.Height);
 				accumulatedWidth += Control.RowSizeForComponent(i).Width + 5;
-				label.AttributedText = _styledPicker.CustomFont.BuildAttributedString(_styledPicker.ComponentFixedTextItems[i]);
+				label.AttributedText = _styledPicker.CustomFont.BuildAttributedString(_styledPicker.ComponentFixedTextItems[i], label.TextAlignment);
 				Control.AddSubview(label);
 			}
 

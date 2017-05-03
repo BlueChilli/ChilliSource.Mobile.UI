@@ -18,7 +18,7 @@ namespace ChilliSource.Mobile.UI
 {
 	public static class ExtendedFontExtensions
 	{
-		public static NSMutableAttributedString BuildAttributedString(this ExtendedFont font, string text)
+		public static NSMutableAttributedString BuildAttributedString(this ExtendedFont font, string text, UITextAlignment textAlignment = UITextAlignment.Natural)
 		{
 			if (font == null)
 			{
@@ -43,7 +43,8 @@ namespace ChilliSource.Mobile.UI
 			{
 				var paragraphStyle = new NSMutableParagraphStyle()
 				{
-					LineSpacing = (nfloat)font.LineSpacing
+					LineSpacing = (nfloat)font.LineSpacing,
+					Alignment = textAlignment
 				};
 
 				attribString.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, new NSRange(0, attribString.Length));
