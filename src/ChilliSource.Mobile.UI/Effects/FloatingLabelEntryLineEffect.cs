@@ -31,12 +31,22 @@ namespace ChilliSource.Mobile.UI
 			return (Color)view.GetValue(LineColorProperty);
 		}
 
-		public static void SetLineColor(BindableObject view, Color value)
-		{
-			view.SetValue(LineColorProperty, value);
-		}
+	    public static void SetLineColor(BindableObject view, Color value)
+	    {
+	        view.SetValue(LineColorProperty, value);
+	    }
 
-		public static float GetLineHeight(BindableObject view)
+	    public static void SetHasLine(BindableObject view, bool value)
+	    {
+	        view.SetValue(HasLineProperty, value);
+	    }
+
+	    public static bool GetHasLine(BindableObject view)
+	    {
+	        return (bool)view.GetValue(HasLineProperty);
+	    }
+
+        public static float GetLineHeight(BindableObject view)
 		{
 			return (float)view.GetValue(LineHeightProperty);
 		}

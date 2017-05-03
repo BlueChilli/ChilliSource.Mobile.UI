@@ -23,7 +23,7 @@ namespace Examples
         public NavigationViewModel(string title, string subtitle) 
         {
             this.Title = title;
-            this.Subtile = subtitle;
+            this.Subtitle = subtitle;
 
 			LeftButtonVisibilityCommand = new Command(() =>
 			{
@@ -44,7 +44,7 @@ namespace Examples
 
             ChangeSubTitleCommand = new Command(() =>
             {
-                Subtile = "Subtitl changed";
+                Subtitle = "Subtitl changed";
             });
 		}
 
@@ -56,7 +56,7 @@ namespace Examples
 		}
 
 		private string _subtitle;
-        public string Subtile 
+        public string Subtitle 
         {
             get { return _subtitle; }
             set {this.SetProperty(ref _subtitle, value);}
@@ -112,6 +112,7 @@ namespace Examples
 		{
             BindingContext = new NavigationViewModel("subtitle", "title");
 
+           
 			RightToolbarItemFont = ThemeManager.CellTitleFont;
 			LeftToolbarItemFont = ThemeManager.AdvancedActionSheetTitleFont;
 			TitleOnlyFont = ThemeManager.AdvancedActionSheetCancelFont;
