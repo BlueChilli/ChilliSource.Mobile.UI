@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using ChilliSource.Mobile.Media;
 using System.IO;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
@@ -25,15 +26,26 @@ namespace Examples
 		IAudioRecordingService _recordingService;
 		IAudioPlaybackService _playbackService;
 
-		public AudioRecordingExamplePage()
+		public AudioRecordingExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
 			BindingContext = this;
+			SetupCommands();
 			InitializeComponent();
 
 			_recordingService = DependencyService.Get<IAudioRecordingService>();
 			_playbackService = DependencyService.Get<IAudioPlaybackService>();
 
 			InitializeServices();
+		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
 		}
 
 		void InitializeServices()
@@ -64,6 +76,8 @@ namespace Examples
 				return _isPlaying ? "Pause" : "Play";
 			}
 		}
+
+		public IndexItem Item { get; set; }
 
 		#region Events
 

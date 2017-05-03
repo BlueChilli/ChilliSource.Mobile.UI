@@ -17,6 +17,7 @@ using ChilliSource.Mobile.Location;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Linq;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
@@ -25,15 +26,27 @@ namespace Examples
 		DirectionsManager _directionsManager;
 		BaseResponseModel _response;
 
-		public DirectionsExamplePage()
+		public DirectionsExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
+			SetupCommands();
 			BindingContext = this;
 			InitializeComponent();
+		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
 		}
 
 		public bool ButtonsVisible { get; set; }
 
 		public bool IndicatorVisible { get; set; }
+		public IndexItem Item { get; set; }
 
 		protected override void OnAppearing()
 		{

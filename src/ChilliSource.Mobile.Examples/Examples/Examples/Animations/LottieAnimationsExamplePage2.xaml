@@ -5,7 +5,7 @@
 	xmlns:local="clr-namespace:Examples"
 	x:Class="Examples.LottieAnimationsExamplePage2"
 	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
-	Title="Interactive">
+	Title="{Binding Item.Title}">
 	<ContentPage.Content>
 		<Grid
 			HorizontalOptions="FillAndExpand"

@@ -5,7 +5,7 @@
 	x:Class="Examples.ExtendedButtonExamplePage"
 	xmlns:local="clr-namespace:Examples"
 	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
-	Title="Buttons">
+	Title="{Binding Item.Title}">
 	<ContentPage.Content>
 		<ScrollView
 			HorizontalOptions="FillAndExpand"

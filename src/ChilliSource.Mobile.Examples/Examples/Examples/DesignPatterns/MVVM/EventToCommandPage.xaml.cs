@@ -10,16 +10,30 @@ See the LICENSE file in the project root for more information.
 
 using System;
 using System.Collections.Generic;
-
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace Examples
 {
-	public partial class EventToCommandPage : ContentPage
+	public partial class EventToCommandPage : BaseContentPage
 	{
-		public EventToCommandPage()
+		public EventToCommandPage(IndexItem indexItem)
 		{
+			Item = indexItem;
+			Title = Item.Title;
+			SetupCommands();
 			InitializeComponent();
 		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
+		}
+
+		public IndexItem Item { get; set; }
 	}
 }

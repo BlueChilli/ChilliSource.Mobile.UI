@@ -13,6 +13,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using System.Windows.Input;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
@@ -20,10 +21,23 @@ namespace Examples
 	{
 		float _animationSpeed = 1.0f;
 
-		public LottieAnimationsExamplePage()
+		public LottieAnimationsExamplePage(IndexItem indexItem)
 		{
-			BindingContext = this;
 
+			Item = indexItem;
+			BindingContext = this;
+			SetupCommands();
+			InitializeComponent();
+		}
+
+		void SetupCommands()
+		{
+
+			ToolbarItems[1].Command = new Command(() =>
+			 {
+				 PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			 });
 			PlayCommand = new Command(() =>
 			{
 				anim.Animation.Play();
@@ -53,8 +67,9 @@ namespace Examples
 				OnPropertyChanged(nameof(SpeedText));
 			});
 
-			InitializeComponent();
+
 		}
+
 
 		public string SpeedText
 		{
@@ -63,6 +78,8 @@ namespace Examples
 				return string.Format("Speed - {0}", _animationSpeed.ToString());
 			}
 		}
+
+		public IndexItem Item { get; set; }
 
 		public ICommand PlayCommand { get; set; }
 

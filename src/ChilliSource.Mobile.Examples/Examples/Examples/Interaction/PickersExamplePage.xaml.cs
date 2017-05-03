@@ -11,16 +11,28 @@ See the LICENSE file in the project root for more information.
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace Examples
 {
 	public partial class PickersExamplePage : BaseContentPage
 	{
-		public PickersExamplePage()
+		public PickersExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
 			BindingContext = this;
+			SetupCommands();
 			InitializeComponent();
+		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
 		}
 
 		public DateTime MinDate { get; set; } = DateTime.Now;
@@ -59,5 +71,6 @@ namespace Examples
 		{
 			get; set;
 		}
+		public IndexItem Item { get; set; }
 	}
 }

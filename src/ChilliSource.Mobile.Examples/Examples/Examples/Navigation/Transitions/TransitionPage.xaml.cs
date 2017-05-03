@@ -20,6 +20,7 @@ namespace Examples
 	{
 		public TransitionPage()
 		{
+			ToolbarItems.Remove(ToolbarItems[1]);
 			InitializeComponent();
 		}
 

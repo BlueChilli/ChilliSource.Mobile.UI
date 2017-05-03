@@ -21,12 +21,26 @@ namespace Examples
 	{
 		PlacesServiceExamplePageViewModel _viewModel;
 
-		public PlacesServiceExamplePage()
+		public IndexItem Item { get; set; }
+
+		public PlacesServiceExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
+			Title = Item.Title;
 			_viewModel = new PlacesServiceExamplePageViewModel();
 			BindingContext = _viewModel;
+			SetupCommands();
 			InitializeComponent();
 			SetupScreen();
+		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
 		}
 
 		protected override void OnAppearing()

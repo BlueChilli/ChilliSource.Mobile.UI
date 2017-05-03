@@ -10,62 +10,75 @@ See the LICENSE file in the project root for more information.
 
 using System;
 using System.Collections.Generic;
-
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace Examples
 {
-    public class CarouselItem
-    {
-        public CarouselItem(int index, string itemText)
-        {
-            Index = index;
-            ItemText = itemText;
-        }
-        public int Index { get; set; }
-        public string ItemText { get; set; }
-    }
+	public class CarouselItem
+	{
+		public CarouselItem(int index, string itemText)
+		{
+			Index = index;
+			ItemText = itemText;
+		}
+		public int Index { get; set; }
+		public string ItemText { get; set; }
+	}
 
-    public partial class CarouselViewExamplePage : BaseContentPage
-    {
-        CarouselItem _currentItem;
+	public partial class CarouselViewExamplePage : BaseContentPage
+	{
+		CarouselItem _currentItem;
 
-        public CarouselViewExamplePage()
-        {
-            BuildData();
-            BindingContext = this;
-            InitializeComponent();
-        }
+		public CarouselViewExamplePage(IndexItem indexItem)
+		{
+			Item = indexItem;
+			SetupCommands();
+			BuildData();
+			BindingContext = this;
+			InitializeComponent();
+		}
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-        }
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+		}
 
-        void BuildData()
-        {
-            Items = new List<CarouselItem>();
-            Items.Add(new CarouselItem(1, "Item 1"));
-            Items.Add(new CarouselItem(2, "Item 2"));
-            Items.Add(new CarouselItem(3, "Item 3"));
+		void BuildData()
+		{
+			Items = new List<CarouselItem>();
+			Items.Add(new CarouselItem(1, "Item 1"));
+			Items.Add(new CarouselItem(2, "Item 2"));
+			Items.Add(new CarouselItem(3, "Item 3"));
 
-            CurrentItem = Items[0];
-        }
+			CurrentItem = Items[0];
+		}
 
-        public List<CarouselItem> Items { get; set; }
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
+		}
+
+		public List<CarouselItem> Items { get; set; }
 
 
-        public CarouselItem CurrentItem
-        {
-            get
-            {
-                return _currentItem;
-            }
-            set
-            {
-                _currentItem = value;
-                OnPropertyChanged(nameof(CurrentItem));
-            }
-        }
-    }
+		public CarouselItem CurrentItem
+		{
+			get
+			{
+				return _currentItem;
+			}
+			set
+			{
+				_currentItem = value;
+				OnPropertyChanged(nameof(CurrentItem));
+			}
+		}
+
+		public IndexItem Item { get; set; }
+	}
 }

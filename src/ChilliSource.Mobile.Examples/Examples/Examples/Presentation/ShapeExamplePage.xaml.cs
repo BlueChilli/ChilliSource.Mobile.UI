@@ -9,6 +9,10 @@ See the LICENSE file in the project root for more information.
 #endregion
 
 
+using System;
+using Rg.Plugins.Popup.Services;
+using Xamarin.Forms;
+
 namespace Examples
 {
 	public partial class ShapeExamplePage : BaseContentPage
@@ -16,13 +20,23 @@ namespace Examples
 
 		int _borderWidth;
 
-		public ShapeExamplePage()
+		public ShapeExamplePage(IndexItem indexItem)
 		{
 			_borderWidth = 5;
+			Item = indexItem;
 			BindingContext = this;
+			SetupCommands();
 			InitializeComponent();
 		}
 
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
+		}
 
 		public int BorderWidth
 		{
@@ -42,5 +56,7 @@ namespace Examples
 		{
 			BorderWidth = (int)(e.NewValue * 10);
 		}
+
+		public IndexItem Item { get; set; }
 	}
 }

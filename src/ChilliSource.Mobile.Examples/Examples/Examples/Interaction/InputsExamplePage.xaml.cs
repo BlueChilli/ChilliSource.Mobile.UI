@@ -10,15 +10,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ChilliSource.Mobile.UI;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace Examples
 {
 	public partial class InputsExamplePage : BaseContentPage
 	{
-		public InputsExamplePage()
+		public InputsExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
+			BindingContext = this;
+			SetupCommands();
 			InitializeComponent();
+		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
 		}
 
 		void Handle_TextChanged(object sender, Xamarin.Forms.TextChangedEventArgs e)
@@ -39,5 +52,7 @@ namespace Examples
 				LineEffect.SetLineColor(floatingLabelEntry, Color.Green);
 			}
 		}
+
+		public IndexItem Item { get; set; }
 	}
 }

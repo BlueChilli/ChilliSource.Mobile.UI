@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Windows.Input;
 using ChilliSource.Mobile.UI;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
@@ -21,28 +22,41 @@ namespace Examples
 	{
 		bool _largeImageVisible = false;
 
-		public ExtendedButtonExamplePage()
+		public ExtendedButtonExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
 			BindingContext = this;
+			SetupCommands();
+			InitializeComponent();
+		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
+
 			AligmentButtonCommand = new Command(() =>
+			{
+				switch (ContentAligment)
 				{
-					switch (ContentAligment)
-					{
-						case ButtonHorizontalContentAlignment.Center:
-							ContentAligment = ButtonHorizontalContentAlignment.Right;
-							break;
+					case ButtonHorizontalContentAlignment.Center:
+						ContentAligment = ButtonHorizontalContentAlignment.Right;
+						break;
 
-						case ButtonHorizontalContentAlignment.Right:
-							ContentAligment = ButtonHorizontalContentAlignment.Left;
-							break;
+					case ButtonHorizontalContentAlignment.Right:
+						ContentAligment = ButtonHorizontalContentAlignment.Left;
+						break;
 
-						case ButtonHorizontalContentAlignment.Left:
-							ContentAligment = ButtonHorizontalContentAlignment.Center;
-							break;
-					}
+					case ButtonHorizontalContentAlignment.Left:
+						ContentAligment = ButtonHorizontalContentAlignment.Center;
+						break;
+				}
 
-					OnPropertyChanged(nameof(ContentAligment));
-				});
+				OnPropertyChanged(nameof(ContentAligment));
+			});
 
 			ImageButtonCommand = new Command(() =>
 			{
@@ -92,7 +106,6 @@ namespace Examples
 				OnPropertyChanged(nameof(LongPressText));
 			});
 
-			InitializeComponent();
 		}
 
 		public ButtonHorizontalContentAlignment ContentAligment { get; set; } = ButtonHorizontalContentAlignment.Center;
@@ -108,5 +121,7 @@ namespace Examples
 		public LongPressDirection FillDirection { get; set; } = LongPressDirection.LeftToRight;
 
 		public string LongPressText { get; set; } = "Long Press - Left To Right";
+
+		public IndexItem Item { get; set; }
 	}
 }

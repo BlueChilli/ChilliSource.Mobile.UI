@@ -17,6 +17,23 @@ namespace Examples
 {
 	public class BaseTabPage : StyledTabbedPage
 	{
+		public BaseTabPage()
+		{
+			SetupToolbar();
+		}
+
+		void SetupToolbar()
+		{
+			var right = new ToolbarItem
+			{
+				Text = "Help",
+				Order = ToolbarItemOrder.Primary,
+				Priority = 1
+			};
+
+			ToolbarItems.Add(right);
+
+		}
 	}
 }
 

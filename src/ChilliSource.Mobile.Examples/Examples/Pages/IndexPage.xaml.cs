@@ -43,6 +43,8 @@ namespace Examples
 
 		void SetupToolBar()
 		{
+			ToolbarItems.Remove(ToolbarItems[1]);
+
 			ToolbarItems.Add(new ToolbarItem()
 			{
 				Priority = 1,
@@ -104,8 +106,9 @@ namespace Examples
 
 			if (indexItem.PageType != null)
 			{
-				var page = Activator.CreateInstance(indexItem.PageType);
+				var page = Activator.CreateInstance(indexItem.PageType, indexItem);
 				await Navigation.PushAsync(page as Page);
+
 			}
 			else
 			{

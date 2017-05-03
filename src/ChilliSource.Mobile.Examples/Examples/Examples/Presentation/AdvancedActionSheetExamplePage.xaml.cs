@@ -16,8 +16,10 @@ using Xamarin.Forms;
 
 namespace Examples
 {
-	public partial class AdvancedActionSheetExamplePage : ContentPage
+	public partial class AdvancedActionSheetExamplePage : BaseContentPage
 	{
+		public IndexItem Item { get; set; }
+
 		async void Handle_Clicked(object sender, System.EventArgs e)
 		{
 			await AdvancedActionSheet.ShowActionSheet(new List<AdvancedActionSheetAction>()
@@ -31,9 +33,21 @@ namespace Examples
 							}, "Im Advanced!", ThemeManager.AdvancedActionSheetTitleFont);
 		}
 
-		public AdvancedActionSheetExamplePage()
+		public AdvancedActionSheetExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
+			BindingContext = this;
+			SetupCommands();
 			InitializeComponent();
+		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
 		}
 	}
 }

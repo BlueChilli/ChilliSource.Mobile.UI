@@ -31,6 +31,8 @@ namespace Examples
 
 		public string Description { get; set; }
 
+		public string LongDescription { get; set; }
+
 		public Type PageType { get; set; }
 
 		public List<IndexItem> Children { get; set; }

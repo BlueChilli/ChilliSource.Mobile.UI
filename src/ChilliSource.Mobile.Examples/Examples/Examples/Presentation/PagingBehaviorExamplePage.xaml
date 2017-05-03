@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
 	xmlns ="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Examples"
 	x:Class="Examples.PagingBehaviorExamplePage">
 	<ContentPage.Content>
-		<ListView CachingStrategy="RecycleElement"
+		<ListView 
+			CachingStrategy="RecycleElement"
 			ItemsSource="{Binding Items}"
-				x:Name="listView"
-		>
+				x:Name="listView">
 			
 			<ListView.ItemTemplate>
 				<DataTemplate>
@@ -24,4 +25,4 @@
 			</ListView.Footer>
 		</ListView>
 	</ContentPage.Content>
-</ContentPage>
+</local:BaseContentPage>

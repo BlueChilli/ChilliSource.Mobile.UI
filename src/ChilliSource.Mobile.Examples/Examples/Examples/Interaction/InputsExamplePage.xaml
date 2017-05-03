@@ -5,7 +5,7 @@
 	x:Class="Examples.InputsExamplePage"
 	xmlns:local="clr-namespace:Examples"
 	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
-	Title="Inputs">
+	Title="{Binding Item.Title}">
 	<ContentPage.Content>
 		<ScrollView
 			HorizontalOptions="FillAndExpand"
@@ -31,7 +31,7 @@
 					x:Name="floatingLabelEntry"
 					Placeholder="No numbers please"
 					FloatingLabelCustomFont="{x:Static local:ThemeManager.CellSubtitleFont}"
-					PlaceholderCustomFont="{x:Static local:ThemeManager.CellTitleFont}"
+					CustomPlaceholderFont="{x:Static local:ThemeManager.CellTitleFont}"
 					TextChanged="Handle_TextChanged"
 					csmobileui:LineEffect.HasLine="true"
 					csmobileui:LineEffect.LineColor="Green" />

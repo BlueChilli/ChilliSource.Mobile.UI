@@ -5,7 +5,7 @@
 	x:Class="Examples.TransitionsExamplePage"
 	xmlns:local="clr-namespace:Examples"
 	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
-	Title="Transitions">
+	Title="{Binding Item.Title}">
 	<ContentPage.Content>
 		<StackLayout
 			HorizontalOptions="FillAndExpand"

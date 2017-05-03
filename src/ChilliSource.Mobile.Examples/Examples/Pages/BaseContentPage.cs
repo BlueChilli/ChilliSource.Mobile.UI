@@ -12,20 +12,22 @@ using System;
 using Xamarin.Forms;
 using ChilliSource.Mobile.UI;
 using System.Windows.Input;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
 	public class BaseContentPage : StyledNavigationBarPage
 	{
+
 		public BaseContentPage()
 		{
 			NavigationPage.SetBackButtonTitle(this, "");
 			BarTintColor = ThemeManager.OrangePink;
-
-			AddBackButton();
+			SetupToolbar();
 		}
 
-		void AddBackButton()
+
+		void SetupToolbar()
 		{
 			HideBackButton = true;
 
@@ -46,6 +48,15 @@ namespace Examples
 				   }
 			   })
 			});
+
+			var right = new ToolbarItem
+			{
+				Text = "Help",
+				Order = ToolbarItemOrder.Primary,
+				Priority = 1
+			};
+
+			ToolbarItems.Add(right);
 		}
 
 		public ICommand BackCommand { get; set; }

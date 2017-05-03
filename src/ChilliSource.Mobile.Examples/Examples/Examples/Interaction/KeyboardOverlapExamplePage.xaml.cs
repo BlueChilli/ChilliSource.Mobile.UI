@@ -13,14 +13,37 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using ChilliSource.Mobile.UI;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
 	public partial class KeyboardOverlapExamplePage : KeyboardOverlapContentPage
 	{
-		public KeyboardOverlapExamplePage()
+		public KeyboardOverlapExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
+			BindingContext = this;
+			SetupToolbar();
 			InitializeComponent();
 		}
+
+		void SetupToolbar()
+		{
+			var right = new ToolbarItem
+			{
+				Text = "Help",
+				Order = ToolbarItemOrder.Primary,
+				Priority = 1,
+				Command = new Command(() =>
+				{
+					PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+				})
+			};
+
+			ToolbarItems.Add(right);
+		}
+
+		public IndexItem Item { get; set; }
 	}
 }

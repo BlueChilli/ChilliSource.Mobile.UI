@@ -14,25 +14,109 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using ChilliSource.Mobile.UI;
 using System.Windows.Input;
+using ChilliSource.Mobile.Core;
 
 namespace Examples
 {
-	public partial class StyledNavigationBarExamplePage : BaseContentPage
-	{
+    public class NavigationViewModel : ObservableObject {
+
+        public NavigationViewModel(string title, string subtitle) 
+        {
+            this.Title = title;
+            this.Subtile = subtitle;
+
+			LeftButtonVisibilityCommand = new Command(() =>
+			{
+				_leftVisible = !_leftVisible;
+				LeftButtionText = LeftButtonVisibilityText;
+			});
+
+			RightButtonVisibilityCommand = new Command(() =>
+			{
+				_rightVisible = !_rightVisible;
+				RightButtonText = RightButtonVisibilityText;
+			});
+
+            ChangeTitleCommand = new Command(() =>
+            {
+                Title = "Title changed";
+            });
+
+            ChangeSubTitleCommand = new Command(() =>
+            {
+                Subtile = "Subtitl changed";
+            });
+		}
+
+        private string _title;
+		public string Title
+		{
+			get { return _title; }
+			set { this.SetProperty(ref _title, value); }
+		}
+
+		private string _subtitle;
+        public string Subtile 
+        {
+            get { return _subtitle; }
+            set {this.SetProperty(ref _subtitle, value);}
+        }
+
+
 		bool _leftVisible = true;
 		bool _rightVisible = true;
 
+		private string _leftButtionText;
+		public string LeftButtionText 
+        {
+			get { return _leftButtionText; }
+			set { this.SetProperty(ref _leftButtionText, value); }
+        }
+
+		private string _rightButtonText;
+		public string RightButtonText
+		{
+			get { return _rightButtonText; }
+			set { this.SetProperty(ref _rightButtonText, value); }
+		}
+
+		public string LeftButtonVisibilityText
+		{
+			get
+			{
+				return _leftVisible ? "Hide Left Toolbar" : "Show Left Toolbar";
+			}
+		}
+
+		public string RightButtonVisibilityText
+		{
+			get
+			{
+				return _rightVisible ? "Hide Right Toolbar" : "Show Right Toolbar";
+			}
+		}
+
+        public ICommand LeftButtonVisibilityCommand { get; set; }
+
+		public ICommand RightButtonVisibilityCommand { get; set; }
+
+        public ICommand ChangeTitleCommand { get; set; }
+
+        public ICommand ChangeSubTitleCommand { get; set; }
+	}
+
+	public partial class StyledNavigationBarExamplePage : BaseContentPage
+	{
+		
 		public StyledNavigationBarExamplePage()
 		{
-			BindingContext = this;
+            BindingContext = new NavigationViewModel("subtitle", "title");
 
 			RightToolbarItemFont = ThemeManager.CellTitleFont;
 			LeftToolbarItemFont = ThemeManager.AdvancedActionSheetTitleFont;
 			TitleOnlyFont = ThemeManager.AdvancedActionSheetCancelFont;
 			TitleFont = ThemeManager.AdvancedActionSheetCancelFont;
 			SubTitleFont = ThemeManager.CellSubtitleFont;
-			SubTitle = "subtitle";
-			Title = "title";
 
 			ToolbarItems.Remove(ToolbarItems[0]);
 
@@ -58,50 +142,9 @@ namespace Examples
 
 			ToolbarItems.Add(right);
 
-			LeftButtonVisibilityCommand = new Command(() =>
-			{
-				_leftVisible = !_leftVisible;
-				LeftToolbarItemVisible = _leftVisible;
-				OnPropertyChanged(nameof(LeftButtonVisibilityText));
-			});
-
-			RightButtonVisibilityCommand = new Command(() =>
-			{
-				_rightVisible = !_rightVisible;
-				RightToolbarItemVisible = _rightVisible;
-				OnPropertyChanged(nameof(RightButtonVisibilityText));
-
-			});
-
 			InitializeComponent();
 		}
 
-		protected override void OnAppearing()
-		{
-			base.OnAppearing();
-			Title = "this is the new title";
-			SubTitle = "This is the new subtitle";
-		}
-
-		public string LeftButtonVisibilityText
-		{
-			get
-			{
-				return _leftVisible ? "Hide Left Toolbar" : "Show Left Toolbar";
-			}
-		}
-
-		public string RightButtonVisibilityText
-		{
-			get
-			{
-				return _rightVisible ? "Hide Right Toolbar" : "Show Right Toolbar";
-			}
-		}
-
-		public ICommand LeftButtonVisibilityCommand { get; set; }
-
-		public ICommand RightButtonVisibilityCommand { get; set; }
 
 	}
 }

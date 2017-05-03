@@ -15,19 +15,34 @@ using Xamarin.Forms;
 using ChilliSource.Mobile.Core;
 using ChilliSource.Mobile.Media;
 using ChilliSource.Mobile.UI;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
-	public partial class VideoServiceExamplePage : ContentPage
+	public partial class VideoServiceExamplePage : BaseContentPage
 	{
 		IVideoService _videoService;
 
-		public VideoServiceExamplePage()
+		public VideoServiceExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
+			BindingContext = this;
+			SetupCommands();
 			InitializeComponent();
 
 			_videoService = DependencyService.Get<IVideoService>();
 		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
+		}
+
+		public IndexItem Item { get; set; }
 
 		/// <summary>
 		/// Handles the combine videos clicked.
@@ -37,7 +52,7 @@ namespace Examples
 		async void Handle_CombineVideosClicked(object sender, EventArgs e)
 		{
 #if __IOS__
-		
+
 
 
 			Global.Instance.HudService.Show();

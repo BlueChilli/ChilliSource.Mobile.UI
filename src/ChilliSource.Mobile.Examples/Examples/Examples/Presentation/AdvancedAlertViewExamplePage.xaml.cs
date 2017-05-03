@@ -20,9 +20,21 @@ namespace Examples
 {
 	public partial class AdvancedAlertViewExamplePage : BaseContentPage
 	{
-		public AdvancedAlertViewExamplePage()
+		public AdvancedAlertViewExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
 			BindingContext = this;
+			SetupCommands();
+			InitializeComponent();
+		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
 
 			ShowSuccessCommand = new Command(async () =>
 			{
@@ -74,8 +86,6 @@ namespace Examples
 					}
 				}, Color.Orange, "Custom", ThemeManager.AdvancedActionSheetTitleFont, alertType: AlertType.CustomImage, customImage: "Images/Misc/dogemedium");
 			});
-
-			InitializeComponent();
 		}
 
 		public ICommand ShowSuccessCommand { get; set; }
@@ -87,5 +97,7 @@ namespace Examples
 		public ICommand ShowWaitingCommand { get; set; }
 
 		public ICommand ShowCustomCommand { get; set; }
+
+		public IndexItem Item { get; set; }
 	}
 }

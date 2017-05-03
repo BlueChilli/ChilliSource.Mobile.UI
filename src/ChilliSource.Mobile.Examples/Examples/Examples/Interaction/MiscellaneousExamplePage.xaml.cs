@@ -15,14 +15,17 @@ using Xamarin.Forms;
 using ChilliSource.Mobile.Core;
 using ChilliSource.Mobile.UI;
 using System.Linq;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
 	public partial class MiscellaneousExamplePage : BaseContentPage
 	{
-		public MiscellaneousExamplePage()
+		public MiscellaneousExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
 			BindingContext = this;
+			SetupCommands();
 			InitializeComponent();
 		}
 
@@ -34,6 +37,16 @@ namespace Examples
 
 		public SeparatorOrientation Separator3Orientation { get; set; } = SeparatorOrientation.Vertical;
 
+		public IndexItem Item { get; set; }
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
+		}
 
 		void SegmentedControlItemChanged(object sender, System.EventArgs e)
 		{

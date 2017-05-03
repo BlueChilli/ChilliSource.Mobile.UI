@@ -15,7 +15,7 @@ using Xamarin.UITest.Queries;
 
 namespace Examples.UITests
 {
-    //[TestFixture(Platform.Android)]
+    [TestFixture(Platform.Android)]
     [TestFixture(Platform.iOS)]
     public class CarouselViewTests
     {
@@ -33,21 +33,19 @@ namespace Examples.UITests
             app = AppInitializer.StartApp(platform);
         }
 
+
         [Test]
         public void CarouselView_ShouldAllowSwipingBetweenItems()
         {
             //navigate to carousel example
-            app.WaitForElement(x => x.Marked("Index"));
-            app.Tap(x => x.Marked("Controls"));
+            app.Tap(x => x.Id("LetGoButton"));
+            app.Tap(x => x.Id("Images/Index/Pages"));
+            app.Tap(x => x.Marked("Great for onboarding and fun"));
+            app.WaitForElement(x => x.Marked("Carousel"));
 
-            app.WaitForElement(x => x.Marked("Controls Index"));
-            app.Tap(x => x.Marked("CarouselView"));
-
-            app.WaitForElement(x => x.Marked("Carousel View"));
             app.Screenshot("Carousel view screen");
 
             Assert.IsTrue(app.Query("Item 1").Any());
-
             app.SwipeRightToLeft();
             Assert.IsTrue(app.Query("Item 2").Any());
 

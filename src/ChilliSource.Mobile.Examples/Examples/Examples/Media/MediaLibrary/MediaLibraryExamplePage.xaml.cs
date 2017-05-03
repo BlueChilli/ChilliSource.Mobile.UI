@@ -16,6 +16,7 @@ using ChilliSource.Mobile.Media;
 using System.Threading.Tasks;
 using System.IO;
 using ChilliSource.Mobile.Core;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
@@ -32,15 +33,27 @@ namespace Examples
 			CaptureVideo
 		}
 
-		public MediaLibraryExamplePage()
+		public MediaLibraryExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
 			BindingContext = this;
+			SetupCommands();
 			InitializeComponent();
 			_mediaLibraryService = DependencyService.Get<IMediaLibraryService>();
 			_cameraService = DependencyService.Get<ICameraService>();
 		}
 
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
+		}
+
 		public bool LoadingIndicatorVisible { get; set; }
+		public IndexItem Item { get; set; }
 
 		protected override void OnAppearing()
 		{

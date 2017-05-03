@@ -14,20 +14,30 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Windows.Input;
 using ChilliSource.Mobile.UI;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
 	public partial class AnimationsExamplePage : BaseContentPage
 	{
-		public AnimationsExamplePage()
+
+		public AnimationsExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
+
 			BindingContext = this;
 			SetupCommands();
 			InitializeComponent();
 		}
 
+
 		void SetupCommands()
 		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
 			BounceCommand = new Command(() =>
 			{
 				ResetAnimations();
@@ -75,6 +85,7 @@ namespace Examples
 			BoxBounceAnimation.CancelAnimation();
 		}
 
+		public IndexItem Item { get; set; }
 		public ICommand BounceCommand { get; private set; }
 		public ICommand ScaleCommand { get; private set; }
 		public ICommand RotateCommand { get; private set; }

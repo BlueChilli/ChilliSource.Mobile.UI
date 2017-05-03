@@ -24,6 +24,7 @@ namespace Examples
 		public MainPage()
 		{
 			Title = "ChilliSource.Mobile";
+			ToolbarItems.Remove(ToolbarItems[1]);
 			BindingContext = this;
 			_items = ContentFactory.BuildIndexHierarchy();
 			InitializeComponent();

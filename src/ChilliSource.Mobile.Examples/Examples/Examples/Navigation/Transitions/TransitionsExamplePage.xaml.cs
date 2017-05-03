@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Windows.Input;
 using ChilliSource.Mobile.UI;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
@@ -21,11 +22,25 @@ namespace Examples
 	{
 		TransitionPage _transitionPage;
 
-		public TransitionsExamplePage()
+		public TransitionsExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
+
 			BindingContext = this;
 
 			_transitionPage = new TransitionPage();
+
+			SetupCommands();
+			InitializeComponent();
+		}
+
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
 
 			FadeCommand = new Command(async () =>
 			{
@@ -62,8 +77,9 @@ namespace Examples
 				await Navigation.PushAsyncWithTransition(_transitionPage, PageTransitionType.DoorSlide);
 			});
 
-			InitializeComponent();
 		}
+
+		public IndexItem Item { get; set; }
 
 		public ICommand FadeCommand { get; set; }
 

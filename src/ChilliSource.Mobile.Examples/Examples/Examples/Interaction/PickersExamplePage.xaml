@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <local:BaseContentPage
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="Examples.PickersExamplePage"
 	xmlns:local="clr-namespace:Examples"
 	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
-	Title="Pickers">
+	Title="{Binding Item.Title}">
 	<ContentPage.Content>
 		<StackLayout
 			HorizontalOptions="FillAndExpand"

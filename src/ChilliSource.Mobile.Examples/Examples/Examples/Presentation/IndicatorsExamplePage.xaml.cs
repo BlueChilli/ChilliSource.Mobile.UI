@@ -15,6 +15,7 @@ using Xamarin.Forms;
 using System.Windows.Input;
 using ChilliSource.Mobile.UI;
 using System.Threading.Tasks;
+using Rg.Plugins.Popup.Services;
 
 namespace Examples
 {
@@ -23,9 +24,11 @@ namespace Examples
 		HudService _hudService;
 		LoadingIndicatorView _loadingIndicator;
 
-		public IndicatorsExamplePage()
+		public IndicatorsExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
 			BindingContext = this;
+			SetupCommands();
 			InitializeComponent();
 			_loadingIndicator = new LoadingIndicatorView()
 			{
@@ -33,42 +36,41 @@ namespace Examples
 			};
 		}
 
-		public ICommand BannerCommand
+		void SetupCommands()
 		{
-			get
+
+			ToolbarItems[1].Command = new Command(() =>
 			{
-				return new Command(async () =>
-				{
-					await BannerView.DisplayToast("Much banner", ThemeManager.CellTitleFont, "dogesmall.png", Color.Orange, Navigation, BannerPosition.Top);
-				});
-			}
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
+
+			BannerCommand = new Command(async () =>
+			{
+				await BannerView.DisplayToast("Much banner", ThemeManager.CellTitleFont, "dogesmall.png", Color.Orange, Navigation, BannerPosition.Top);
+			});
+
+			HUD1Command = new Command(async () =>
+			{
+				_hudService = new HudService();
+				_hudService.Show("Hello there");
+				await Task.Delay(500);
+				_hudService.Dismiss();
+			});
+
+			HUD2Command = new Command(async () =>
+			{
+				mainStack.Children.Add(_loadingIndicator);
+				await Task.Delay(500);
+				mainStack.Children.Remove(_loadingIndicator);
+			});
 		}
 
-		public ICommand HUD1Command
-		{
-			get
-			{
-				return new Command(async () =>
-			   {
-				   _hudService = new HudService();
-				   _hudService.Show("Hello there");
-				   await Task.Delay(500);
-				   _hudService.Dismiss();
-			   });
-			}
-		}
 
-		public ICommand HUD2Command
-		{
-			get
-			{
-				return new Command(async () =>
-			   {
-				   mainStack.Children.Add(_loadingIndicator);
-				   await Task.Delay(500);
-				   mainStack.Children.Remove(_loadingIndicator);
-			   });
-			}
-		}
+		public IndexItem Item { get; set; }
+		public ICommand BannerCommand { get; set; }
+		public ICommand HUD1Command { get; set; }
+		public ICommand HUD2Command { get; set; }
+
 	}
 }

@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using ChilliSource.Mobile.Core;
 using ChilliSource.Mobile.UI;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace Examples
@@ -80,12 +81,15 @@ namespace Examples
 		public int PreloadCount => 1;
 	}
 
-	public partial class PagingBehaviorExamplePage : ContentPage
+	public partial class PagingBehaviorExamplePage : BaseContentPage
 	{
 		PageViewModel _vm;
 
-		public PagingBehaviorExamplePage()
+		public PagingBehaviorExamplePage(IndexItem indexItem)
 		{
+			Item = indexItem;
+			Title = Item.Title;
+			SetupCommands();
 			InitializeComponent();
 
 			_vm = new PageViewModel();
@@ -101,9 +105,20 @@ namespace Examples
 
 		}
 
+		void SetupCommands()
+		{
+			ToolbarItems[1].Command = new Command(() =>
+			{
+				PopupNavigation.PushAsync(new HelpDescriptionPopupPage(Title, Item.LongDescription));
+
+			});
+		}
+
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
 		}
+
+		public IndexItem Item { get; set; }
 	}
 }

@@ -9,7 +9,9 @@ See the LICENSE file in the project root for more information.
 #endregion
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Examples
 {
 	public partial class App : Application

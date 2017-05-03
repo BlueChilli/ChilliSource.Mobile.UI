@@ -16,8 +16,8 @@ namespace Examples
 {
 	public static class ThemeManager
 	{
-		private static Color GrayColor = Color.FromRgb(197, 198, 198);
-		private static Color GreyishBrownColor = Color.FromRgb(74, 74, 47);
+		public static Color GrayColor = Color.FromRgb(197, 198, 198);
+        public static Color GreyishBrownColor = Color.FromRgb(74, 74, 47);
 		public static Color OrangePink = Color.FromRgb(255, 113, 87);
 		public static Color LightGreyColor = Color.FromRgb(216, 216, 216);
 		public static Color IntroTitleColor = Color.FromRgb(70, 209, 194);
