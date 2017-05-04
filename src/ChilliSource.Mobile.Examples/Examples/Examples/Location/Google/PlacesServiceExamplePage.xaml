@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:GoogleExampleBasePage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.PlacesServiceExamplePage"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI">
+	<ContentPage.Content>
+		<StackLayout
+			Spacing="0">
+			<csmobileui:ExtendedSearchBar
+				x:Name="searchBar"
+				BackgroundColor="{x:Static local:ThemeManager.GrayColor}"
+				CancelButtonColor="Black"
+				TextColor="Black"
+				Placeholder="Search destination by name or address"
+				KeyboardTheme="Dark" />
+			<csmobileui:ExtendedListView
+				ItemsSource="{Binding Cells}"
+				HasUnevenRows="true"
+				BackgroundColor="White">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<local:AddressSearchCell />
+					</DataTemplate>
+				</ListView.ItemTemplate>
+				<ListView.Footer>
+					<StackLayout />
+				</ListView.Footer>
+			</csmobileui:ExtendedListView>
+		</StackLayout>
+	</ContentPage.Content>
+</local:GoogleExampleBasePage>

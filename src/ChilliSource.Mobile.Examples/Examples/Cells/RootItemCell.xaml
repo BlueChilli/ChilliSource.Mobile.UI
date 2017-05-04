@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<csmobileui:BaseCell
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.RootItemCell">
+	<csmobileui:ExtendedFrame
+		HorizontalOptions="FillAndExpand"
+		VerticalOptions="FillAndExpand"
+		CornerRadius="4"
+		HasShadow="false"
+		OutlineColor="{x:Static local:ThemeManager.LightGreyColor}"
+		HeightRequest="171"
+		WidthRequest="171"
+		BackgroundColor="{Binding BackgroundColor}">
+		<StackLayout
+			HorizontalOptions="CenterAndExpand"
+			VerticalOptions="CenterAndExpand"
+			Spacing="0">
+			<Image
+				Source="{Binding Image}"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand" />
+			<csmobileui:ExtendedLabel
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				HorizontalTextAlignment="Center"
+				Text="{Binding Title}"
+				CustomFont="{Binding CustomFont}" />
+		</StackLayout>
+	</csmobileui:ExtendedFrame>
+</csmobileui:BaseCell>

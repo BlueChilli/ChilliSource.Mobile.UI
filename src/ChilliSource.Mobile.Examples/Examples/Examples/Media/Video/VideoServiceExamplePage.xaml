@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.VideoServiceExamplePage"
+	xmlns:local="clr-namespace:Examples"
+	Title="{Binding Item.Title}">
+	<ContentPage.Content>
+		<StackLayout
+			Margin="20"
+			Spacing="10">
+			<Button
+				Text="Combine Videos"
+				Clicked="Handle_CombineVideosClicked" />
+		</StackLayout>
+	</ContentPage.Content>
+</local:BaseContentPage>

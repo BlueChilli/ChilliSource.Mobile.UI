@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<csmobileui:BaseCell
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	x:Class="Examples.AddressSearchCell">
+	<StackLayout
+		Padding="15,5,15,5"
+		Spacing="0"
+		VerticalOptions="FillAndExpand">
+		<csmobileui:ExtendedLabel
+			Text="{Binding Title}"
+			CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+	</StackLayout>
+</csmobileui:BaseCell>

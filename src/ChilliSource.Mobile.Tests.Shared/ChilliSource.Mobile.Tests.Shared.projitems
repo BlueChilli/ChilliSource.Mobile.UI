@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{445B2134-EEEA-462E-B355-67BF4DD3DF75}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ChilliSource.Mobile.Tests</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)ChilliSource.Mobile.UI.ReactiveUI\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ChilliSource.Mobile.UI.Core\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ChilliSource.Mobile.UI.ReactiveUI\ReactiveValidatableObjectTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChilliSource.Mobile.UI.Core\RepeatPassworRuleTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChilliSource.Mobile.UI.Core\GreatherThanEqualToValidationRuleTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChilliSource.Mobile.UI.Core\ValidatableObjectTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChilliSource.Mobile.UI.Core\ActionAsyncValidationRuleTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChilliSource.Mobile.UI.ReactiveUI\ReactiveRoutingStateTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChilliSource.Mobile.UI.Core\NavigationLocatorTests.cs" />
+  </ItemGroup>
+</Project>

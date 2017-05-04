@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	x:Class="Examples.MenuPage"
+	Title="Menu">
+	<ContentPage.Content>
+		<csmobileui:ExtendedFrame
+			CornerRadius="0"
+			Padding="0"
+			Margin="0,0,8,0">
+			<StackLayout
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				Spacing="0">
+				<csmobileui:ExtendedLabel
+					Margin="20,60,20,0"
+					Text="Welcome to ChilliSource Mobile"
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				<csmobileui:ExtendedLabel
+					Margin="20,0,20,20"
+					Text="{Binding Version}"
+					CustomFont="{x:Static local:ThemeManager.CellSubtitleFontOrange}" />
+				<csmobileui:SeparatorView
+					StrokeType="Solid"
+					Color="{x:Static local:ThemeManager.LightGreyColor}"
+					HorizontalOptions="FillAndExpand"
+					HeightRequest="1" />
+				<ListView
+					SeparatorColor="{x:Static local:ThemeManager.LightGreyColor}"
+					ItemsSource="{Binding Items}"
+					ItemTapped="Handle_ItemTapped"
+					HasUnevenRows="true"
+					RowHeight="40">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<local:MenuCell />
+						</DataTemplate>
+					</ListView.ItemTemplate>
+					<ListView.Footer>
+						<StackLayout />
+					</ListView.Footer>
+				</ListView>
+			</StackLayout>
+		</csmobileui:ExtendedFrame>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.InputsExamplePage"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	Title="{Binding Item.Title}">
+	<ContentPage.Content>
+		<ScrollView
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			Padding="20">
+			<StackLayout
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				Spacing="40">
+				<csmobileui:ExtendedSearchBar
+					BackgroundColor="Red"
+					PersistCancelButton="true"
+					HorizontalOptions="FillAndExpand"
+					Placeholder="This is a search bar :)"
+					PlaceholderColor="Teal" />
+				<csmobileui:ExtendedEditor
+					Placeholder="I have a maximum character length of 100"
+					AllowDynamicSizing="true"
+					CustomFont="{x:Static local:ThemeManager.AdvancedActionSheetTitleFont}"
+					HasBorder="true"
+					MaxLength="100" />
+				<csmobileui:FloatingLabelEntry
+					x:Name="floatingLabelEntry"
+					Placeholder="No numbers please"
+					FloatingLabelCustomFont="{x:Static local:ThemeManager.CellSubtitleFont}"
+					CustomPlaceholderFont="{x:Static local:ThemeManager.CellTitleFont}"
+					TextChanged="Handle_TextChanged"
+					csmobileui:LineEffect.HasLine="true"
+					csmobileui:LineEffect.LineColor="Green" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</local:BaseContentPage>

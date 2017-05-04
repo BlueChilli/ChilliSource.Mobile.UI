@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.ExtendedButtonExamplePage"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	Title="{Binding Item.Title}">
+	<ContentPage.Content>
+		<ScrollView
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			Padding="20">
+			<Label
+				TextColor="Aqua" />
+			<StackLayout
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				Spacing="20">
+				<csmobileui:ExtendedLabel
+					Text="Extended Button"
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				<csmobileui:ExtendedButton
+					Text="Simple Font Change"
+					CustomFont="{x:Static local:ThemeManager.ButtonNormalFont}"
+					PressedCustomFont="{x:Static local:ThemeManager.AdvancedActionSheetCancelFont}"
+					BackgroundColor="Black" />
+				<csmobileui:ExtendedButton
+					Text="{Binding LongPressText}"
+					CustomFont="{x:Static local:ThemeManager.ButtonNormalFont}"
+					EnableLongPress="true"
+					LongPressDuration="1"
+					PressedBackgroundColor="Lime"
+					BackgroundColor="Black"
+					LongPressFillDirection="{Binding FillDirection}"
+					TouchUpAfterLongPressCommand="{Binding LongPressCommand}" />
+				<csmobileui:ExtendedButton
+					Text="Content Alignment"
+					HorizontalContentAlignment="{Binding ContentAligment}"
+					CustomFont="{x:Static local:ThemeManager.ButtonNormalFont}"
+					BackgroundColor="Black"
+					Command="{Binding AligmentButtonCommand}" />
+				<csmobileui:ExtendedLabel
+					Text="Image Button"
+					CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+				<csmobileui:ImageButtonView
+					DefaultSource="{Binding ImageButtonSource}"
+					Command="{Binding ImageButtonCommand}" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</local:BaseContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>ChilliSource.Mobile.UI.Core</id>
+    <version>$version$</version>
+    <title>ChilliSource Mobile UI Core</title>
+    <description>ChilliSource Mobile UI  Core</description>
+     <authors>$authors$</authors>
+    <owners>$owners$</owners>
+    <requireLicenseAcceptance>$requireLicenseAcceptance$</requireLicenseAcceptance>
+    <copyright>$copyright$</copyright>
+    <projectUrl>$projectUrl$</projectUrl>    
+    <licenseUrl>$licenceUrl$</licenseUrl>
+    <releaseNotes>$releaseNotes$</releaseNotes>
+    <tags>$tags$</tags>
+
+    <dependencies>
+      <group>
+        <dependency id="ChilliSource.Mobile.Core" version="1.0.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- Android -->
+    <file src="ChilliSource.Mobile.UI.Core.Droid/bin/ChilliSource.Mobile.UI.Core.dll" target="lib/MonoAndroid403/ChilliSource.Mobile.UI.Core.dll" />
+
+    <!-- iOS -->
+    <file src="ChilliSource.Mobile.UI.Core.iOS/bin/ChilliSource.Mobile.UI.Core.dll" target="lib/Xamarin.iOS10/ChilliSource.Mobile.UI.Core.dll" />
+
+  </files>
+</package>

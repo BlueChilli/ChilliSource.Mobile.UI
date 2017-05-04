@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns ="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Examples"
+	x:Class="Examples.PagingBehaviorExamplePage">
+	<ContentPage.Content>
+		<ListView 
+			CachingStrategy="RecycleElement"
+			ItemsSource="{Binding Items}"
+				x:Name="listView">
+			
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Orientation="Vertical" Padding="10">
+							<Label Text="{Binding Text}" HorizontalOptions="FillAndExpand"/>
+						</StackLayout>
+					</ViewCell>
+
+				</DataTemplate>
+			</ListView.ItemTemplate>
+			<ListView.Footer>
+				<ActivityIndicator IsRunning="true" IsVisible="{Binding IsPaging}"/>
+			</ListView.Footer>
+		</ListView>
+	</ContentPage.Content>
+</local:BaseContentPage>

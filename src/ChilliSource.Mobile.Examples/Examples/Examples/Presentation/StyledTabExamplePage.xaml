@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseTabPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.StyledTabExamplePage"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	Title="{Binding Item.Title}">
+	<ContentPage
+		Title="Item 1">
+		<StackLayout
+			HorizontalOptions="CenterAndExpand"
+			VerticalOptions="CenterAndExpand">
+			<csmobileui:ExtendedLabel
+				Text="Page 1"
+				CustomFont="{x:Static local:ThemeManager.CellTitleFont}"
+				HorizontalTextAlignment="Center" />
+			<csmobileui:ExtendedButton
+				Text="Increase Badge Count"
+				Command="{Binding IncreaseBadgeCommand}" />
+			<csmobileui:ExtendedButton
+				Text="Decrease Badge Count"
+				Command="{Binding DecreaseBadgeCommand}" />
+		</StackLayout>
+	</ContentPage>
+	<ContentPage
+		Title="Item 2">
+		<StackLayout
+			HorizontalOptions="CenterAndExpand"
+			VerticalOptions="CenterAndExpand">
+			<csmobileui:ExtendedLabel
+				Text="Page 2"
+				CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+		</StackLayout>
+	</ContentPage>
+	<ContentPage
+		Title="Item 3">
+		<StackLayout
+			HorizontalOptions="CenterAndExpand"
+			VerticalOptions="CenterAndExpand">
+			<csmobileui:ExtendedLabel
+				Text="Page 3"
+				CustomFont="{x:Static local:ThemeManager.CellTitleFont}" />
+		</StackLayout>
+	</ContentPage>
+</local:BaseTabPage>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>ChilliSource.Mobile.UI.ReactiveUI</id>
+    <version>$version$</version>
+    <title>ChilliSource Mobile ReactiveUI</title>
+    <description>ReactiveUI Plugin</description>
+    <authors>$authors$</authors>
+    <owners>$owners$</owners>
+    <requireLicenseAcceptance>$requireLicenseAcceptance$</requireLicenseAcceptance>
+    <copyright>$copyright$</copyright>
+    <projectUrl>$projectUrl$</projectUrl>    
+    <licenseUrl>$licenceUrl$</licenseUrl>
+    <releaseNotes>$releaseNotes$</releaseNotes>
+    <tags>$tags$</tags>
+    <dependencies>
+      <group>
+        <dependency id="ChilliSource.Mobile.Core" version="1.0.0" />
+        <dependency id="ChilliSource.Mobile.UI" version="1.0.0" />
+        <dependency id="Xamarin.Forms" version="2.3.2.127" />
+        <dependency id="reactiveui" version="7.0.0" />
+        <dependency id="reactiveui-xamforms" version="7.0.0" />
+        <dependency id="reactiveui-events-xamforms" version="7.0.0" />
+        <dependency id="DynamicData" version="4.10.1.1194" />
+        <dependency id="System.Reactive.PlatformServices" version="3.1.1" />
+        <dependency id="Splat" version="1.4.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+       <!-- Android -->
+    <file src="ChilliSource.Mobile.UI.ReactiveUI.Droid/bin/ChilliSource.Mobile.UI.ReactiveUI.dll" target="lib/MonoAndroid403/ChilliSource.Mobile.ReactiveUI.dll" />
+
+    <!-- iOS -->
+    <file src="ChilliSource.Mobile.UI.ReactiveUI.iOS/bin/ChilliSource.Mobile.UI.ReactiveUI.dll" target="lib/Xamarin.iOS10/ChilliSource.Mobile.ReactiveUI.dll" />
+
+  </files>
+</package>

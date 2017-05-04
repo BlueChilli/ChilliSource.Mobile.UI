@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Examples"
+	x:Class="Examples.TransitionPage"
+	BackgroundColor="Lime">
+	<ContentPage.Content>
+		<StackLayout
+			HorizontalOptions="CenterAndExpand"
+			VerticalOptions="CenterAndExpand">
+			<Button
+				Text="Back"
+			Clicked="BackButtonClicked"/>
+			<BoxView
+				BackgroundColor="{x:Static local:ThemeManager.OrangePink}"
+				WidthRequest="150"
+				HeightRequest="150" />
+		</StackLayout>
+	</ContentPage.Content>
+</local:BaseContentPage>

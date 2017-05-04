@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	x:Class="Examples.ImagesExamplePage"
+	Title="{Binding Item.Title}">
+	<ContentPage.Content>
+		<StackLayout
+			Margin="70"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand">
+			<csmobileui:CircledImage
+				Source="Images/Misc/doge.png"
+				Aspect="AspectFit" />
+			<Image
+				Source="Images/Misc/doge.png"
+				Aspect="AspectFit">
+				<Image.Effects>
+					<csmobileui:ImageBlurEffect
+						Radius="5"
+						BlurTransitionDuration="0.5"
+						HideImageUntilBlurred="true" />
+				</Image.Effects>
+			</Image>
+		</StackLayout>
+	</ContentPage.Content>
+</local:BaseContentPage>

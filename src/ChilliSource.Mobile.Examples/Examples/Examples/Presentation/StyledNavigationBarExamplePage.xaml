@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<examples:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	xmlns:examples="clr-namespace:Examples;assembly=Examples"
+	x:Class="Examples.StyledNavigationBarExamplePage"
+    Title="{Binding Title}"
+    LeftToolbarItemVisible="{Binding IsLeftToolBarItemVisible}"
+    RightToolbarItemVisible="{Binding IsRightToolBarItemVisible}"
+    >
+	<ContentPage.Content>
+		<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="CenterAndExpand">
+			<csmobileui:ExtendedButton
+				Text="{Binding LeftButtonText}"
+				Command="{Binding LeftButtonVisibilityCommand }" />
+			<csmobileui:ExtendedButton
+				Text="{Binding RightButtonText}"
+				Command="{Binding RightButtonVisibilityCommand }" />
+
+            <csmobileui:ExtendedButton
+                Text="ChangeTitle"
+                Command="{Binding ChangeTitleCommand }" />
+
+
+            <csmobileui:ExtendedButton
+                Text="ChangeSubTitle"
+                Command="{Binding ChangeSubTitleCommand}" />
+
+        </StackLayout>
+	</ContentPage.Content>
+</examples:BaseContentPage>

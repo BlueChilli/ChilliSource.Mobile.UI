@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	Title="{Binding Item.Title}"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.ShapeExamplePage">
+	<ContentPage.Content>
+		<Grid
+			RowSpacing="20">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="50" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="50" />
+				<RowDefinition
+					Height="50" />
+				<RowDefinition
+					Height="50" />
+				<RowDefinition
+					Height="50" />
+				<RowDefinition
+					Height="50" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<csmobileui:ShapeView
+				Grid.Row="1"
+				Grid.Column="1"
+				ShapeType="Circle"
+				BorderColor="Blue"
+				FillColor="Gray"
+				BorderWidth="{Binding BorderWidth}" />
+			<csmobileui:ShapeView
+				Grid.Row="2"
+				Grid.Column="1"
+				Margin="5,5,5,5"
+				ShapeType="Rectangle"
+				BorderColor="Green"
+				FillColor="Yellow"
+				BorderWidth="{Binding BorderWidth}" />
+			<csmobileui:ShapeView
+				Grid.Row="3"
+				Grid.Column="1"
+				ShapeType="Rectangle"
+				BorderColor="Red"
+				FillColor="Aqua"
+				BorderWidth="{Binding BorderWidth}" />
+			<csmobileui:ShapeView
+				Grid.Row="4"
+				Grid.Column="1"
+				ShapeType="Triangle"
+				BorderColor="Fuchsia"
+				FillColor="Lime"
+				BorderWidth="{Binding BorderWidth}" />
+			<Slider
+				Grid.Row="6"
+				Grid.Column="0"
+				Grid.ColumnSpan="3"
+				Margin="20,0,20,0"
+				Value="0.5"
+				Minimum="0"
+				Maximum="1"
+				ValueChanged="Handle_ValueChanged" />
+		</Grid>
+	</ContentPage.Content>
+</local:BaseContentPage>

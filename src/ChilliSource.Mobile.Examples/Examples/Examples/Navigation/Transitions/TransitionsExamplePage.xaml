@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Examples.TransitionsExamplePage"
+	xmlns:local="clr-namespace:Examples"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	Title="{Binding Item.Title}">
+	<ContentPage.Content>
+		<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="CenterAndExpand">
+			<csmobileui:ExtendedButton
+				Text="Fade"
+				CustomFont="{x:Static local:ThemeManager.CellTitleFont}"
+				Command="{Binding FadeCommand}" />
+			<csmobileui:ExtendedButton
+				Text="Fade and Zoom"
+				CustomFont="{x:Static local:ThemeManager.CellTitleFont}"
+				Command="{Binding FadeAndZoomCommand}" />
+			<csmobileui:ExtendedButton
+				Text="Swipe"
+				CustomFont="{x:Static local:ThemeManager.CellTitleFont}"
+				Command="{Binding SwipeCommand}" />
+			<csmobileui:ExtendedButton
+				Text="Door Slide"
+				CustomFont="{x:Static local:ThemeManager.CellTitleFont}"
+				Command="{Binding DoorSlideCommand}" />
+		</StackLayout>
+	</ContentPage.Content>
+</local:BaseContentPage>
