@@ -1,7 +1,7 @@
-# Contributing to ChilliSource.Mobile.Location #
+# Contributing to ChilliSource.Mobile.UI #
 
-Your contributions to ChilliSource.Mobile.Location are very welcome. Please grab and fix bugs and feature requests from the list of [issues](https://github.com/BlueChilli/ChilliSource.Mobile.Location/issues)
-To report a bug or feature request, please log a new issue [here](https://github.com/BlueChilli/ChilliSource.Mobile.Location/issues).
+Your contributions to ChilliSource.Mobile.UI are very welcome. Please grab and fix bugs and feature requests from the list of [issues](https://github.com/BlueChilli/ChilliSource.Mobile.UI/issues)
+To report a bug or feature request, please log a new issue [here](https://github.com/BlueChilli/ChilliSource.Mobile.UI/issues).
 
 ## Contribution Guide ##
 
