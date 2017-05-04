@@ -26,12 +26,7 @@ namespace Examples.UITests
                 return ConfigureApp.Android.StartApp();
 			}
 
-#if __TEST__
-            var deviceId = "7279EAB6-1ED4-477B-9647-09BB2CB9ED26"
-            return ConfigureApp.iOS.DeviceIdentifier(deviceId).StartApp();
-#else
-			return ConfigureApp.iOS.StartApp();
-#endif
+            return ConfigureApp.iOS.StartApp();
 		}
 
         public static void ResetSimulator(string deviceId, Platform platform) {
