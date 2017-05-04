@@ -4,7 +4,7 @@
 	"githubOwner": "BlueChilli",
 	"githubRepository": "ChilliSource.Mobile.UI",
 	"packageWhiteList": ["ChilliSource.Mobile.UI", "ChilliSource.Mobile.UI.Core", "ChilliSource.Mobile.UI.ReactiveUI"],
-	"solutionFile" : "../src/ChilliSource.Mobile.UI.sln",
+	"solutionFile" : "../src/ChilliSource.Mobile.UI.Build.sln",
 	"tags": [ "ChilliSource", "ChilliSource Mobile UI", "ReactiveUI"],
 	"authors" : ["Blue Chilli Technology Pty Ltd"],
 	"copyright" : "Copyright Blue Chilli Technology Pty Ltd 2017",

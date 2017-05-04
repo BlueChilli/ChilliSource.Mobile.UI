@@ -35,20 +35,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Droid\Examples.Droid.csproj">
-      <Project>{CA615D64-177F-419F-ADC9-BED5A32A5E6C}</Project>
-      <Name>Examples.Droid</Name>
-      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\iOS\Examples.iOS.csproj">
-      <Project>{4270B305-C383-4F49-BE45-AC17435094D5}</Project>
-      <Name>Examples.iOS</Name>
-      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="AppInitializer.cs" />
     <Compile Include="ChilliSource.Mobile.UI\CarouselViewTests.cs" />
     <Compile Include="ChilliSource.Mobile.UI\StyledNavigationTests.cs" />
