@@ -12,13 +12,23 @@
     <MonoDevelop>
       <Properties>
         <Policies>
-          <TextStylePolicy FileWidth="80" TabWidth="8" TabsToSpaces="False" IndentWidth="8" RemoveTrailingWhitespace="True" NoTabsAfterNonTabs="False" EolMarker="Native" inheritsSet="Mono" inheritsScope="text/plain" scope="application/xaml+xml" />
-          <XmlFormattingPolicy inheritsSet="Mono" inheritsScope="application/xml" scope="application/xaml+xml">
+          <TextStylePolicy TabsToSpaces="False" RemoveTrailingWhitespace="True" NoTabsAfterNonTabs="False" EolMarker="Native" FileWidth="80" TabWidth="8" IndentWidth="8" scope="application/xaml+xml">
+            <inheritsSet />
+            <inheritsScope />
+          </TextStylePolicy>
+          <XmlFormattingPolicy scope="application/xaml+xml">
             <DefaultFormat AttributesInNewLine="True" WrapAttributes="True" AlignAttributes="True" AlignAttributeValues="True" />
+            <inheritsSet />
+            <inheritsScope />
           </XmlFormattingPolicy>
-          <TextStylePolicy FileWidth="80" TabWidth="4" IndentWidth="4" RemoveTrailingWhitespace="True" NoTabsAfterNonTabs="False" EolMarker="Native" TabsToSpaces="False" inheritsSet="VisualStudio" inheritsScope="text/plain" scope="application/xml" />
-          <XmlFormattingPolicy inheritsSet="Mono" inheritsScope="application/xml" scope="application/xml">
+          <TextStylePolicy TabWidth="4" TabsToSpaces="False" IndentWidth="4" RemoveTrailingWhitespace="True" NoTabsAfterNonTabs="False" EolMarker="Native" FileWidth="80" scope="application/xml">
+            <inheritsSet />
+            <inheritsScope />
+          </TextStylePolicy>
+          <XmlFormattingPolicy scope="application/xml">
             <DefaultFormat AttributesInNewLine="True" WrapAttributes="True" AlignAttributes="True" AlignAttributeValues="True" />
+            <inheritsSet />
+            <inheritsScope />
           </XmlFormattingPolicy>
         </Policies>
       </Properties>

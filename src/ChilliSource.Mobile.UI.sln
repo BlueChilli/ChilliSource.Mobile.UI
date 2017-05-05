@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.iOS", "ChilliSourc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChilliSource.Mobile.UI", "ChilliSource.Mobile.UI", "{1F028E32-6BBF-4BE2-89DC-B5DC8DD98096}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChilliSource.Mobile.Ui.Core", "ChilliSource.Mobile.Ui.Core", "{40F91C7A-BFB8-4414-A8B0-C741EDB25C49}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChilliSource.Mobile.UI.Core", "ChilliSource.Mobile.UI.Core", "{40F91C7A-BFB8-4414-A8B0-C741EDB25C49}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChilliSource.Mobile.UI.ReactiveUI", "ChilliSource.Mobile.UI.ReactiveUI", "{75CBCF65-00BF-48D4-BC88-9A9FBE82C5C1}"
 EndProject
