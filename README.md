@@ -6,7 +6,7 @@ This project is part of the ChilliSource framework developed by [BlueChilli](htt
 
 ### Summary ###
 
-ChilliSource.Mobile.UI is a collection of .NET Standard libraries containing reusable helpers, extensions, and abstractions that are shared across all .NET based ChilliSource frameworks. 
+ChilliSource.Mobile.UI is a collection of reusable UI components, extensions, and abstractions that are shared across all .NET based ChilliSource frameworks. 
 
 ### Installation ###
 
