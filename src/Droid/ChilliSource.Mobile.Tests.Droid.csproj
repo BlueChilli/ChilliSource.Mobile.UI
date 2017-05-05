@@ -162,6 +162,19 @@
     <Reference Include="ReactiveUI.Testing">
       <HintPath>..\packages\reactiveui-testing.7.2.1\lib\MonoAndroid403\ReactiveUI.Testing.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mindscape.Raygun4Net.Xamarin.Android">
+      <HintPath>..\packages\Mindscape.Raygun4Net.5.4.0\lib\MonoAndroid2.2\Mindscape.Raygun4Net.Xamarin.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>..\packages\Serilog.2.4.0\lib\netstandard1.3\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console">
+      <HintPath>..\packages\Serilog.Sinks.Console.2.1.0\lib\netstandard1.3\Serilog.Sinks.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="ChilliSource.Mobile.Logging">
+      <HintPath>..\packages\ChilliSource.Mobile.Logging.1.0.0\lib\MonoAndroid403\ChilliSource.Mobile.Logging.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
