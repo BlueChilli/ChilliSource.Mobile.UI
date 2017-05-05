@@ -91,7 +91,7 @@ var isRepository = StringComparer.OrdinalIgnoreCase.Equals(productName, projectN
 var isTagged = !String.IsNullOrEmpty(branch) && branch.ToUpper().Contains("TAGS");
 var buildConfName = EnvironmentVariable("TEAMCITY_BUILDCONF_NAME"); //teamCity.Environment.Build.BuildConfName
 var buildNumber = GetEnvironmentInteger("BUILD_NUMBER");
-var isReleaseBranch = StringComparer.OrdinalIgnoreCase.Equals("master", buildConfName);
+var isReleaseBranch = StringComparer.OrdinalIgnoreCase.Equals("master", buildConfName) || StringComparer.OrdinalIgnoreCase.Equals("Release", buildConfName);
 
 var shouldAddLicenseHeader = false;
 if(!string.IsNullOrEmpty(EnvironmentVariable("ShouldAddLicenseHeader"))) {
