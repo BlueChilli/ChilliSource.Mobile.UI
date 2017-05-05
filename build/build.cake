@@ -689,7 +689,7 @@ Task("CreateRelease")
     .WithCriteria(() => isRepository)
     .WithCriteria(() => isReleaseBranch)
     .WithCriteria(() => !isTagged)
-//    .WithCriteria(() => isRunningOnWindows)
+    .WithCriteria(() => isRunningOnWindows)
     .Does (() =>
 {
 	using(BuildBlock("CreateRelease"))
@@ -729,7 +729,7 @@ Task("PublishRelease")
     .WithCriteria(() => isRepository)
     .WithCriteria(() => isReleaseBranch)
     .WithCriteria(() => isTagged)
-  //  .WithCriteria(() => isRunningOnWindows)
+    .WithCriteria(() => isRunningOnWindows)
     .Does (() =>
 {
 	using(BuildBlock("PublishRelease"))
