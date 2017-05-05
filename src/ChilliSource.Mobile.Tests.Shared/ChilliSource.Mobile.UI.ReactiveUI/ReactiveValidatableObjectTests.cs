@@ -86,11 +86,11 @@ namespace ChilliSource.ReactiveUI
 
 			Assert.True(v.IsValid);
 			v.Validate();
-			Assert.False(v.IsValid);
 
             v.Errors.CollectionChanged += (sender, e) =>
             {
-                Assert.Equal(2, v.Errors.Count);
+				Assert.False(v.IsValid);
+				Assert.Equal(2, v.Errors.Count);
                 Assert.Equal("Email must not be empty", v.Errors[0]);
             };
 		}
@@ -123,10 +123,10 @@ namespace ChilliSource.ReactiveUI
 			Assert.True(v.IsValid);
 			v.Value = "test@test.com";
 			await v.ValidateAsync();
-			Assert.False(v.IsValid);
             v.Errors.CollectionChanged += (sender, e) =>
            {
-               Assert.True(v.Errors.Contains("You have entered an invalid email"));
+			   Assert.False(v.IsValid);
+			   Assert.True(v.Errors.Contains("You have entered an invalid email"));
            };
 		}
 
