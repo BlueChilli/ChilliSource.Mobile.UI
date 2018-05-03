@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+	xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+	x:Class="ChilliSource.Mobile.UI.AdvancedAlertView">
+	<RelativeLayout
+		x:Name="topLevelLayout"
+		HorizontalOptions="FillAndExpand"
+		VerticalOptions="CenterAndExpand"
+		Margin="40">
+		<Frame
+			x:Name="mainFrame"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="CenterAndExpand"
+			BackgroundColor="White"
+			HasShadow="false"
+			Padding="0,30,0,0"
+			RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+			RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+			<StackLayout
+				x:Name="contentLayout"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				Margin="10"
+				Spacing="10">
+				<csmobileui:ExtendedLabel
+					HorizontalTextAlignment="Center"
+					Text="{Binding TitleString}"
+					CustomFont="{Binding TitleFont}"                    
+                />
+				<csmobileui:ExtendedLabel
+					HorizontalTextAlignment="Center"
+					Text="{Binding ContentString}"                   
+					CustomFont="{Binding ContentFont}" 
+                    Margin="10,0,10,0"/>
+			</StackLayout>
+		</Frame>
+		<RelativeLayout
+			x:Name="circleLayout"
+			WidthRequest="75"
+			HeightRequest="75">
+			<csmobileui:ShapeView
+				x:Name="outerCircle"
+				ShapeType="Circle"
+				FillColor="White"
+				BorderColor="White"
+				BorderWidth="0"
+				BackgroundColor="Transparent"
+				RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=0}" />
+			<RelativeLayout
+				x:Name="defaultLayout">
+				<csmobileui:ShapeView
+					ShapeType="Circle"
+					FillColor="{Binding AccentColor}"
+					BorderColor="White"
+					BorderWidth="0"
+					BackgroundColor="Transparent"
+					RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+					RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=0}" />
+			</RelativeLayout>
+			<csmobileui:CircledImage
+				IsVisible="{Binding CustomImageOnlyVisible}"
+				Source="{Binding CustomImageSource}"
+				WidthRequest="65"
+				HeightRequest="65"
+				Aspect="AspectFill"
+				RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,ElementName=outerCircle,Property=X,Factor=1,Constant=5}"
+				RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=outerCircle,Property=Y,Factor=1,Constant=5}" />
+		</RelativeLayout>
+	</RelativeLayout>
+</pages:PopupPage>

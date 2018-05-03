@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+    xmlns:csmobileui="clr-namespace:ChilliSource.Mobile.UI;assembly=ChilliSource.Mobile.UI"
+    x:Class="ChilliSource.Mobile.UI.AdvancedActionSheet">
+	<StackLayout 
+        HorizontalOptions="FillAndExpand" 
+        VerticalOptions="EndAndExpand" 
+        BackgroundColor="{Binding Color}">
+		<Frame 
+            BackgroundColor="Transparent" 
+            HasShadow="false">
+			<StackLayout 
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand" 
+                Spacing="10">
+				<Frame 
+                    Padding="0" 
+                    HasShadow="false">
+					<StackLayout 
+                        Margin="0,5,0,5" 
+                        x:Name="buttonStack" 
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="FillAndExpand" 
+                        Spacing="1" 
+                        BackgroundColor="Silver">
+					<csmobileui:ExtendedLabel 
+                        BackgroundColor="White" 
+                        CustomFont="{Binding TitleFont}" 
+                        HeightRequest="40" 
+                        IsVisible="{Binding TitleVisible}" 
+                        HorizontalTextAlignment="Center" 
+                        VerticalTextAlignment="Center" 
+                        Text="{Binding TitleText}" />
+					</StackLayout>
+				</Frame>
+				<csmobileui:ExtendedButton 
+                BorderRadius="5" 
+                Text="{Binding CancelText}" 
+                CustomFont="{Binding CancelFont}" 
+                HeightRequest="50" 
+                IsVisible="{Binding CancelButtonVisible}" 
+                BackgroundColor="White" 
+                Command="{Binding CancelCommand}" />
+			</StackLayout>
+		</Frame>
+	</StackLayout>
+</pages:PopupPage>

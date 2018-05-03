@@ -1,0 +1,127 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;xamarin.ios10;monoandroid44;monoandroid8.1</TargetFrameworks>
+    <PackageId>ChilliSource.Mobile.UI.ReactiveUI</PackageId>
+    <Product>Blue Chilli Technology</Product>
+    <Description>ReactiveUI Extensions Library for ChilliSource.Mobile framework</Description>
+    <RepositoryUrl>https://github.com/BlueChilli/ChilliSource.Mobile.UI</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/BlueChilli/ChilliSource.Mobile.UI/blob/master/LICENSE</PackageLicenseUrl>
+    <Company>Blue Chilli Technology</Company>
+    <Authors>Blue Chilli Technology</Authors>
+    <PackageReleaseNotes>https://github.com/BlueChilli/ChilliSource.Mobile.UI/releases</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/BlueChilli/ChilliSource.Mobile.UI</PackageProjectUrl>
+    <PackageIconUrl />
+    <RootNamespace>ChilliSource.Mobile.UI.ReactiveUI</RootNamespace>
+    <AssemblyName>ChilliSource.Mobile.UI.ReactiveUI</AssemblyName>
+    <DebugType>full</DebugType>
+    <DefineConstants>$(DefineConstants);</DefineConstants>
+    <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
+    <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
+    <OutputType>Library</OutputType>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
+    <TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidApplication>true</AndroidApplication>
+    <OutputType>Library</OutputType>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <AndroidTlsProvider>
+    </AndroidTlsProvider>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Platforms\**" />
+    <Compile Remove="Resources\**" />
+    <None Include="Platforms\**" />
+    <None Include="Resources\**" />
+    <Compile Remove="Collections\IObservableDynamicDataRangeCollection.cs" />
+    <Compile Remove="Collections\IObservableDynamicDataRangeCollectionExtensions.cs" />
+    <Compile Remove="Collections\ObservableDynamicDataRangeCollection.cs" />
+    <Compile Remove="Collections\ObservableListToObservableDynamicDataRangeCollectionAdapter.cs" />
+    <Compile Remove="Extensions\ObservableDynamicDataExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'xamarin.ios10'">
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Compile Include="Platforms\iOS\**\*.cs" />
+    <!-- <PackageReference Include="reactiveui" Version="7.4.0" />
+    <PackageReference Include="reactiveui-events-xamForms" Version="7.4.0" />
+    <PackageReference Include="reactiveui-xamforms" Version="7.4.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.0.4" /> -->
+  </ItemGroup>
+
+   <ItemGroup Condition=" '$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
+    <AndroidResource Include="Resources\**\*.xml" />
+    <AndroidResource Include="Resources\**\*.axml" />
+  </ItemGroup>  
+
+  
+  <ItemGroup Condition=" '$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
+    <Reference Include="Mono.Android" />
+    <Reference Include="System" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+    <EmbeddedResource Include="**\*.xaml" />
+    <Compile Include="Resources\**\*.cs" />
+    <None Include="Resources\AboutResources.txt" />
+    <Compile Include="Platforms\Android\**\*.cs" />
+    <!-- <PackageReference Include="reactiveui" Version="7.4.0" />
+    <PackageReference Include="reactiveui-androidsupport" Version="7.4.0" />
+    <PackageReference Include="reactiveui-events-xamForms" Version="7.4.0" />
+    <PackageReference Include="reactiveui-xamforms" Version="7.4.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.0.4" /> -->
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <!--<PackageReference Include="ReactiveUI" Version="8.0.0-alpha0117" />
+    <PackageReference Include="ReactiveUI.Events.XamForms" Version="8.0.0-alpha0117" />
+    <PackageReference Include="ReactiveUI.XamForms" Version="8.0.0-alpha0117" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.4.145-pre" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.2.2" PrivateAssets="All" />
+    <PackageReference Include="ReactiveUI" Version="8.0.0" />
+    <PackageReference Include="ReactiveUI.Events.XamForms" Version="8.0.0" />
+    <PackageReference Include="ReactiveUI.XamForms" Version="8.0.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.4.145-pre" />    
+    <PackageReference Include="ChilliSource.Mobile.Core" Version="2.0.0" />
+    <PackageReference Include="ChilliSource.Mobile.Logging" Version="2.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChilliSource.Mobile.UI\ChilliSource.Mobile.UI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+  
+    
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+  
+</Project>

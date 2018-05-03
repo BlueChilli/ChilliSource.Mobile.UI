@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="SegmentedControlOption" parent="@android:style/Widget.CompoundButton.RadioButton">
+		<item name="android:gravity">center</item>
+		<item name="android:button">@null</item>
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:minWidth">85dp</item>
+		<item name="android:minHeight">24dp</item>
+		<item name="android:textSize">14sp</item>
+		<item name="android:stretchColumns">0</item>
+	</style>
+</resources>
