@@ -103,7 +103,9 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
         }
            
 
-        public IObservable<Unit> PushPopup(IPopModalViewModel viewModel, string contract,  bool animate)
+        public IObservable<Unit> PushPopup(IPopModalViewModel viewModel, 
+            string contract,  
+            bool animate)
         {
             Ensure.ArgumentNotNull(viewModel, nameof(viewModel));
 
@@ -120,24 +122,38 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                     .Where(IsPopupPage)
                     .SelectMany(
                             page =>
-                                this.Navigation
+                                {
+                                    return this.Navigation
                                         .PushPopupAsync((PopupPage) page, animate)
-                                        .ToObservable());
+                                        .ToObservable();
+                                });
 
         }
 
         public IObservable<Unit> PopPopup(
-                bool animate)
+                bool animate,
+                bool resetStack)
         {
             if(PopupNavigation.Instance.PopupStack.Count > 0)
             {
-                   return this
+                  if(resetStack) {
+                       return this
+                        .Navigation
+                        .PopAllPopupAsync(animate)
+                        .ToObservable()
+                        .Select(_ => Unit.Default)
+                        // XF completes the pop operation on a background thread :/
+                        .ObserveOn(this._mainScheduler);
+                  }
+                  else {
+                       return this
                         .Navigation
                         .PopPopupAsync(animate)
                         .ToObservable()
                         .Select(_ => Unit.Default)
                         // XF completes the pop operation on a background thread :/
                         .ObserveOn(this._mainScheduler);
+                  }
             }
             else
             {

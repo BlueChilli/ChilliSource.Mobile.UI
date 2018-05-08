@@ -66,7 +66,8 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                 bool animate);
 
         IObservable<Unit> PopPopup(
-                bool animate);
+                bool animate,
+                bool resetStac);
 
     }
 
@@ -115,7 +116,8 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                 string contract = null,
                 bool animate = true);
 
-        IObservable<Unit> PopPopup(bool animate = true);
+        IObservable<Unit> PopPopup(bool animate = true,
+          bool resetStack = false);
       
         bool HasPageInStack { get; }
         bool HasModalInStack { get; }

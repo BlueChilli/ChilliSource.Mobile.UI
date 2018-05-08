@@ -102,7 +102,8 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                         _logger.Debug("Removed modal '{0}' from stack.", removedModal.Title);
                     });
 
-        public IObservable<Unit> PushPopup(IPopModalViewModel page, string contract = null, bool animate = true)
+        public IObservable<Unit> PushPopup(IPopModalViewModel page, string contract = null,
+         bool animate = true)
         {
             Ensure.ArgumentNotNull(page, nameof(page));
 
@@ -117,14 +118,22 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                             });
         }
 
-        public IObservable<Unit> PopPopup(bool animate = true) =>
+        public IObservable<Unit> PopPopup(bool animate = true, bool resetStack = false) =>
          this
             ._view
-            .PopPopup(animate)
+            .PopPopup(animate, resetStack)
             .Do(
                     _ =>
                     {
-                       this._popmodalStack.OnNext(ImmutableList<IPopModalViewModel>.Empty);
+                       if(resetStack) 
+                       {
+                         PopAllStackAndTick(this._popmodalStack);
+                       }
+                       else 
+                       {
+                          var removedModal = PopStackAndTick(this._popmodalStack);
+                       }
+
                        _logger.Debug("Removed all pop modal from stack.");
                     });
 
@@ -161,6 +170,11 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
             stack = stack.RemoveAt(stack.Count - 1);
             stackSubject.OnNext(stack);
             return removedItem;
+        }
+
+        private static void PopAllStackAndTick<T>(BehaviorSubject<IImmutableList<T>> stackSubject) 
+        {
+            stackSubject.OnNext(ImmutableList<T>.Empty);
         }
     }
 }
