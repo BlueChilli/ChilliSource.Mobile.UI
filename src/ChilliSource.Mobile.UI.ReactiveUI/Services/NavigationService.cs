@@ -131,7 +131,7 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                        }
                        else 
                        {
-                          var removedModal = PopStackAndTick(this._popmodalStack);
+                          var removedModal = PopStackAndTick(this._popmodalStack, true);
                        }
 
                        _logger.Debug("Removed all pop modal from stack.");
@@ -157,13 +157,16 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
             stackSubject.OnNext(stack);
         }
 
-        private static T PopStackAndTick<T>(BehaviorSubject<IImmutableList<T>> stackSubject)
+        private static T PopStackAndTick<T>(BehaviorSubject<IImmutableList<T>> stackSubject, bool ignoreError = false)
         {
             var stack = stackSubject.Value;
 
             if (stack.Count == 0)
             {
-                throw new InvalidOperationException("Stack is empty.");
+                if(!ignoreError)
+                {
+                    throw new InvalidOperationException("Stack is empty.");
+                }
             }
 
             var removedItem = stack[stack.Count - 1];

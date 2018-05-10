@@ -61,6 +61,10 @@ namespace ChilliSource.Mobile.UI
         /// </summary>
         public double DotSize { get; set; }
 
+         /// <summary>
+        /// Gets or sets the size of the indicator dot border width.
+        /// </summary>
+        public int DotBorderSize { get; set; } = 1;
 
         /// <summary>
         /// Backing store for the <c>ItemSource</c> bindable property.
@@ -198,7 +202,7 @@ namespace ChilliSource.Mobile.UI
                 ShapeType = ShapeType.Circle,
                 HeightRequest = DotSize,
                 WidthRequest = DotSize,
-                BorderWidth = 1,
+                BorderWidth = DotBorderSize,
                 BorderColor = DotBorderColor,
                 FillColor = DotColor,
             };
