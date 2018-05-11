@@ -167,6 +167,8 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                 {
                     throw new InvalidOperationException("Stack is empty.");
                 }
+
+                return default(T);
             }
 
             var removedItem = stack[stack.Count - 1];
