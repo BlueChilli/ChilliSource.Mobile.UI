@@ -30,17 +30,10 @@
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
     <TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
-    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
-    <AndroidApplication>true</AndroidApplication>
-    <OutputType>Library</OutputType>
-    <SynchReleaseVersion>false</SynchReleaseVersion>
-    <AndroidTlsProvider>
-    </AndroidTlsProvider>
   </PropertyGroup>
 
   <ItemGroup>
