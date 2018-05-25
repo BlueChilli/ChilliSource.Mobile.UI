@@ -70,12 +70,14 @@ namespace ChilliSource.Mobile.UI
         /// <param name="value">Value.</param>
         public bool Validate(T value)
         {            
-            if (ReferenceEquals(value, null))
+            if(_isNullOrEmptyPredicate != null)
             {
-                return false;
+               return _isNullOrEmptyPredicate.Invoke(value);
             }
 
-            return !_isNullOrEmptyPredicate.Invoke(value);
+          
+            return ReferenceEquals(value, null);
+
         }
 
         /// <summary>
