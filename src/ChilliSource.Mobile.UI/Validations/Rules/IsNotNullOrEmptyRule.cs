@@ -24,12 +24,12 @@ namespace ChilliSource.Mobile.UI
     /// </summary>
     public class IsNotNullOrEmptyRule<T> : IValidationRule<T>
     {
-        readonly Func<T, bool> _isNullOrEmptyPredicate;
+        readonly Func<T, bool> _isNotNullOrEmptyPredicate;
 
-        static readonly Func<T, bool> DefaultIsNullOrEmpty = v =>
+        static readonly Func<T, bool> DefaultIsNotNullOrEmpty = v =>
         {
             var val = v as string;
-            return String.IsNullOrWhiteSpace(val);
+            return !String.IsNullOrWhiteSpace(val);
         };
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace ChilliSource.Mobile.UI
         /// </summary>
         /// <param name="validationMessage">Validation message.</param>
         public IsNotNullOrEmptyRule(string validationMessage) :
-            this(DefaultIsNullOrEmpty, validationMessage)
+            this(DefaultIsNotNullOrEmpty, validationMessage)
         { }
 
 
@@ -45,12 +45,12 @@ namespace ChilliSource.Mobile.UI
         /// <summary>
         /// Initializes a new instance with custom validation predicate.
         /// </summary>
-        /// <param name="isNullOrEmptyPredicate">Is null or empty predicate.</param>
+        /// <param name="isNotNullOrEmptyPredicate">Is null or empty predicate.</param>
         /// <param name="validationMessage">Validation message.</param>
-        public IsNotNullOrEmptyRule(Func<T, bool> isNullOrEmptyPredicate, string validationMessage)
+        public IsNotNullOrEmptyRule(Func<T, bool> isNotNullOrEmptyPredicate, string validationMessage)
         {
             ValidationMessage = validationMessage;
-            _isNullOrEmptyPredicate = isNullOrEmptyPredicate ?? throw new ArgumentNullException(nameof(isNullOrEmptyPredicate));
+            _isNotNullOrEmptyPredicate = isNotNullOrEmptyPredicate ?? throw new ArgumentNullException(nameof(isNotNullOrEmptyPredicate));
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace ChilliSource.Mobile.UI
         /// <param name="value">Value.</param>
         public bool Validate(T value)
         {            
-           return _isNullOrEmptyPredicate?.Invoke(value) ?? true;
+           return _isNotNullOrEmptyPredicate?.Invoke(value) ?? true;
         }
 
         /// <summary>

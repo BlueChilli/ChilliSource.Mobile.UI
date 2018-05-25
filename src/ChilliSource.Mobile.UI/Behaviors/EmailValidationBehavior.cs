@@ -22,7 +22,7 @@ namespace ChilliSource.Mobile.UI
 
         public EmailValidationBehavior()
         {
-            _validationRule = new EmailRule<string>();
+            _validationRule = new EmailRule<string>("Email is invalid");
         }
 
         /// <summary>

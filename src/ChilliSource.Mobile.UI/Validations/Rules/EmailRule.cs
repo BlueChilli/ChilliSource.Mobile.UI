@@ -27,37 +27,30 @@ namespace ChilliSource.Mobile.UI
     {
         const string _emailRegexPattern = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
             @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
-        private readonly Func<T, bool> _emailValidationPredicate;
-
+     
         public static Regex EmailRegex => new Regex(_emailRegexPattern);
+        readonly Func<T, bool> _emailValidatorPredicate;
 
         /// <summary>
-        /// Initializes a new instance
-        /// </summary>
-        public EmailRule()
-        {
-        }
-
-           /// <summary>
         /// Initializes a new instance with custom validation predicate.
         /// </summary>
-        /// <param name="EmailValidationPredicate">Is null or empty predicate.</param>
         /// <param name="validationMessage">Validation message.</param>
-        public EmailRule(Func<T, bool> emailValidationPredicate, string validationMessage)
+        public EmailRule(string validationMessage)
         {
             ValidationMessage = validationMessage;
-            _emailValidationPredicate = emailValidationPredicate;
-        }
+         }
 
         /// <summary>
-        /// Initializes a new instance with a validation message.
+        /// Initializes a new instance with custom validation predicate.
         /// </summary>
         /// <param name="validationMessage">Validation message.</param>
-        public EmailRule(string validationMessage) : this(null, validationMessage)
+        public EmailRule(Func<T, bool> validator, string validationMessage)
         {
+            ValidationMessage = validationMessage;
+            _emailValidatorPredicate = validator;
+         }
 
-        }
-
+  
         /// <summary>
         /// Gets or sets the validation message.
         /// </summary>
@@ -70,9 +63,10 @@ namespace ChilliSource.Mobile.UI
         /// <param name="value">Value.</param>
         public bool Validate(T value)
         {
-            var preValidation = _emailValidationPredicate?.Invoke(value) ?? value == null;
-
-            if(!preValidation) return preValidation;
+            if(_emailValidatorPredicate != null) 
+            {
+                return _emailValidatorPredicate.Invoke(value);    
+            }
 
             var val = value as string;
 
@@ -84,7 +78,7 @@ namespace ChilliSource.Mobile.UI
             }
             else
             {
-                return preValidation;
+                return true;
             }
 
         }

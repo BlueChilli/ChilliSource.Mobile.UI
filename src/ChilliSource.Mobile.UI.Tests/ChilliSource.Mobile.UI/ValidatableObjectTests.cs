@@ -26,10 +26,7 @@ namespace Tests
 
 			v.Validations.Add(new IsNotNullOrEmptyRule<string>("Email must not be empty"));
 
-			v.Validations.Add(new EmailRule<string>()
-			{
-				ValidationMessage = "You have entered an invalid email"
-			});
+			v.Validations.Add(new EmailRule<string>("You have entered an invalid email"));
 
 			bool isPropertyChangedRaised = false;
 
@@ -57,10 +54,7 @@ namespace Tests
 
 			v.Validations.Add(new IsNotNullOrEmptyRule<string>("Email must not be empty"));
 
-			v.Validations.Add(new EmailRule<string>()
-			{
-				ValidationMessage = "You have entered an invalid email"
-			});
+			v.Validations.Add(new EmailRule<string>("You have entered an invalid email"));
 
 			Assert.True(v.IsValid);
 			v.Validate();
@@ -75,10 +69,7 @@ namespace Tests
 
 			v.Validations.Add(new IsNotNullOrEmptyRule<string>("Email must not be empty"));
 
-			v.Validations.Add(new EmailRule<string>()
-			{
-				ValidationMessage = "You have entered an invalid email"
-			});
+			v.Validations.Add(new EmailRule<string>("You have entered an invalid email"));
 
 			Assert.True(v.IsValid);
 			v.Value = "test@test.com";

@@ -35,14 +35,11 @@ namespace Tests
 				v.Validations.Add(new IsNotNullOrEmptyRule<string>(c =>
 				{
 					isExecuted = true;
-					return false;
+					return true;
 
 				}, "Email must not be empty"));
 
-				v.Validations.Add(new EmailRule<string>()
-				{
-					ValidationMessage = "You have entered an invalid email"
-				});
+				v.Validations.Add(new EmailRule<string>("You have entered an invalid email"));
 
 				v.Validations.Add(new ActionAsyncValidationRule<string>(arg => { return Task.FromResult(false); }, "You executed async method"));
 
@@ -76,10 +73,7 @@ namespace Tests
 
 			v.Validations.Add(new IsNotNullOrEmptyRule<string>("Email must not be empty"));
 
-			v.Validations.Add(new EmailRule<string>()
-			{
-				ValidationMessage = "You have entered an invalid email"
-			});
+			v.Validations.Add(new EmailRule<string>("You have entered an invalid email"));
 
 			Assert.True(v.IsValid);
 			v.Validate();
@@ -99,10 +93,7 @@ namespace Tests
 
 			v.Validations.Add(new IsNotNullOrEmptyRule<string>("Email must not be empty"));
 
-			v.Validations.Add(new EmailRule<string>()
-			{
-				ValidationMessage = "You have entered an invalid email"
-			});
+			v.Validations.Add(new EmailRule<string>("You have entered an invalid email"));
 
 			Assert.True(v.IsValid);
 			v.Value = "test@test.com";
