@@ -152,7 +152,7 @@ namespace ChilliSource.Mobile.UI
 
         void OnEditingBegan(object sender, EventArgs e)
         {
-            ElementController.SetValueFromRenderer(VisualElement.IsFocusedProperty, true);
+            ElementController.SetValueFromRenderer(VisualElement.IsFocusedPropertyKey, true);
         }
 
         void OnEditingChanged(object sender, EventArgs eventArgs)
@@ -169,7 +169,7 @@ namespace ChilliSource.Mobile.UI
                 ElementController.SetValueFromRenderer(Entry.TextProperty, Control.Text);
             }
 
-            ElementController.SetValueFromRenderer(VisualElement.IsFocusedProperty, false);
+            ElementController.SetValueFromRenderer(VisualElement.IsFocusedPropertyKey, false);
         }
 
         protected virtual bool OnShouldReturn(UITextField view)

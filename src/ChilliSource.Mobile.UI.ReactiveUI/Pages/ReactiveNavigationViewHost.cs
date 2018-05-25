@@ -75,6 +75,7 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                     },
                     this._backgroundScheduler)
                 .ObserveOn(this._mainScheduler)
+                .Do(page =>  page.BindingContext = modalViewModel)
                 .SelectMany(
                     page =>
                              this
@@ -120,6 +121,7 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                             this._backgroundScheduler)
                     .ObserveOn(this._mainScheduler)
                     .Where(IsPopupPage)
+                    .Do(page =>  page.BindingContext = viewModel)
                     .SelectMany(
                             page =>
                                 {
@@ -182,6 +184,7 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                     },
                     backgroundScheduler)
                 .ObserveOn(mainScheduler)
+                .Do(page =>  page.BindingContext = pageViewModel)
                 .SelectMany(
                     page =>
                     {
@@ -251,9 +254,6 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
             {
                 throw new InvalidOperationException($"Resolved view '{view.GetType().FullName}' for type '{viewModel.GetType().FullName}', contract '{contract}' is not a Page.");
             }
-
-            viewFor.ViewModel = viewModel;
-            page.BindingContext = viewModel;
 
             return page;
         }
