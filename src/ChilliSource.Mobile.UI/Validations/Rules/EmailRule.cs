@@ -14,6 +14,7 @@ See the LICENSE file in the project root for more information.
  * License:    MIT https://opensource.org/licenses/MIT
 */
 
+using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -26,6 +27,7 @@ namespace ChilliSource.Mobile.UI
     {
         const string _emailRegexPattern = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
             @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
+        private readonly Func<T, bool> _emailValidationPredicate;
 
         public static Regex EmailRegex => new Regex(_emailRegexPattern);
 
@@ -36,13 +38,24 @@ namespace ChilliSource.Mobile.UI
         {
         }
 
+           /// <summary>
+        /// Initializes a new instance with custom validation predicate.
+        /// </summary>
+        /// <param name="EmailValidationPredicate">Is null or empty predicate.</param>
+        /// <param name="validationMessage">Validation message.</param>
+        public EmailRule(Func<T, bool> emailValidationPredicate, string validationMessage)
+        {
+            ValidationMessage = validationMessage;
+            _emailValidationPredicate = emailValidationPredicate;
+        }
+
         /// <summary>
         /// Initializes a new instance with a validation message.
         /// </summary>
         /// <param name="validationMessage">Validation message.</param>
-        public EmailRule(string validationMessage)
+        public EmailRule(string validationMessage) : this(null, validationMessage)
         {
-            ValidationMessage = validationMessage;
+
         }
 
         /// <summary>
@@ -57,16 +70,23 @@ namespace ChilliSource.Mobile.UI
         /// <param name="value">Value.</param>
         public bool Validate(T value)
         {
-            if (value == null)
-            {
-                return false;
-            }
+            var preValidation = _emailValidationPredicate?.Invoke(value) ?? value == null;
+
+            if(!preValidation) return preValidation;
 
             var val = value as string;
 
-            var match = EmailRegex.Match(val);
+            if(!String.IsNullOrWhiteSpace(val))
+            {
+                var match = EmailRegex.Match(val);
 
-            return match.Success;
+                return match.Success;
+            }
+            else
+            {
+                return preValidation;
+            }
+
         }
 
         /// <summary>

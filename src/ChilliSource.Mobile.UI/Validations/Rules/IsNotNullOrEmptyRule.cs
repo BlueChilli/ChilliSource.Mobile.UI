@@ -49,13 +49,8 @@ namespace ChilliSource.Mobile.UI
         /// <param name="validationMessage">Validation message.</param>
         public IsNotNullOrEmptyRule(Func<T, bool> isNullOrEmptyPredicate, string validationMessage)
         {
-            if (isNullOrEmptyPredicate == null)
-            {
-                throw new ArgumentNullException(nameof(isNullOrEmptyPredicate));
-            }
-
             ValidationMessage = validationMessage;
-            _isNullOrEmptyPredicate = isNullOrEmptyPredicate;
+            _isNullOrEmptyPredicate = isNullOrEmptyPredicate ?? throw new ArgumentNullException(nameof(isNullOrEmptyPredicate));
         }
 
         /// <summary>
@@ -70,14 +65,7 @@ namespace ChilliSource.Mobile.UI
         /// <param name="value">Value.</param>
         public bool Validate(T value)
         {            
-            if(_isNullOrEmptyPredicate != null)
-            {
-               return _isNullOrEmptyPredicate.Invoke(value);
-            }
-
-          
-            return ReferenceEquals(value, null);
-
+           return _isNullOrEmptyPredicate?.Invoke(value) ?? true;
         }
 
         /// <summary>
