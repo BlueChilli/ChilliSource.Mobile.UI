@@ -30,7 +30,7 @@ namespace Tests
 			{
 
 				var v = new ReactiveValidatableObject<string>();
-
+				v.IsDirty = true;
 				var isExecuted = false;
 				v.Validations.Add(new IsNotNullOrEmptyRule<string>(c =>
 				{

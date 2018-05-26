@@ -38,39 +38,52 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
 		private readonly List<IValidationRule<T>> _validations;
         private readonly ObservableRangeCollection<string> _errors;
         private bool _isValid;
+        private bool _isDirty;
         private T _value;
 
         /// <summary>
         /// Initializes a new instance that is valid by default
         /// </summary>
-        public ReactiveValidatableObject()
+         public ReactiveValidatableObject()
 		{
 			_validations = new List<IValidationRule<T>>();
             _errors = new ObservableRangeCollection<string>();
 			IsValid = true;
-
-			this.WhenAnyValue(m => m.Value)
+        
+			this.WhenAnyValue(m => m.Value, m => m.IsDirty, (v, d) => { return (v, d); })
+                .Where(m => m.Item2)
+                .Select(m => m.Item1)
 				.Throttle(TimeSpan.FromMilliseconds(100), RxApp.MainThreadScheduler)
 				.DistinctUntilChanged()
 				.SelectMany(async m => await this.ValidateAsync())
 				.Subscribe()
                 .DisposeWith(Disposables);
-      
-		}
+
+    	}
 
         /// <summary>
         /// Validation rules conforming to <see cref="IValidationRule{T}"/>
         /// </summary>        
         public List<IValidationRule<T>> Validations => _validations;
 
-        /// <summary>
+         /// <summary>
         /// Specifies whether the validation rules have passed.
+        /// </summary>
+        /// <value><c>true</c> if it is valid; otherwise, <c>false</c>.</value>
+        public bool IsDirty
+		{
+			get { return _isValid; }
+		    set { this.RaiseAndSetIfChanged(ref _isValid, value); }
+		}
+
+        /// <summary>
+        /// Specifies whether value is dirty or not.
         /// </summary>
         /// <value><c>true</c> if it is valid; otherwise, <c>false</c>.</value>
         public bool IsValid
 		{
-			get { return _isValid; }
-			private set { this.RaiseAndSetIfChanged(ref _isValid, value); }
+			get { return _isDirty; }
+			private set { this.RaiseAndSetIfChanged(ref _isDirty, value); }
 		}
 
         /// <summary>
