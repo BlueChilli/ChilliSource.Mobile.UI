@@ -50,9 +50,12 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
             _errors = new ObservableRangeCollection<string>();
 			IsValid = true;
         
-			this.WhenAnyValue(m => m.Value, m => m.IsDirty, (v, d) => { return (v, d); })
-                .Where(m => m.Item2)
-                .Select(m => m.Item1)
+			this.WhenAnyValue(m => m.Value, m => m.IsDirty, (v, d) => { 
+                    (T val , bool isDirty) result = (v, d);
+                    return result; 
+                })
+                .Where(m => m.isDirty)
+                .Select(m => m.val)
 				.Throttle(TimeSpan.FromMilliseconds(100), RxApp.MainThreadScheduler)
 				.DistinctUntilChanged()
 				.SelectMany(async m => await this.ValidateAsync())
@@ -116,9 +119,9 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
 
             _errors.Clear();
             _errors.AddRange(errors);
-            _isDirty = true;
-            IsValid = !_errors.Any();
 
+            MarkAsDirty();
+            IsValid = !_errors.Any();
             return IsValid;
 		}
 
@@ -128,8 +131,10 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
         public void MakeValid()
 		{
 			_errors.Clear();
+            IsDirty = false;
 			IsValid = true;
 		}
+
 
         public void AddError(string message)
         {
@@ -156,10 +161,16 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
 
             _errors.Clear();
             _errors.AddRange(errors);
-            _isDirty = true;
+            
+            MarkAsDirty();
             IsValid = !_errors.Any();
-
-			return IsValid;
+        	return IsValid;
 		}
+
+        private void MarkAsDirty()
+        {
+            if(!IsDirty) IsDirty = true;
+        }
+
 	}
 }

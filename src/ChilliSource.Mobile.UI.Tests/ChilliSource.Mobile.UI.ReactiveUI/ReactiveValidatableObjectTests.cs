@@ -133,5 +133,44 @@ namespace Tests
 
 
         }
+
+        [Fact]
+		public void Validate_IsDirtyShouldBeTrue_WhenValidated()
+		{
+		    var g = new ReactiveValidatableObject<string>();
+            g.Validations.Add(new IsNotNullOrEmptyRule<string>(m => !String.IsNullOrWhiteSpace(m), "String is required"));
+        	Assert.False(g.IsDirty);
+ 			g.Validate();
+            Assert.True(g.IsDirty);
+        }
+
+        [Fact]
+		public void Validate_IsDirtyShouldBeTrue_WhenValidatedOnGroups()
+		{
+             var scheduler = new TestScheduler();
+			 scheduler.With((TestScheduler sched) =>
+			 {
+
+				var vg = new ValidatableObjects();
+			    var g = new ReactiveValidatableObject<string>();
+               	g.Validations.Add(new EmailRule<string>("You have entered an invalid email"));
+                
+                vg.Add("V2", g);
+                
+                Assert.False(g.IsDirty);
+                vg.Validate();
+                Assert.True(g.IsDirty);
+                g.Value = "test@test.com";
+				sched.AdvanceByMs(200);
+			    Assert.True(g.IsValid);
+                Assert.True(g.IsDirty);
+             	g.Value = "test56";
+				sched.AdvanceByMs(200);
+                Assert.False(g.IsValid);
+                Assert.Equal(1, g.Errors.Count);
+			});
+			
+
+        }
 	}
 }
