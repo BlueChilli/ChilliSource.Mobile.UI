@@ -72,8 +72,8 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
         /// <value><c>true</c> if it is valid; otherwise, <c>false</c>.</value>
         public bool IsDirty
 		{
-			get { return _isValid; }
-		    set { this.RaiseAndSetIfChanged(ref _isValid, value); }
+			get { return _isDirty; }
+		    set { this.RaiseAndSetIfChanged(ref _isDirty, value); }
 		}
 
         /// <summary>
@@ -82,8 +82,8 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
         /// <value><c>true</c> if it is valid; otherwise, <c>false</c>.</value>
         public bool IsValid
 		{
-			get { return _isDirty; }
-			private set { this.RaiseAndSetIfChanged(ref _isDirty, value); }
+			get { return _isValid; }
+			private set { this.RaiseAndSetIfChanged(ref _isValid, value); }
 		}
 
         /// <summary>
@@ -116,6 +116,7 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
 
             _errors.Clear();
             _errors.AddRange(errors);
+            _isDirty = true;
             IsValid = !_errors.Any();
 
             return IsValid;
@@ -155,6 +156,7 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
 
             _errors.Clear();
             _errors.AddRange(errors);
+            _isDirty = true;
             IsValid = !_errors.Any();
 
 			return IsValid;
