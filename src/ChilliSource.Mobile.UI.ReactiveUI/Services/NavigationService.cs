@@ -194,13 +194,7 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                 .Do(
                     _ =>
                     {
-                        if(_pageStack.Value.Count > 0)
-                        {
-                            var root = _pageStack.Value[0];
-                            AddToStackAndTick(this._pageStack, root, true);
-                           _logger.Debug("Pop All pages except root '{0}' from stack.", root.Title);
-                        }
-
+                        PopAllStackAndTick(this._pageStack);
                     });
     }
 }
