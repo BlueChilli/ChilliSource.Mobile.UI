@@ -49,6 +49,9 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
             bool resetStack,
             bool animate);
 
+          IObservable<Unit> PopToRootPage(
+                bool animate);
+
         IObservable<Unit> PopPage(
             bool animate);
 
@@ -102,6 +105,9 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
         IObservable<Unit> PopPage(
                 bool animate = true);
 
+         IObservable<Unit> PopToRootPage(
+                bool animate = false);
+
         IObservable<Unit> PushModal(
                 IModalViewModel modal,
                 string contract = null,
@@ -122,6 +128,9 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
         bool HasPageInStack { get; }
         bool HasModalInStack { get; }
         bool HasPopModalInStack { get; }
+        int  PageStackCount {get;}
+        int  ModalStackCount {get;}
+        int  PopModalStackCount {get;}
     }
 
 }

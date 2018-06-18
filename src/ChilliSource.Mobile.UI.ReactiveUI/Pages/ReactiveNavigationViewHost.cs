@@ -14,7 +14,7 @@ using Xamarin.Forms;
 
 namespace ChilliSource.Mobile.UI.ReactiveUI
 {  
-    public sealed class ReactiveNavigationViewHost : NavigationPage, IView
+    public class ReactiveNavigationViewHost : NavigationPage, IView
     {
         private readonly IScheduler _backgroundScheduler;
         private readonly IScheduler _mainScheduler;
@@ -118,8 +118,7 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                                 this.SetPageTitle(page, viewModel.Title);
                                 return page;
                             },
-                            this._backgroundScheduler)
-                    .ObserveOn(this._mainScheduler)
+                            this._mainScheduler)
                     .Where(IsPopupPage)
                     .Do(page =>  page.BindingContext = viewModel)
                     .SelectMany(
@@ -263,5 +262,11 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
             var title = resourceKey;
             page.Title = title;
         }
+
+        public IObservable<Unit> PopToRootPage(bool animate) => 
+             this
+                .Navigation
+                .PopToRootAsync(animated: animate)
+                .ToObservable();
     }
 }

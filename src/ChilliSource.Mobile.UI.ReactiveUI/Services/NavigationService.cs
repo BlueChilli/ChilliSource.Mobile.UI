@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Text;
@@ -141,6 +142,10 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
         public bool HasModalInStack  => _modalStack?.Value.Any() ?? false;
         public bool HasPopModalInStack  => _popmodalStack?.Value.Any() ?? false;
 
+        public int PageStackCount => _pageStack?.Value.Count ?? 0;
+        public int ModalStackCount  => _modalStack?.Value.Count ?? 0;
+        public int PopModalStackCount => _popmodalStack?.Value.Count ?? 0;
+
         private static void AddToStackAndTick<T>(BehaviorSubject<IImmutableList<T>> stackSubject, T item, bool reset)
         {
             var stack = stackSubject.Value;
@@ -181,5 +186,21 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
         {
             stackSubject.OnNext(ImmutableList<T>.Empty);
         }
+
+        public IObservable<Unit> PopToRootPage(bool animate = false) 
+            =>   this
+                ._view
+                .PopToRootPage(animate)
+                .Do(
+                    _ =>
+                    {
+                        if(_pageStack.Value.Count > 0)
+                        {
+                            var root = _pageStack.Value[0];
+                            AddToStackAndTick(this._pageStack, root, true);
+                           _logger.Debug("Pop All pages except root '{0}' from stack.", root.Title);
+                        }
+
+                    });
     }
 }
