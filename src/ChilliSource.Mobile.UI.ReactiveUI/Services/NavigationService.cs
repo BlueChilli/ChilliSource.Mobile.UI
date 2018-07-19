@@ -99,7 +99,7 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                 .Do(
                     _ =>
                     {
-                        var removedModal = PopStackAndTick(this._modalStack);
+                        var removedModal = PopStackAndTick(this._modalStack, true);
                         _logger.Debug("Removed modal '{0}' from stack.", removedModal.Title);
                     });
 
