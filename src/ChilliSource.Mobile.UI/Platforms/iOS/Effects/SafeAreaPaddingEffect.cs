@@ -42,7 +42,26 @@ namespace ChilliSource.Mobile.UI
         {
             var insets = SafeAreaInsets;
 
-            if (insets.Top > 0) // iPhone X
+            var orientation = UIApplication.SharedApplication.StatusBarOrientation;
+
+            bool hasInsets = false;
+
+            switch(orientation)
+            {
+                case UIInterfaceOrientation.Portrait:
+                case UIInterfaceOrientation.PortraitUpsideDown:
+                    hasInsets = insets.Top > 0;
+                    break;
+                case UIInterfaceOrientation.LandscapeLeft:
+                case UIInterfaceOrientation.LandscapeRight:
+                    hasInsets = insets.Left > 0 || insets.Right > 0;
+                    break;
+                default:
+                    hasInsets = insets.Top > 0;
+                    break;
+            }
+
+            if (hasInsets) // iPhone X
             {
                 return new Thickness(originalPadding.Left + insets.Left + additionalInsets.Left, originalPadding.Top + insets.Top + additionalInsets.Top, originalPadding.Right + insets.Right + additionalInsets.Right, originalPadding.Bottom + additionalInsets.Bottom);
             }
@@ -76,13 +95,7 @@ namespace ChilliSource.Mobile.UI
                 {
 
                     var insets = UIApplication.SharedApplication.Windows[0].SafeAreaInsets;
-
-                    if (insets.Top > 0) // iPhone X
-                    {
-                        return new Thickness(insets.Left, insets.Top, insets.Right, insets.Bottom);
-                    }
-
-                    
+                    return new Thickness(insets.Left, insets.Top, insets.Right, insets.Bottom);
                 }
 
                 return new Thickness();
