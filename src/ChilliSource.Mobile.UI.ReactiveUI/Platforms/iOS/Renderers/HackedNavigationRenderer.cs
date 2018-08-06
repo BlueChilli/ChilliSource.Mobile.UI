@@ -14,15 +14,20 @@ using ChilliSource.Mobile.UI;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-
 [assembly: ExportRenderer(typeof(NavigationPage), typeof(HackedNavigationRenderer))]
 namespace ChilliSource.Mobile.UI.ReactiveUI.iOS
 {
     public class HackedNavigationRenderer : NavigationRenderer
     {
         private static readonly FieldInfo appearedField = typeof(NavigationRenderer).GetField("_appeared", BindingFlags.NonPublic | BindingFlags.Instance);
-       
         private IPageController PageController => this.Element as IPageController;
+        private IBaseNavigationController BaseNavigationController => this.Element as IBaseNavigationController;
+
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+            InteractivePopGestureRecognizer.Enabled = BaseNavigationController?.EnableInteractivePopGesture ?? true;
+        }
 
         private bool Appeared
         {

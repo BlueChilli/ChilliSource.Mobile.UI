@@ -19,6 +19,26 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
         public static readonly BindableProperty EnableSafeAreaPadding = BindableProperty.CreateAttached("EnableSafeAreaPadding",
            typeof(bool), typeof(SafeAreaPadding), false, propertyChanged: OnEnableSafeAreaPadding);
 
+        public static readonly BindableProperty SafeAreaInsets = BindableProperty.CreateAttached("SafeAreaInsets",
+           typeof(Thickness), typeof(SafeAreaPadding), new Thickness(0, 0, 0, 0), propertyChanged: OnSetSafeAreaPadding);
+
+        private static void OnSetSafeAreaPadding(BindableObject bindable, object oldValue, object newValue)
+        {
+           if(GetEnableSafeAreaPadding(bindable))
+            {
+                var old = (Thickness)oldValue;
+                var newV = (Thickness)newValue;
+                if(old != newV)
+                {
+                    if (bindable is Element elm)
+                    {
+                       var effect = (SafeAreaPaddingEffect) elm.Effects.FirstOrDefault(m => m.ResolveId == EffectName);
+                       effect?.SetSafeAreaPadding(elm, newV);
+                    }
+                }
+            }
+        }
+
         public static bool GetShouldIncludeStatusBar(BindableObject element)
         {
             return (bool) element.GetValue(ShouldIncludeStatusBar);
@@ -27,6 +47,16 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
         public static void SetEnableSafeAreaPadding(BindableObject element, bool value)
         {
             element.SetValue(EnableSafeAreaPadding, value);
+        }
+
+        public static Thickness GetSafeAreaInsets(BindableObject element)
+        {
+            return (Thickness)element.GetValue(SafeAreaInsets);
+        }
+
+        public static void SetSafeAreaInsets(BindableObject element, Thickness value)
+        {
+            element.SetValue(SafeAreaInsets, value);
         }
 
         public static bool GetEnableSafeAreaPadding(BindableObject element)
@@ -89,6 +119,34 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
             SetShouldIncludeStatusBar(config.Element, includeStatusBar);
             SetEnableSafeAreaPadding(config.Element, true);
             return config;
+        }
+
+        public static IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> UseSafeAreaPaddingWithInset(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config, bool includeStatusBar, Thickness padding)
+        {
+            SetShouldIncludeStatusBar(config.Element, includeStatusBar);
+            SetEnableSafeAreaPadding(config.Element, true);
+            SetSafeAreaInsets(config.Element, padding);
+            return config;
+        }
+
+        public static IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> SetSafeAreaPadding(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config, Thickness padding)
+        {
+            if(GetEnableSafeAreaPadding(config.Element))
+            {
+                SetSafeAreaInsets(config.Element, padding);
+            }
+
+            return config;
+        }
+
+        public static Thickness GetSafeAreaPadding(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config)
+        {
+            if (GetEnableSafeAreaPadding(config.Element) && config.Element is Layout layout)
+            {
+                return layout.Padding;
+            }
+
+            return new Thickness();
         }
     }
 }

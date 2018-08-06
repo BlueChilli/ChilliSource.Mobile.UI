@@ -14,7 +14,13 @@ using Xamarin.Forms;
 
 namespace ChilliSource.Mobile.UI.ReactiveUI
 {  
-    public class ReactiveNavigationViewHost : NavigationPage, IView
+
+    public interface IBaseNavigationController
+    {
+        bool EnableInteractivePopGesture { get; }
+    }
+
+    public class ReactiveNavigationViewHost : NavigationPage, IView, IBaseNavigationController
     {
         private readonly IScheduler _backgroundScheduler;
         private readonly IScheduler _mainScheduler;
@@ -57,7 +63,8 @@ namespace ChilliSource.Mobile.UI.ReactiveUI
                     .Where(v => v != null);
         }
 
-
+        public bool EnableInteractivePopGesture { get; set; } = true;
+        
         public IObservable<IPageViewModel> PagePopped => this._pagePopped;
 
         public IObservable<Unit> PushModal(IModalViewModel modalViewModel, string contract,

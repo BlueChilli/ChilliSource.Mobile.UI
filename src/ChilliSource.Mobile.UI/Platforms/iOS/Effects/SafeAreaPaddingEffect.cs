@@ -1,4 +1,5 @@
-﻿using ChilliSource.Mobile.UI;
+﻿using System;
+using ChilliSource.Mobile.UI;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -18,7 +19,12 @@ namespace ChilliSource.Mobile.UI
 
         protected override void OnAttached()
         {
-            if (Element is Layout element)
+            SetSafeArea(Element, new Thickness());
+        }
+
+        private void SetSafeArea(Element layout, Thickness thickness)
+        {
+            if (layout is Layout element)
             {
                 _padding = element.Padding;
 
@@ -28,12 +34,15 @@ namespace ChilliSource.Mobile.UI
                     var insets = UIApplication.SharedApplication.Windows[0].SafeAreaInsets;
                     if (insets.Top > 0) // iPhone X
                     {
-                        element.Padding = new Thickness(_padding.Left + insets.Left, _padding.Top + insets.Top, _padding.Right + insets.Right, _padding.Bottom);
+                        element.Padding = new Thickness(_padding.Left + insets.Left + thickness.Left, _padding.Top + insets.Top + thickness.Top, _padding.Right + insets.Right + thickness.Right, _padding.Bottom + thickness.Bottom);
                         return;
                     }
                 }
 
-                int topPadding = _includeStatusBar ? 20 : 0;
+           
+                var statusBar = UIApplication.SharedApplication?.StatusBarFrame.Height ?? 20.0;
+
+                int topPadding = _includeStatusBar ? (int) statusBar : 0;
 
                 element.Padding = new Thickness(_padding.Left, _padding.Top + topPadding, _padding.Right, _padding.Bottom);
             }
@@ -45,6 +54,11 @@ namespace ChilliSource.Mobile.UI
             {
                 element.Padding = _padding;
             }
+        }
+
+        internal void SetSafeAreaPadding(Element element, Thickness padding)
+        {
+            SetSafeArea(element, padding);
         }
     }
     
