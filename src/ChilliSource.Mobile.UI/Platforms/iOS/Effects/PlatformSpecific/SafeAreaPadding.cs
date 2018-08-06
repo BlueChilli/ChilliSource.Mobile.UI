@@ -32,7 +32,7 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
                 {
                     if (bindable is Element elm)
                     {
-                       var effect = (SafeAreaPaddingEffect) elm.Effects.FirstOrDefault(m => m.ResolveId == EffectName);
+                       var effect = (SafeAreaPaddingEffect) elm.Effects.FirstOrDefault(m => m is SafeAreaPaddingEffect);
                        effect?.SetSafeAreaPadding(elm, newV);
                     }
                 }
@@ -114,14 +114,14 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
         }
 
      
-        public static IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> UseSafeAreaPadding(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config, bool includeStatusBar)
+        public static IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> UseSafeArea(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config, bool includeStatusBar)
         {
             SetShouldIncludeStatusBar(config.Element, includeStatusBar);
             SetEnableSafeAreaPadding(config.Element, true);
             return config;
         }
 
-        public static IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> UseSafeAreaPaddingWithInset(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config, bool includeStatusBar, Thickness padding)
+        public static IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> UseSafeAreaWithInsets(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config, bool includeStatusBar, Thickness padding)
         {
             SetShouldIncludeStatusBar(config.Element, includeStatusBar);
             SetEnableSafeAreaPadding(config.Element, true);
@@ -129,7 +129,7 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
             return config;
         }
 
-        public static IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> SetSafeAreaPadding(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config, Thickness padding)
+        public static IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> SetSafeAreaInsets(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config, Thickness padding)
         {
             if(GetEnableSafeAreaPadding(config.Element))
             {
@@ -139,11 +139,15 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
             return config;
         }
 
-        public static Thickness GetSafeAreaPadding(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config)
+        public static Thickness GetSafeAreaInsets(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config)
         {
-            if (GetEnableSafeAreaPadding(config.Element) && config.Element is Layout layout)
+            if (GetEnableSafeAreaPadding(config.Element))
             {
-                return layout.Padding;
+                var effect = (SafeAreaPaddingEffect)config.Element.Effects.FirstOrDefault(m => m is SafeAreaPaddingEffect);
+                if(effect != null)
+                {
+                    return effect.SafeAreaInsets;
+                }
             }
 
             return new Thickness();
