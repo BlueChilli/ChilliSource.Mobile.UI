@@ -5,7 +5,7 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 
-namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
+namespace ChilliSource.Mobile.UI.PlatformConfiguration
 {
     public static class SafeAreaPadding
     {
