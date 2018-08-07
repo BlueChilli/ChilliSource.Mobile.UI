@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Foundation;
-using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 
@@ -11,7 +9,7 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
 {
     public static class SafeAreaPadding
     {
-        const string EffectName = "ChilliSource.SafeAreaPaddingEffect";
+        const string EffectName = "ChilliSource.Mobile.UI.SafeAreaPaddingEffect";
 
         public static readonly BindableProperty ShouldIncludeStatusBar = BindableProperty.CreateAttached("ShouldIncludeStatusBar",
             typeof(bool), typeof(SafeAreaPadding), false);
@@ -20,24 +18,7 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
            typeof(bool), typeof(SafeAreaPadding), false, propertyChanged: OnEnableSafeAreaPadding);
 
         public static readonly BindableProperty SafeAreaInsets = BindableProperty.CreateAttached("SafeAreaInsets",
-           typeof(Thickness), typeof(SafeAreaPadding), new Thickness(0, 0, 0, 0), propertyChanged: OnSetSafeAreaPadding);
-
-        private static void OnSetSafeAreaPadding(BindableObject bindable, object oldValue, object newValue)
-        {
-           if(GetEnableSafeAreaPadding(bindable))
-            {
-                var old = (Thickness)oldValue;
-                var newV = (Thickness)newValue;
-                if(old != newV)
-                {
-                    if (bindable is Element elm)
-                    {
-                       var effect = (SafeAreaPaddingEffect) elm.Effects.FirstOrDefault(m => m is SafeAreaPaddingEffect);
-                       effect?.SetSafeAreaPadding(elm, newV);
-                    }
-                }
-            }
-        }
+           typeof(Thickness), typeof(SafeAreaPadding), new Thickness(0, 0, 0, 0));
 
         public static bool GetShouldIncludeStatusBar(BindableObject element)
         {
@@ -71,6 +52,7 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
 
         private static void OnEnableSafeAreaPadding(BindableObject bindable, object oldValue, object newValue)
         {
+            
             if(newValue is bool isEnable && isEnable)
             {
                 AttachEffect(bindable);
@@ -90,7 +72,7 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
 
             if (element is Element elm)
             {
-                elm.Effects.Add(new SafeAreaPaddingEffect(GetShouldIncludeStatusBar(element)));
+                elm.Effects.Add(Effect.Resolve(EffectName));
             }
 
         }
@@ -104,8 +86,7 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
 
             if (element is Element elm)
             {
-                var effect = new SafeAreaPaddingEffect(GetShouldIncludeStatusBar(element));
-                var toRemove = elm.Effects.FirstOrDefault(e => e.ResolveId == effect.ResolveId);
+               var toRemove = elm.Effects.FirstOrDefault(e => e.ResolveId == Effect.Resolve(EffectName).ResolveId);
                 if (toRemove != null)
                 {
                     elm.Effects.Remove(toRemove);
@@ -139,18 +120,13 @@ namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
             return config;
         }
 
-        public static Thickness GetSafeAreaInsets(this IPlatformElementConfiguration<Xamarin.Forms.PlatformConfiguration.iOS, Element> config)
-        {
-            if (GetEnableSafeAreaPadding(config.Element))
-            {
-                var effect = (SafeAreaPaddingEffect)config.Element.Effects.FirstOrDefault(m => m is SafeAreaPaddingEffect);
-                if(effect != null)
-                {
-                    return effect.SafeAreaInsets;
-                }
-            }
 
-            return new Thickness();
+        public class SafeAreaPaddingEffect : RoutingEffect
+        {
+            public SafeAreaPaddingEffect() : base("ChilliSource.Mobile.UI.SafeAreaPaddingEffect")
+            {
+
+            }
         }
     }
 }

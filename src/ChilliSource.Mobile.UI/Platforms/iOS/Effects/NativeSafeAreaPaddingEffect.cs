@@ -1,29 +1,38 @@
-﻿using System;
-using ChilliSource.Mobile.UI;
+﻿using ChilliSource.Mobile.UI.PlatformConfiguration.iOS;
+using System;
+using System.ComponentModel;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportEffect(typeof(SafeAreaPaddingEffect), nameof(SafeAreaPaddingEffect))]
-namespace ChilliSource.Mobile.UI
+[assembly: ExportEffect(typeof(NativeSafeAreaPaddingEffect), "SafeAreaPaddingEffect")]
+namespace ChilliSource.Mobile.UI.PlatformConfiguration.iOS
 {
-    class SafeAreaPaddingEffect : PlatformEffect
+    public class NativeSafeAreaPaddingEffect : PlatformEffect
     {
         Thickness _padding;
-        readonly bool _includeStatusBar;
-
-        public SafeAreaPaddingEffect(bool includeStatusBar = true)
-        {
-            _includeStatusBar = includeStatusBar;
-        }
+        private bool _includeStatusBar;
 
         protected override void OnAttached()
         {
-            SetSafeArea(Element, new Thickness());
+            _includeStatusBar = SafeAreaPadding.GetShouldIncludeStatusBar(Element);
+            SetSafeArea(Element, SafeAreaPadding.GetSafeAreaInsets(Element));
+        }
+
+        protected override void OnElementPropertyChanged(PropertyChangedEventArgs args)
+        {
+            base.OnElementPropertyChanged(args);
+
+            if (args.PropertyName == SafeAreaPadding.SafeAreaInsets.PropertyName)
+            {
+                SetSafeArea(Element, SafeAreaPadding.GetSafeAreaInsets(Element));
+            }
+
         }
 
         private void SetSafeArea(Element layout, Thickness thickness)
         {
+
             if (layout is Layout element)
             {
                 _padding = element.Padding;
@@ -82,12 +91,8 @@ namespace ChilliSource.Mobile.UI
             }
         }
 
-        internal void SetSafeAreaPadding(Element element, Thickness padding)
-        {
-            SetSafeArea(element, padding);
-        }
 
-        internal Thickness SafeAreaInsets
+        private Thickness SafeAreaInsets
         {
             get
             {
