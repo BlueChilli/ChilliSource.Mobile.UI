@@ -52,6 +52,7 @@
     <Compile Remove="Resources\**\*.cs" />
     <None Include="Platforms\**" />
     <None Include="Resources\**" />
+    <None Include="Effects\PlatformSpecific\SafeAreaPadding.cs" />
      <PackageReference Include="MSBuild.Sdk.Extras" Version="1.2.2" PrivateAssets="All" />
   </ItemGroup>
 
