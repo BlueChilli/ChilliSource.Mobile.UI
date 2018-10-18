@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 //////////////////////////////////////////////////////////////////////
 
 #tool "GitReleaseManager"
-#tool "GitVersion.CommandLine"
+#tool "nuget:?package=GitVersion.CommandLine&version=3.6.5"
 #tool "GitLink"
 #tool nuget:?package=vswhere
 
