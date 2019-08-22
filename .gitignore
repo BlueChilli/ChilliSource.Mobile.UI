@@ -18,3 +18,4 @@ build/tools/
 *.orig
 .idea
 .mfractor
+.idea

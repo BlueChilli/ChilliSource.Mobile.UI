@@ -11,7 +11,6 @@ See the LICENSE file in the project root for more information.
 using System;
 using ChilliSource.Mobile.UI;
 using Xunit;
-using ChilliSource.Mobile.UI;
 using Xamarin.Forms;
 
 namespace Tests

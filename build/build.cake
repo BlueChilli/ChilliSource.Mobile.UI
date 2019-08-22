@@ -197,7 +197,7 @@ Func<FilePath> GetMsBuildPath = () => {
 	FilePath msBuildPath = null;
 
 	if(isRunningOnWindows) {
-		msBuildPath =  VSWhereLatest().CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
+		msBuildPath =  VSWhereLatest().CombineWithFilePath("./MSBuild/Current/Bin/MSBuild.exe");
 	}
 
 	return msBuildPath;

@@ -32,7 +32,7 @@ using Color = Xamarin.Forms.Color;
 using View = Android.Views.View;
 using Android.Content;
 
-[assembly: ExportRenderer(typeof(ImageButton), typeof(ImageButtonRenderer))]
+[assembly: ExportRenderer(typeof(ChilliSource.Mobile.UI.ImageButton), typeof(ChilliSource.Mobile.UI.ImageButtonRenderer))]
 namespace ChilliSource.Mobile.UI
 {
     /// <summary>

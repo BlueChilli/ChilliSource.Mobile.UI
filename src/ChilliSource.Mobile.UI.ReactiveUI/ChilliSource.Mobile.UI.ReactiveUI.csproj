@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.41">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;xamarin.ios10;monoandroid44;monoandroid8.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;monoandroid81;monoandroid90;xamarinios10;</TargetFrameworks>
     <PackageId>ChilliSource.Mobile.UI.ReactiveUI</PackageId>
     <Product>Blue Chilli Technology</Product>
     <Description>ReactiveUI Extensions Library for ChilliSource.Mobile framework</Description>
@@ -47,7 +47,7 @@
     <Compile Remove="Extensions\ObservableDynamicDataExtensions.cs" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'xamarin.ios10'">
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('xamarinios')) ">
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -59,52 +59,31 @@
     <PackageReference Include="Rg.Plugins.Popup" Version="1.0.4" /> -->
   </ItemGroup>
 
-   <ItemGroup Condition=" '$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
+   <ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
     <AndroidResource Include="Resources\**\*.xml" />
     <AndroidResource Include="Resources\**\*.axml" />
   </ItemGroup>  
 
   
-  <ItemGroup Condition=" '$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
-    <Reference Include="Mono.Android" />
-    <Reference Include="System" />
-    <Reference Include="System.Collections" />
-    <Reference Include="System.Threading.Tasks" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml" />
-    <EmbeddedResource Include="**\*.xaml" />
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
+     <EmbeddedResource Include="**\*.xaml" />
     <Compile Include="Resources\**\*.cs" />
     <None Include="Resources\AboutResources.txt" />
     <Compile Include="Platforms\Android\**\*.cs" />
-    <!-- <PackageReference Include="reactiveui" Version="7.4.0" />
-    <PackageReference Include="reactiveui-androidsupport" Version="7.4.0" />
-    <PackageReference Include="reactiveui-events-xamForms" Version="7.4.0" />
-    <PackageReference Include="reactiveui-xamforms" Version="7.4.0" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="1.0.4" /> -->
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <!--<PackageReference Include="ReactiveUI" Version="8.0.0-alpha0117" />
-    <PackageReference Include="ReactiveUI.Events.XamForms" Version="8.0.0-alpha0117" />
-    <PackageReference Include="ReactiveUI.XamForms" Version="8.0.0-alpha0117" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.4.145-pre" />-->
-  </ItemGroup>
+  
 
   <ItemGroup>
-    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.2.2" PrivateAssets="All" />
-    <PackageReference Include="ReactiveUI" Version="8.0.0" />
-    <PackageReference Include="ReactiveUI.Events.XamForms" Version="8.0.0" />
-    <PackageReference Include="ReactiveUI.XamForms" Version="8.0.0" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.4.145-pre" />    
-    <PackageReference Include="ChilliSource.Mobile.Core" Version="2.0.0" />
-    <PackageReference Include="ChilliSource.Mobile.Logging" Version="2.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
-    <PackageReference Include="System.Collections.Immutable" Version="1.4.0" />
+    <PackageReference Include="ReactiveUI" Version="9.20.1" />
+    <PackageReference Include="ReactiveUI.Events.XamForms" Version="9.20.1" />
+    <PackageReference Include="ReactiveUI.XamForms" Version="9.20.1" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+    <PackageReference Include="ChilliSource.Mobile.Core" Version="2.0.2-alpha0043" />
+    <PackageReference Include="ChilliSource.Mobile.Logging" Version="2.0.2-alpha0041" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChilliSource.Mobile.UI\ChilliSource.Mobile.UI.csproj" />
@@ -113,8 +92,5 @@
   <ItemGroup>
     <Folder Include="Services\" />
   </ItemGroup>
-  
-    
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
   
 </Project>

@@ -28,7 +28,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 using ChilliSource.Mobile.UI;
 
-[assembly: ExportRenderer(typeof(ImageButton), typeof(ImageButtonRenderer))]
+[assembly: ExportRenderer(typeof(ChilliSource.Mobile.UI.ImageButton), typeof(ChilliSource.Mobile.UI.ImageButtonRenderer))]
 namespace ChilliSource.Mobile.UI
 {
     /// <summary>

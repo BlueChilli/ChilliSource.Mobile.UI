@@ -16,7 +16,7 @@ using System.ComponentModel;
 using ChilliSource.Mobile.UI;
 using System.Threading;
 
-[assembly: ExportRenderer(typeof(CarouselView), typeof(CarouselViewRenderer))]
+[assembly: ExportRenderer(typeof(ChilliSource.Mobile.UI.CarouselView), typeof(ChilliSource.Mobile.UI.CarouselViewRenderer))]
 
 namespace ChilliSource.Mobile.UI
 {

@@ -20,7 +20,7 @@ using Android.Graphics;
 using ChilliSource.Mobile.UI;
 using Android.Content;
 
-[assembly: ExportRenderer(typeof(CarouselView), typeof(CarouselViewRenderer))]
+[assembly: ExportRenderer(typeof(ChilliSource.Mobile.UI.CarouselView), typeof(ChilliSource.Mobile.UI.CarouselViewRenderer))]
 
 namespace ChilliSource.Mobile.UI
 {

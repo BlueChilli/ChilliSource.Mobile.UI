@@ -1,8 +1,8 @@
 <Project>
-<PropertyGroup Condition="'$(TargetFramework)' == 'Xamarin.iOS10'">
+<PropertyGroup Condition=" $(TargetFramework.StartsWith('xamarinios')) ">
     <DefineConstants>$(DefineConstants);__IOS__</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'MonoAndroid71'">
+  <PropertyGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
     <DefineConstants>$(DefineConstants);__ANDROID__</DefineConstants>
   </PropertyGroup>
 </Project>

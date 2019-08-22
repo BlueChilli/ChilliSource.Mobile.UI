@@ -1,7 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.41">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;xamarin.ios10;monoandroid44;monoandroid8.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;monoandroid81;monoandroid90;xamarinios10;</TargetFrameworks>
     <PackageId>ChilliSource.Mobile.UI</PackageId>
     <Product>Blue Chilli Technology</Product>
     <Description>UI Library for ChilliSource.Mobile framework</Description>
@@ -20,18 +19,8 @@
     <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
-    <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
-    <DebugType>full</DebugType>
-    <OutputType>Library</OutputType>
-    <SynchReleaseVersion>false</SynchReleaseVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
-    <TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
+  <PropertyGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
-    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
   </PropertyGroup>
@@ -56,7 +45,7 @@
      <PackageReference Include="MSBuild.Sdk.Extras" Version="1.2.2" PrivateAssets="All" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'xamarin.ios10'">
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('xamarinios')) ">
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -116,21 +105,12 @@
     </ImageAsset>        
    </ItemGroup>
    
- <ItemGroup Condition=" '$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
+ <ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
     <AndroidResource Include="Resources\**\*.xml" />
     <AndroidResource Include="Resources\**\*.axml" />
   </ItemGroup>  
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
-    <Reference Include="Mono.Android" />
-    <Reference Include="System" />
-    <Reference Include="System.Collections" />
-    <Reference Include="System.Threading.Tasks" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Runtime.Serialization" />
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
     <Reference Include="System.Xml" />
     <EmbeddedResource Include="**\*.xaml" />
     <Compile Include="Controls\**\*.cs" />	
@@ -139,25 +119,11 @@
     <Compile Include="Platforms\Android\**\*.cs" />
   </ItemGroup> 
 
-
   <ItemGroup>
-    <PackageReference Include="ChilliSource.Mobile.Core" Version="2.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
+    <PackageReference Include="ChilliSource.Mobile.Core" Version="2.0.2-alpha0043" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
   </ItemGroup>
-
- <ItemGroup Condition=" '$(TargetFramework)' == 'xamarin.ios10'">
-    <PackageReference Include="Rg.Plugins.Popup" Version="1.0.4" />
- </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
-    <PackageReference Include="Rg.Plugins.Popup" Version="1.0.4" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.4.145-pre" />
-  </ItemGroup>
-  
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 
 </Project>
