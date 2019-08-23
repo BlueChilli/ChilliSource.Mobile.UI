@@ -66,7 +66,7 @@ namespace ChilliSource.Mobile.UI
         /// Gets the list of child items for the carousel view.
         /// </summary>
         /// <value>A <see cref="IList{View}"/> of the children.</value>
-        public IList<View> Children
+        public new IList<View> Children
         {
             get
             {

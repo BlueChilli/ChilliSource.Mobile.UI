@@ -17,7 +17,7 @@ License:	Microsoft Public License (https://github.com/RolandPheasant/DynamicData
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using DynamicData
+using DynamicData.Binding;
 
 namespace ChilliSource.Mobile.UI.ReactiveUI
 {

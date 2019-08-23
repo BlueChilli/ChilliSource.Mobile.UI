@@ -79,7 +79,7 @@ namespace ChilliSource.Mobile.UI
                     SetContentAlignment();
                 }
 
-                if (e.PropertyName == Button.ImageProperty.PropertyName ||
+                if (e.PropertyName == Button.ImageSourceProperty.PropertyName ||
                     e.PropertyName == ExtendedButton.ImageRightAlignedProperty.PropertyName ||
                     e.PropertyName == ExtendedButton.ImageHorizontalOffsetProperty.PropertyName)
                 {
@@ -171,7 +171,7 @@ namespace ChilliSource.Mobile.UI
 
         async void SetImage()
         {
-            var image = await _extendedButton.Image.ToUIImage();
+            var image = await _extendedButton.ImageSource.ToUIImage();
             if (image != null && _extendedButton.ImageVisible)
             {
                 Control.SetImage(image.ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), UIControlState.Normal);
@@ -225,7 +225,7 @@ namespace ChilliSource.Mobile.UI
                 SetContentAlignment();
             }
 
-            if (_extendedButton.Image != null)
+            if (_extendedButton.ImageSource != null)
             {
                 SetImage();
             }

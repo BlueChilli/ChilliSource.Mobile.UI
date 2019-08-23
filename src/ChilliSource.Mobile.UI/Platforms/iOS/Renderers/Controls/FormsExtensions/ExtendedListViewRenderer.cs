@@ -15,7 +15,6 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 using ChilliSource.Mobile.UI;
-using ChilliSource.Mobile.UI;
 
 [assembly: ExportRenderer(typeof(ExtendedListView), typeof(ExtendedListViewRenderer))]
 namespace ChilliSource.Mobile.UI

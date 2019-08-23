@@ -196,23 +196,6 @@ namespace ChilliSource.Mobile.UI
 
 
         /// <summary>
-        /// Backing store for the <c>MaxLength</c> bindable property.
-        /// </summary>
-        public static readonly BindableProperty MaxLengthProperty =
-            BindableProperty.Create(nameof(MaxLength), typeof(int), typeof(ExtendedEntry), 50);
-
-        /// <summary>
-        /// Gets or sets the maximum length of the entry's content. This is a bindable property.
-        /// </summary>
-        ///  <value>A number of characters that represents the maximum length of the entry's content; the default is 50.</value>
-        public int MaxLength
-        {
-            get { return (int)GetValue(MaxLengthProperty); }
-            set { SetValue(MaxLengthProperty, value); }
-        }
-
-
-        /// <summary>
         /// Backing store for the <c>ErrorMessage</c> bindable property.
         /// </summary>
         public static readonly BindableProperty ErrorMessageProperty =

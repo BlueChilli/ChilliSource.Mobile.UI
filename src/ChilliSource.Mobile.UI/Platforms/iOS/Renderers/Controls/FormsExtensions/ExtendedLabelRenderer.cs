@@ -131,8 +131,7 @@ namespace ChilliSource.Mobile.UI
 		void LabelTapped(UITapGestureRecognizer gestureRecognizer)
 		{
 			var locationOfTouch = gestureRecognizer.LocationInView(gestureRecognizer.View);
-			nfloat f = 0;
-			var indexOfCharacter = _layoutManager.CharacterIndexForPoint(locationOfTouch, _textContainer, ref f);
+			var indexOfCharacter = _layoutManager.GetCharacterIndex(locationOfTouch, _textContainer);
 
 			_styledTextPartList.ForEach(part =>
 			{

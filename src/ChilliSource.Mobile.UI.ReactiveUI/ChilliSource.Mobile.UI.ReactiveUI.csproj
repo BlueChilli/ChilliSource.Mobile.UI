@@ -40,11 +40,6 @@
     <Compile Remove="Resources\**" />
     <None Include="Platforms\**" />
     <None Include="Resources\**" />
-    <Compile Remove="Collections\IObservableDynamicDataRangeCollection.cs" />
-    <Compile Remove="Collections\IObservableDynamicDataRangeCollectionExtensions.cs" />
-    <Compile Remove="Collections\ObservableDynamicDataRangeCollection.cs" />
-    <Compile Remove="Collections\ObservableListToObservableDynamicDataRangeCollectionAdapter.cs" />
-    <Compile Remove="Extensions\ObservableDynamicDataExtensions.cs" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('xamarinios')) ">

@@ -84,21 +84,7 @@ namespace ChilliSource.Mobile.UI
             set { SetValue(HasBorderProperty, value); }
         }
 
-        /// <summary>
-        /// Backing store for the <c>Placeholder</c> bindable property.
-        /// </summary>
-        public static readonly BindableProperty PlaceholderProperty =
-            BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(ExtendedEditor), string.Empty);
-
-        /// <summary>
-        /// Gets or sets the default text that will appear when the editor is empty. This is a bindable property.
-        /// </summary>
-		public string Placeholder
-        {
-            get { return (string)GetValue(PlaceholderProperty); }
-            set { SetValue(PlaceholderProperty, value); }
-        }
-
+      
         /// <summary>
         /// Backing store for the <c>CustomPlaceholderFont</c> bindable property.
         /// </summary>
@@ -114,23 +100,6 @@ namespace ChilliSource.Mobile.UI
         {
             get { return (ExtendedFont)GetValue(CustomPlaceholderFontProperty); }
             set { SetValue(CustomPlaceholderFontProperty, value); }
-        }
-
-
-        /// <summary>
-        /// Backing store for the <c>MaxLength</c> bindable property.
-        /// </summary>
-        public static readonly BindableProperty MaxLengthProperty =
-            BindableProperty.Create(nameof(MaxLength), typeof(int), typeof(ExtendedEntry), 500);
-
-        /// <summary>
-        /// Gets or sets the maximum length of the editor's content.
-        /// </summary>
-        /// <value>A number of characters that represents the maximum length of the editor's content; the default is 500.</value>
-		public int MaxLength
-        {
-            get { return (int)GetValue(MaxLengthProperty); }
-            set { SetValue(MaxLengthProperty, value); }
         }
 
 
