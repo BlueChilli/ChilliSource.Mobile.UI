@@ -44,7 +44,17 @@ namespace ChilliSource.Mobile.UI
                 if (FormView.Width > 0 && FormView.Height > 0)
                 {
                     UpdateLayer();
+                }
+            }
 
+            if (args.PropertyName == RoundedCornerEffect.RadiusProperty.PropertyName ||
+                args.PropertyName == RoundedCornerEffect.BorderColorProperty.PropertyName ||
+                args.PropertyName == RoundedCornerEffect.BorderWidthProperty.PropertyName ||
+                args.PropertyName == RoundedCornerEffect.RoundedCornerPositionProperty.PropertyName)
+            {
+                if (FormView.Width > 0 && FormView.Height > 0)
+                {
+                    UpdateLayer();
                 }
             }
         }

@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.41">
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;monoandroid81;monoandroid90;xamarinios10;</TargetFrameworks>
@@ -70,14 +70,14 @@
   
 
   <ItemGroup>
-    <PackageReference Include="ReactiveUI" Version="9.20.1" />
-    <PackageReference Include="ReactiveUI.Events.XamForms" Version="9.20.1" />
-    <PackageReference Include="ReactiveUI.XamForms" Version="9.20.1" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+    <PackageReference Include="ReactiveUI" Version="10.4.1" />
+    <PackageReference Include="ReactiveUI.Events.XamForms" Version="10.4.1" />
+    <PackageReference Include="ReactiveUI.XamForms" Version="10.4.1" />
     <PackageReference Include="ChilliSource.Mobile.Core" Version="2.0.1" />
     <PackageReference Include="ChilliSource.Mobile.Logging" Version="2.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.618610" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
     <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
   </ItemGroup>
   <ItemGroup>

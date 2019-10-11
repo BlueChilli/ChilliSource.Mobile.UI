@@ -143,6 +143,23 @@ namespace ChilliSource.Mobile.UI
             set { SetValue(ErrorBackgroundColorProperty, value); }
         }
 
+        
+        /// <summary>
+        /// Backing store for the <c>ErrorBackgroundColor</c> bindable property.
+        /// </summary>
+        public static readonly BindableProperty ErrorBorderColorProperty =
+            BindableProperty.Create(nameof(ErrorBorderColorProperty), typeof(Color), typeof(ExtendedEntry), Color.Red);
+
+        /// <summary>
+        /// Gets or sets the background color for the entry when the user's input is not valid. This is a bindable property.
+        /// </summary>
+        /// <value>A <see cref="Color"/> value that represents the background color for the entry when the input is invalid. 
+        /// The default value is <see cref="Color.Red"/>.</value>
+        public Color ErrorBorderColor
+        {
+            get { return (Color)GetValue(ErrorBorderColorProperty); }
+            set { SetValue(ErrorBorderColorProperty, value); }
+        }
 
         /// <summary>
         /// Identifies the <c>IsValid</c> bindable property.
