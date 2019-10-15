@@ -73,6 +73,7 @@
     <PackageReference Include="ReactiveUI" Version="10.4.1" />
     <PackageReference Include="ReactiveUI.Events.XamForms" Version="10.4.1" />
     <PackageReference Include="ReactiveUI.XamForms" Version="10.4.1" />
+    <PackageReference Include="System.Reactive" Version="4.2.0" />
     <PackageReference Include="ChilliSource.Mobile.Core" Version="2.0.1" />
     <PackageReference Include="ChilliSource.Mobile.Logging" Version="2.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
