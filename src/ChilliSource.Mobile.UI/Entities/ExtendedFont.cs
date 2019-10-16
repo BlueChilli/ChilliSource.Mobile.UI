@@ -112,6 +112,34 @@ namespace ChilliSource.Mobile.UI
                 IsAccessibilityFont = this.IsAccessibilityFont
             };
         }
+
+        public ExtendedFont CopyWith(
+            string family = null,
+            float? size = null, 
+            Color? color = null, 
+            float? kerning = null, 
+            float? lineSpacing = null, 
+            bool? isUnderlined = null, 
+            FontAttributes? fontAttributes = null,
+            AccessibilityTextStyle? accessibilityTextStyle = null,
+            bool? isAccessibilityFont = null
+            )
+        {
+            return new ExtendedFont
+            {
+                Family = family ?? this.Family,
+                Size = size ?? this.Size,
+                Color = color ?? this.Color,
+                Kerning = kerning ?? this.Kerning,
+                LineSpacing = lineSpacing ?? this.LineSpacing,
+                IsUnderlined = isUnderlined ?? this.IsUnderlined,
+                FontAttributes = fontAttributes ??  this.FontAttributes,
+                AccessibilityTextStyle = accessibilityTextStyle ?? this.AccessibilityTextStyle,
+                IsAccessibilityFont = isAccessibilityFont ?? this.IsAccessibilityFont
+            };
+            
+            
+        }
     }
 }
 
