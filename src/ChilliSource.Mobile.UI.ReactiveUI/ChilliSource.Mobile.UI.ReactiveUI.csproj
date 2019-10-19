@@ -20,14 +20,14 @@
     <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
+  <PropertyGroup Condition=" $(TargetFramework.StartsWith('xamarinios')) ">
     <OutputType>Library</OutputType>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <OutputType>Library</OutputType>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'monoandroid44' Or '$(TargetFramework)' == 'monoandroid8.1'">
+  <PropertyGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
     <TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
@@ -54,20 +54,20 @@
     <PackageReference Include="Rg.Plugins.Popup" Version="1.0.4" /> -->
   </ItemGroup>
 
-   <ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
     <AndroidResource Include="Resources\**\*.xml" />
     <AndroidResource Include="Resources\**\*.axml" />
-  </ItemGroup>  
+  </ItemGroup>
 
-  
+
   <ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
-     <EmbeddedResource Include="**\*.xaml" />
+    <EmbeddedResource Include="**\*.xaml" />
     <Compile Include="Resources\**\*.cs" />
     <None Include="Resources\AboutResources.txt" />
     <Compile Include="Platforms\Android\**\*.cs" />
   </ItemGroup>
 
-  
+
 
   <ItemGroup>
     <PackageReference Include="ReactiveUI" Version="10.2.2" />
@@ -88,5 +88,5 @@
   <ItemGroup>
     <Folder Include="Services\" />
   </ItemGroup>
-  
+
 </Project>
