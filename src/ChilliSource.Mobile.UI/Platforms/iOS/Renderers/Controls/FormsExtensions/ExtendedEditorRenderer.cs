@@ -36,12 +36,6 @@ namespace ChilliSource.Mobile.UI
 
             var styledEditor = (ExtendedEditor)this.Element;
 
-
-            if (string.IsNullOrEmpty(styledEditor.Text))
-            {
-                SetPlaceholder();
-            }
-
             SetStyle();
             SetKeyboardReturnKey();
             SetToolbars();
@@ -57,21 +51,9 @@ namespace ChilliSource.Mobile.UI
                 }
             };
 
-            styledEditor.Focused += (sender, evt) =>
-            {
-                if (!String.IsNullOrEmpty(Control.Text) && Control.Text.Equals(styledEditor.Placeholder, StringComparison.OrdinalIgnoreCase))
-                {
-                    Control.Text = String.Empty;
-                }
-            };
-
+            
             styledEditor.Unfocused += (sender, evt) =>
             {
-                if (String.IsNullOrEmpty(Control.Text))
-                {
-                    SetPlaceholder();
-                }
-
                 styledEditor.ResizeEditor();
             };
 
@@ -154,14 +136,6 @@ namespace ChilliSource.Mobile.UI
                 SetStyle();
             }
 
-        }
-
-        private void SetPlaceholder()
-        {
-            var styledEditor = (ExtendedEditor)this.Element;
-
-            var placeholderAttributedString = styledEditor.CustomPlaceholderFont.BuildAttributedString(styledEditor.Placeholder, this.Control.TextAlignment);
-            this.Control.AttributedText = placeholderAttributedString;
         }
 
         private void SetStyle()

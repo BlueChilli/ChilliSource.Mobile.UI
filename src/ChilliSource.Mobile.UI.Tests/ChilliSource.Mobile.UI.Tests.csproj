@@ -10,7 +10,7 @@
     <PackageReference Include="ReactiveUI" Version="10.2.2" />
     <PackageReference Include="ReactiveUI.Testing" Version="10.2.2" />
     <PackageReference Include="System.Reactive" Version="4.2.0" />
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
